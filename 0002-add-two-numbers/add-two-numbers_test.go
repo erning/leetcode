@@ -1,6 +1,7 @@
 package solution
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -22,10 +23,11 @@ func TestTwoSum(t *testing.T) {
 		l2 := buildListNode(n2)
 		expected := buildListNode(n1 + n2)
 		output := addTwoNumbers(l1, l2)
-		if output.String() != expected.String() {
-			t.Errorf("expect: %v, output: %v", expected, output)
+
+		t.Logf("expected: %v, output: %v", expected, output)
+		if fmt.Sprintf("%v", output) != fmt.Sprintf("%v", expected) {
+			t.Error()
 		}
-		t.Logf("expect: %v, output: %v", expected, output)
 	}
 
 	tf(342, 456)
