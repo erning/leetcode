@@ -2,6 +2,7 @@ package solution
 
 func minInteger(num string, k int) string {
 	numBytes := []byte(num)
+	length := len(numBytes)
 	var b int
 
 	_min := func(a, b int) int {
@@ -15,29 +16,29 @@ func minInteger(num string, k int) string {
 		if numBytes[b] == '0' {
 			return b
 		}
-		e := _min(len(numBytes)-1, b+k)
-		maxV := numBytes[b]
-		maxI := b
+		e := _min(length-1, b+k)
+		minV := numBytes[b]
+		minI := b
 		for i := b + 1; i <= e; i++ {
-			if numBytes[i] < maxV {
-				maxV = numBytes[i]
-				maxI = i
+			if numBytes[i] < minV {
+				minV = numBytes[i]
+				minI = i
 			}
-			if maxV == '0' {
+			if minV == '0' {
 				break
 			}
 		}
-		return maxI
+		return minI
 	}
 
-	for b = 0; b < len(num) && k > 0; b++ {
+	for b = 0; b < length && k > 0; b++ {
 		i := _findMinDigit()
 		if i == b {
 			continue
 		}
-		for j := i; j > b; j-- {
-			numBytes[j], numBytes[j-1] = numBytes[j-1], numBytes[j]
-		}
+		v := numBytes[i]
+		copy(numBytes[b+1:], numBytes[b:i])
+		numBytes[b] = v
 		k -= i - b
 	}
 	return string(numBytes)
