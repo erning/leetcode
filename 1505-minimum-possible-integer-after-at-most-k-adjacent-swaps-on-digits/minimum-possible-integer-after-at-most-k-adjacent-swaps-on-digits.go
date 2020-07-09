@@ -1,60 +1,114 @@
 package solution
 
+import (
+	"math"
+)
+
 func minInteger(num string, k int) string {
-	return minIntegerTenDigits(num, k)
-}
+	n := len(num)
 
-//
-
-type Item struct {
-	v byte
-	p int
-}
-
-type Items []*Item
-
-func minIntegerTenDigits(num string, k int) string {
-	length := len(num)
-	items := make(Items, length)
-	var digits [10][]*Item
-	for i := 0; i < length; i++ {
-		item := &Item{num[i], i}
-		items[i] = item
-		v := item.v - '0'
-		digits[v] = append(digits[v], item)
+	digits := [10][]int{}
+	for i := 0; i < n; i++ {
+		v := num[i] - '0'
+		digits[v] = append(digits[v], i)
 	}
+	counter := MakeCounter(n)
 
-	for b := 0; b < length && k > 0; b++ {
-		item := func() *Item {
+	used := make([]bool, n)
+	rv := make([]byte, n)
+	p := 0
+	for k > 0 {
+		i, c := func() (int, int) {
 			for v := 0; v < 10; v++ {
-				if len(digits[v]) > 0 {
-					item := digits[v][0]
-					if item.p-b <= k {
-						digits[v] = digits[v][1:]
-						return item
-					}
+				if len(digits[v]) <= 0 {
+					continue
+				}
+				i := digits[v][0]
+				c := counter.Count(0, i-1)
+				if c <= k {
+					digits[v] = digits[v][1:]
+					counter.Update(i)
+					return i, c
 				}
 			}
-			return nil
+			return -1, -1
 		}()
-		if item.p == b {
-			continue
+		if i < 0 {
+			break
 		}
-
-		v := items[item.p]
-		copy(items[b+1:], items[b:item.p])
-		items[b] = v
-		k -= item.p - b
-		for j := b; j < item.p; j++ {
-			items[j].p++
+		rv[p] = num[i]
+		p++
+		used[i] = true
+		k = k - c
+	}
+	for i := 0; i < n; i++ {
+		if !used[i] {
+			rv[p] = num[i]
+			p++
 		}
 	}
 
-	buf := make([]byte, length)
-	for i := 0; i < length; i++ {
-		buf[i] = items[i].v
+	return string(rv)
+}
+
+// Counter use segment tree to calculate digits between
+type Counter struct {
+	n   int
+	stc []int
+}
+
+// MakeCounter construct a segment tree structure
+func MakeCounter(n int) Counter {
+	stc := make([]int, 2*int(math.Pow(2, math.Ceil(math.Log2(float64(n)))))-1)
+	var constructST func(i, b, e int) int
+	constructST = func(i, b, e int) int {
+		if b == e {
+			stc[i] = 1
+		} else {
+			m := b + (e-b)/2
+			stc[i] = constructST(i*2+1, b, m) + constructST(i*2+2, m+1, e)
+		}
+		return stc[i]
 	}
-	return string(buf)
+	constructST(0, 0, n-1)
+	return Counter{n, stc}
+}
+
+// Count returns the number of digits between qb and qe
+func (c Counter) Count(qb, qe int) int {
+	var countST func(i, b, e int) int
+	countST = func(i, b, e int) int {
+		if qb <= b && qe >= e {
+			return c.stc[i]
+		}
+		if qb > e || qe < b {
+			return 0
+		}
+		m := b + (e-b)/2
+		return countST(i*2+1, b, m) + countST(i*2+2, m+1, e)
+	}
+	return countST(0, 0, c.n-1)
+}
+
+// Update remove digit at position p and update the data
+func (c Counter) Update(p int) {
+	var updateST func(i, b, e int) int
+	updateST = func(i, b, e int) int {
+		if p < b || p > e {
+			return c.stc[i]
+		}
+		if b == e {
+			if p == b {
+				c.stc[i] = 0
+			}
+			return c.stc[i]
+		}
+		m := b + (e-b)/2
+		c.stc[i] = updateST(i*2+1, b, m) + updateST(i*2+2, m+1, e)
+		return c.stc[i]
+	}
+
+	updateST(0, 0, c.n-1)
 }
 
 //
