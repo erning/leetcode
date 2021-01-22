@@ -11,7 +11,9 @@ class LeetCodeTests: XCTestCase {
     }
 
     static var allTests = [
-        ("testExample", testExample)
+        ("testExample", testExample),
+        ("testTwoSum", testTwoSum),
+        ("testSolveNQueens", testSolveNQueens),
     ]
 }
 

@@ -14,14 +14,18 @@ let (exclude, sources, tests) = { () -> ([String], [String], [String]) in
     let ignores: Set<String> = [
         "Package.swift",
         "LeetCodeTests.swift",
+        "XCTestManifests.swift",
+        "LinuxMain.swift"
     ]
 
     var exclude: [String] = [
-        "Package.swift"
+        "Package.swift",
+        "LinuxMain.swift"
     ]
     var sources: [String] = []
     var tests: [String] = [
-        "LeetCodeTests.swift"
+        "LeetCodeTests.swift",
+        "XCTestManifests.swift"
     ]
 
     guard
