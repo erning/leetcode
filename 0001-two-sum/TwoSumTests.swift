@@ -9,7 +9,7 @@ extension LeetCodeTests {
         let expected = [0, 1]
         let output = solution.twoSum(num, target)
 
-        print("expected: \(expected), output: \(output)")
+        // print("expected: \(expected), output: \(output)")
         XCTAssertEqual(expected, output)
     }
 }
