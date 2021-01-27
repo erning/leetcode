@@ -15,17 +15,17 @@ let (exclude, sources, tests) = { () -> ([String], [String], [String]) in
         "Package.swift",
         "LeetCodeTests.swift",
         "XCTestManifests.swift",
-        "LinuxMain.swift"
+        "LinuxMain.swift",
     ]
 
     var exclude: [String] = [
         "Package.swift",
-        "LinuxMain.swift"
+        "LinuxMain.swift",
     ]
     var sources: [String] = []
     var tests: [String] = [
         "LeetCodeTests.swift",
-        "XCTestManifests.swift"
+        "XCTestManifests.swift",
     ]
 
     guard
@@ -79,7 +79,8 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "LeetCode",
-            targets: ["LeetCode"])
+            targets: ["LeetCode"]
+        ),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
