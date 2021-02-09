@@ -14,6 +14,7 @@ class LeetCodeTests: XCTestCase {
         ("testExample", testExample),
         ("testTwoSum", testTwoSum),
         ("testSolveNQueens", testSolveNQueens),
+        ("test24Game", test24Game),
     ]
 }
 
