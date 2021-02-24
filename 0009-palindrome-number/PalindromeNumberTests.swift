@@ -4,13 +4,13 @@ import XCTest
 
 extension LeetCodeTests {
     func testIsPalindrome() {
-        XCTAssertTrue(solution.isPalindrome(121))
-        XCTAssertFalse(solution.isPalindrome(-121))
-        XCTAssertFalse(solution.isPalindrome(10))
-        XCTAssertFalse(solution.isPalindrome(-101))
+        XCTAssertTrue(isPalindrome(121))
+        XCTAssertFalse(isPalindrome(-121))
+        XCTAssertFalse(isPalindrome(10))
+        XCTAssertFalse(isPalindrome(-101))
 
-        XCTAssertTrue(solution.isPalindrome(0))
-        XCTAssertTrue(solution.isPalindrome(12321))
-        XCTAssertTrue(solution.isPalindrome(1221))
+        XCTAssertTrue(isPalindrome(0))
+        XCTAssertTrue(isPalindrome(12321))
+        XCTAssertTrue(isPalindrome(1221))
     }
 }

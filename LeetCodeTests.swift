@@ -10,5 +10,3 @@ class LeetCodeTests: XCTestCase {
         ("0679-testJudgePoint24", testJudgePoint24),
     ]
 }
-
-let solution = Solution()

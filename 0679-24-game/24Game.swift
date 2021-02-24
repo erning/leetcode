@@ -1,4 +1,3 @@
-extension Solution {
     func judgePoint24(_ nums: [Int]) -> Bool {
         func judgePoint24(_ nums: [Double]) -> Bool {
             if nums.count == 1 {
@@ -24,4 +23,3 @@ extension Solution {
         }
         return judgePoint24(nums.map { Double($0) })
     }
-}

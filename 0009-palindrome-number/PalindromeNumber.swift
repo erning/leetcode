@@ -1,4 +1,3 @@
-extension Solution {
     func isPalindrome(_ x: Int) -> Bool {
         if x < 0 {
             return false
@@ -14,4 +13,3 @@ extension Solution {
         }
         return true
     }
-}

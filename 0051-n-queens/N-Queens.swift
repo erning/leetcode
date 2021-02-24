@@ -1,4 +1,3 @@
-extension Solution {
     func solveNQueens(_ n: Int) -> [[String]] {
         var m1 = [Bool](repeating: false, count: n) // row
         var m2 = [Bool](repeating: false, count: n) // column
@@ -34,4 +33,3 @@ extension Solution {
         solve(0)
         return rv
     }
-}
