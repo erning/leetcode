@@ -7,6 +7,7 @@ class LeetCodeTests: XCTestCase {
         ("0001-testTwoSum", testTwoSum),
         ("0009-testIsPalindrome", testIsPalindrome),
         ("0037-testSolveNQueens", testSolveNQueens),
+        ("0198-testRob", testRob),
         ("0679-testJudgePoint24", testJudgePoint24),
     ]
 }
