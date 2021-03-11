@@ -1,8 +1,9 @@
 import XCTest
 
-@testable import LeetCode
+@testable import Problem_0051
+let solveNQueens = Solution().solveNQueens
 
-extension LeetCodeTests {
+class SolutionTests: XCTestCase {
     func testSolveNQueens() {
         let rv = solveNQueens(8)
         XCTAssertEqual(rv.count, 92)

@@ -1,8 +1,9 @@
 import XCTest
 
-@testable import LeetCode
+@testable import Problem_0001
+let twoSum = Solution().twoSum
 
-extension LeetCodeTests {
+class SolutionTests: XCTestCase {
     func testTwoSum() {
         let num = [2, 7, 11, 15]
         let target = 9

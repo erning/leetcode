@@ -1,8 +1,9 @@
 import XCTest
 
-@testable import LeetCode
+@testable import Problem_0679
+let judgePoint24 = Solution().judgePoint24
 
-extension LeetCodeTests {
+class SolutionTests: XCTestCase {
     func testJudgePoint24() {
         XCTAssertTrue(judgePoint24([4, 1, 8, 7]))
         XCTAssertTrue(judgePoint24([1, 5, 5, 5]))

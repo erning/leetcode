@@ -1,8 +1,9 @@
 import XCTest
 
-@testable import LeetCode
+@testable import Problem_0009
+let isPalindrome = Solution().isPalindrome
 
-extension LeetCodeTests {
+class SolutionTests: XCTestCase {
     func testIsPalindrome() {
         XCTAssertTrue(isPalindrome(121))
         XCTAssertFalse(isPalindrome(-121))

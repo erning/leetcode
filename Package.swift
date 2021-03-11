@@ -4,39 +4,74 @@
 import Foundation
 import PackageDescription
 
-let (exclude, sources, tests) = { () -> ([String], [String], [String]) in
-    let packageDir: String = {
-        let file = URL(fileURLWithPath: #file)
-        let dir = file.deletingLastPathComponent()
-        return dir.path
-    }()
+let packageDir: String = {
+    let file = URL(fileURLWithPath: #file)
+    let dir = file.deletingLastPathComponent()
+    return dir.path
+}()
 
-    let ignores: Set<String> = [
-        "Package.swift",
-        "LeetCodeTests.swift",
-        "XCTestManifests.swift",
-        "LinuxMain.swift",
-    ]
+let problems = findProblems()
 
-    var exclude: [String] = [
-        "Package.swift",
-        "LinuxMain.swift",
-    ]
-    var sources: [String] = []
-    var tests: [String] = [
-        "LeetCodeTests.swift",
-        "XCTestManifests.swift",
-    ]
+let package = Package(
+    name: "LeetCode",
+    targets: findTargets(problems: problems)
+)
 
+//
+//
+//
+
+func findProblems() -> [String] {
     guard
-        let enumerator = FileManager.default.enumerator(
+        let contents = try? FileManager.default.contentsOfDirectory(
             at: URL(fileURLWithPath: packageDir),
             includingPropertiesForKeys: [.isDirectoryKey],
             options: .skipsHiddenFiles
         )
     else {
-        return (exclude, sources, tests)
+        return []
     }
+
+    return contents.filter { content in
+        guard
+            let resourceValues = try? content.resourceValues(forKeys: [.isDirectoryKey]),
+            let isDirectory = resourceValues.isDirectory
+        else {
+            return false
+        }
+        return isDirectory
+    }.map { (content) -> String in
+        content.lastPathComponent
+    }.filter {
+        let range = NSRange(location: 0, length: $0.utf16.count)
+        let regex = try! NSRegularExpression(pattern: "^[0-9]{4}-")
+        return regex.firstMatch(in: $0, options: [], range: range) != nil
+    }.sorted()
+}
+
+func findTargets(problems: [String]) -> [PackageDescription.Target] {
+    problems.reduce(into: []) { targets, problem in
+        targets += findTargets(problem: problem)
+    }
+}
+
+func findTargets(problem: String) -> [PackageDescription.Target] {
+    var targets: [PackageDescription.Target] = []
+
+    let problemDir = packageDir + "/" + problem
+    guard
+        let enumerator = FileManager.default.enumerator(
+            at: URL(fileURLWithPath: problemDir),
+            includingPropertiesForKeys: [.isDirectoryKey],
+            options: .skipsHiddenFiles
+        )
+    else {
+        return targets
+    }
+
+    var sources: [String] = []
+    var exclude: [String] = []
+    var tests: [String] = []
 
     for case let fileURL as URL in enumerator {
         guard
@@ -52,14 +87,10 @@ let (exclude, sources, tests) = { () -> ([String], [String], [String]) in
 
         let filename: String = {
             var file = fileURL.path
-            file = String(file.suffix(from: packageDir.endIndex))
+            file = String(file.suffix(from: problemDir.endIndex))
             file = String(file.suffix(from: "/".endIndex))
             return file
         }()
-
-        if ignores.contains(filename) {
-            continue
-        }
 
         if filename.hasSuffix("Tests.swift") {
             tests.append(filename)
@@ -70,33 +101,30 @@ let (exclude, sources, tests) = { () -> ([String], [String], [String]) in
         }
     }
 
-    return (exclude, sources, tests)
-}()
-
-let package = Package(
-    name: "LeetCode",
-    products: [
-        .library(
-            name: "LeetCode",
-            targets: ["LeetCode"]
-        ),
-    ],
-    dependencies: [
-    ],
-    targets: [
+    let problemName = "Problem-" + problem.prefix(4)
+    if sources.isEmpty {
+        return targets
+    }
+    targets.append(
         .target(
-            name: "LeetCode",
+            name: problemName,
             dependencies: [],
-            path: "",
+            path: problem,
             exclude: exclude + tests,
             sources: sources
-        ),
+        )
+    )
+    if tests.isEmpty {
+        return targets
+    }
+    targets.append(
         .testTarget(
-            name: "LeetCodeTests",
-            dependencies: ["LeetCode"],
-            path: "",
+            name: problemName + "-Tests",
+            dependencies: [.byName(name: problemName)],
+            path: problem,
             exclude: exclude + sources,
             sources: tests
-        ),
-    ]
-)
+        )
+    )
+    return targets
+}
