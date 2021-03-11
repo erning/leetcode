@@ -1,5 +1,4 @@
 // swift-tools-version:5.3
-// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import Foundation
 import PackageDescription
@@ -32,20 +31,18 @@ func findProblems() -> [String] {
         return []
     }
 
-    return contents.filter { content in
+    return contents.filter {
         guard
-            let resourceValues = try? content.resourceValues(forKeys: [.isDirectoryKey]),
+            let resourceValues = try? $0.resourceValues(forKeys: [.isDirectoryKey]),
             let isDirectory = resourceValues.isDirectory
         else {
             return false
         }
         return isDirectory
-    }.map { (content) -> String in
-        content.lastPathComponent
-    }.filter {
+    }.map(\.lastPathComponent).filter {
         let range = NSRange(location: 0, length: $0.utf16.count)
-        let regex = try! NSRegularExpression(pattern: "^[0-9]{4}-")
-        return regex.firstMatch(in: $0, options: [], range: range) != nil
+        let regex = try? NSRegularExpression(pattern: "^[0-9]{4}-")
+        return regex?.firstMatch(in: $0, options: [], range: range) != nil
     }.sorted()
 }
 
@@ -57,6 +54,43 @@ func findTargets(problems: [String]) -> [PackageDescription.Target] {
 
 func findTargets(problem: String) -> [PackageDescription.Target] {
     var targets: [PackageDescription.Target] = []
+    let files = findFiles(problem: problem)
+
+    let problemName = "Problem-" + problem.prefix(4)
+    if files.sources.isEmpty {
+        return targets
+    }
+    targets.append(
+        .target(
+            name: problemName,
+            path: problem,
+            exclude: files.exclude + files.tests,
+            sources: files.sources
+        )
+    )
+    if files.tests.isEmpty {
+        return targets
+    }
+    targets.append(
+        .testTarget(
+            name: problemName + "-Tests",
+            dependencies: [.byName(name: problemName)],
+            path: problem,
+            exclude: files.exclude + files.sources,
+            sources: files.tests
+        )
+    )
+    return targets
+}
+
+typealias ProblemFiles = (sources: [String], exclude: [String], tests: [String])
+
+func findFiles(problem: String) -> ProblemFiles {
+    var files: ProblemFiles = (
+        sources: [],
+        exclude: [],
+        tests: []
+    )
 
     let problemDir = packageDir + "/" + problem
     guard
@@ -66,12 +100,8 @@ func findTargets(problem: String) -> [PackageDescription.Target] {
             options: .skipsHiddenFiles
         )
     else {
-        return targets
+        return files
     }
-
-    var sources: [String] = []
-    var exclude: [String] = []
-    var tests: [String] = []
 
     for case let fileURL as URL in enumerator {
         guard
@@ -80,51 +110,22 @@ func findTargets(problem: String) -> [PackageDescription.Target] {
         else {
             continue
         }
-
         if isDirectory {
             continue
         }
 
-        let filename: String = {
-            var file = fileURL.path
-            file = String(file.suffix(from: problemDir.endIndex))
-            file = String(file.suffix(from: "/".endIndex))
-            return file
-        }()
+        let filename = fileURL.path.suffix(
+            from: .init(utf16Offset: problemDir.utf16.count + 1, in: fileURL.path)
+        )
 
         if filename.hasSuffix("Tests.swift") {
-            tests.append(filename)
+            files.tests.append(String(filename))
         } else if filename.hasSuffix(".swift") {
-            sources.append(filename)
+            files.sources.append(String(filename))
         } else {
-            exclude.append(filename)
+            files.exclude.append(String(filename))
         }
     }
 
-    let problemName = "Problem-" + problem.prefix(4)
-    if sources.isEmpty {
-        return targets
-    }
-    targets.append(
-        .target(
-            name: problemName,
-            dependencies: [],
-            path: problem,
-            exclude: exclude + tests,
-            sources: sources
-        )
-    )
-    if tests.isEmpty {
-        return targets
-    }
-    targets.append(
-        .testTarget(
-            name: problemName + "-Tests",
-            dependencies: [.byName(name: problemName)],
-            path: problem,
-            exclude: exclude + sources,
-            sources: tests
-        )
-    )
-    return targets
+    return files
 }

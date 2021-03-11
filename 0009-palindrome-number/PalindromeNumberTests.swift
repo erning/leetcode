@@ -3,7 +3,7 @@ import XCTest
 @testable import Problem_0009
 let isPalindrome = Solution().isPalindrome
 
-class SolutionTests: XCTestCase {
+class PalindromeNumberTests: XCTestCase {
     func testIsPalindrome() {
         XCTAssertTrue(isPalindrome(121))
         XCTAssertFalse(isPalindrome(-121))

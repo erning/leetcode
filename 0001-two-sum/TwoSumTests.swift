@@ -3,7 +3,7 @@ import XCTest
 @testable import Problem_0001
 let twoSum = Solution().twoSum
 
-class SolutionTests: XCTestCase {
+class TwoSumTests: XCTestCase {
     func testTwoSum() {
         let num = [2, 7, 11, 15]
         let target = 9
