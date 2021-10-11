@@ -1,2 +1,4 @@
 .swiftpm/
 .build/
+/target
+Cargo.lock
