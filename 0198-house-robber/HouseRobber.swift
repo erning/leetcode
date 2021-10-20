@@ -13,6 +13,6 @@ class Solution {
     }
 
     func rob1(_ nums: [Int]) -> Int {
-        nums.reduce((0, 0)) {($0.1, max($0.0 + $1, $0.1))}.1
+        nums.reduce((0, 0)) { ($0.1, max($0.0 + $1, $0.1)) }.1
     }
 }
