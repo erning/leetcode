@@ -20,49 +20,37 @@ impl Solution {
         l1: Option<Box<ListNode>>,
         l2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
-        let mut a1 = l1.unwrap();
-        let mut a2 = l2.unwrap();
-        let mut rv: Vec<i32> = Vec::new();
-        let mut v1 = a1.val;
-        let mut v2 = a2.val;
+        let mut l1 = l1;
+        let mut l2 = l2;
+        let mut stack: Vec<i32> = Vec::with_capacity(101);
         let mut c = 0;
-        loop {
-            let mut done = 0;
-            let sum = c + v1 + v2;
-            c = sum / 10;
-            rv.push(sum % 10);
-            match a1.next {
+        while l1.is_some() || l2.is_some() {
+            let a = match l1 {
                 Some(v) => {
-                    a1 = v;
-                    v1 = a1.val;
+                    l1 = v.next;
+                    v.val
                 }
-                _ => {
-                    v1 = 0;
-                    done += 1;
-                }
-            }
-            match a2.next {
+                _ => 0,
+            };
+            let b = match l2 {
                 Some(v) => {
-                    a2 = v;
-                    v2 = a2.val;
+                    l2 = v.next;
+                    v.val
                 }
-                _ => {
-                    v2 = 0;
-                    done += 1;
-                }
-            }
-            if done >= 2 && c == 0 {
-                break;
-            }
+                _ => 0,
+            };
+            let s = a + b + c;
+            c = if s >= 10 { 1 } else { 0 };
+            stack.push(s % 10);
         }
-        let mut prev: Option<Box<ListNode>> = None;
-        for v in rv.iter().rev() {
-            prev = Some(Box::new(ListNode {
-                val: *v,
-                next: prev,
-            }));
+        if c > 0 {
+            stack.push(c)
         }
-        prev
+        let mut next: Option<Box<ListNode>> = None;
+        while let Some(val) = stack.pop() {
+            next = Some(Box::new(ListNode { val, next }))
+        }
+        next
     }
 }
 
@@ -70,18 +58,18 @@ impl Solution {
 mod tests {
     use super::*;
 
-    fn build_list(vec: Vec<i32>) -> Option<Box<ListNode>> {
-        let mut prev: Option<Box<ListNode>> = None;
-        for v in vec.iter().rev() {
-            prev = Some(Box::new(ListNode {
-                val: *v,
-                next: prev,
-            }));
+    fn build_list(v: i32) -> Option<Box<ListNode>> {
+        let mut next: Option<Box<ListNode>> = None;
+        let mut v = v;
+        while v > 0 {
+            let val = v % 10;
+            v = v / 10;
+            next = Some(Box::new(ListNode { val, next }));
         }
-        prev
+        next
     }
 
-    fn tf(a: Vec<i32>, b: Vec<i32>, expected: Vec<i32>) {
+    fn tf(a: i32, b: i32, expected: i32) {
         let a = build_list(a);
         let b = build_list(b);
         let expected = build_list(expected);
@@ -91,17 +79,7 @@ mod tests {
 
     #[test]
     fn example() {
-        // let nums: Vec<i32> = vec![2, 7, 11, 15];
-        // let target: i32 = 9;
-        // let expected: Vec<i32> = vec![0, 1];
-        // let output = Solution::two_sum(nums, target);
-
-        // assert_eq!(expected, output);
-        tf(vec![2, 4, 3], vec![5, 6, 4], vec![7, 0, 8]);
-        tf(
-            vec![9, 9, 9, 9, 9, 9, 9],
-            vec![9, 9, 9, 9],
-            vec![8, 9, 9, 9, 0, 0, 0, 1],
-        );
+        tf(243, 564, 708);
+        tf(9999999, 9999, 89990001);
     }
 }
