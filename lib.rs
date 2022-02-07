@@ -4,4 +4,10 @@ pub mod problem_0001;
 #[path = "0002-add-two-numbers/add_two_numbers.rs"]
 pub mod problem_0002;
 
+#[path = "0051-n-queens/n_queens.rs"]
+pub mod problem_0051;
+
+#[path = "0052-n-queens-ii/n_queens_ii.rs"]
+pub mod problem_0052;
+
 pub struct Solution {}
