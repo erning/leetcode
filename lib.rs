@@ -13,6 +13,9 @@ pub mod problem_0004;
 #[path="0005-longest-palindromic-substring/init.rs"]
 pub mod problem_0005;
 
+#[path="0008-string-to-integer-atoi/init.rs"]
+pub mod problem_0008;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
