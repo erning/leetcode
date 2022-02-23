@@ -7,6 +7,9 @@ pub mod problem_0002;
 #[path="0003-longest-substring-without-repeating-characters/init.rs"]
 pub mod problem_0003;
 
+#[path="0004-median-of-two-sorted-arrays/init.rs"]
+pub mod problem_0004;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
