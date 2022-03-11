@@ -1,30 +1,36 @@
 #include <stdlib.h>
 
+const int HTSIZE = 10000;
+
 typedef struct node_t {
     int v;
     int p;
     struct node_t* next;
 } node_t;
 
-int find(node_t** hash, int b) {
-    int k = (b > 0 ? b : -b) % 1000;
-    node_t* n = hash[k];
+static inline int ht_hash(int v) {
+    return (v > 0 ? v : -v) % HTSIZE;
+}
+
+int ht_find(node_t** ht, int v) {
+    int k = ht_hash(v);
+    node_t* n = ht[k];
     while (n) {
-        if (n->v == b) return n->p;
+        if (n->v == v) return n->p;
         n = n->next;
     }
     return -1;
 }
 
-void insert(node_t** hash, int v, int p) {
+void ht_insert(node_t** ht, int v, int p) {
+    int k = ht_hash(v);
     node_t* nn = malloc(sizeof(node_t));
     nn->v = v;
     nn->p = p;
     nn->next = NULL;
-    int k = (v > 0 ? v : -v) % 1000;
-    node_t* n = hash[k];
+    node_t* n = ht[k];
     if (!n) {
-        hash[k] = nn;
+        ht[k] = nn;
         return;
     }
     while (n->next) {
@@ -38,20 +44,20 @@ void insert(node_t** hash, int v, int p) {
  */
 int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
     *returnSize = 0;
-    node_t** hash = calloc(1000, sizeof(node_t*));
+    node_t** ht= calloc(HTSIZE, sizeof(node_t*));
     for (int i = 0; i < numsSize; i++) {
         int a = nums[i];
         int b = target - a;
-        int j = find(hash, b);
+        int j = ht_find(ht, b);
         if (j >= 0) {
             int* rv = malloc(sizeof(int) * 2);
             if (!rv) return NULL;
             *returnSize = 2;
-            rv[0] = i;
-            rv[1] = j;
+            rv[0] = j;
+            rv[1] = i;
             return rv;
         }
-        insert(hash, a, i);
+        ht_insert(ht, a, i);
     }
     return NULL;
 }
@@ -59,5 +65,5 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
 int main(void) {
     int nums[] = {2,7,11,15};
     int returnSize = 0;
-    int* rv = twoSum(nums, 5, 9, &returnSize);
+    int* rv = twoSum(nums, 4, 9, &returnSize);
 }
