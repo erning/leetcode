@@ -22,3 +22,6 @@ pub mod problem_0051;
 #[path="0052-n-queens-ii/init.rs"]
 pub mod problem_0052;
 
+#[path="0144-binary-tree-preorder-traversal/init.rs"]
+pub mod problem_0144;
+
