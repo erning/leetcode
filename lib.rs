@@ -22,6 +22,12 @@ pub mod problem_0051;
 #[path="0052-n-queens-ii/init.rs"]
 pub mod problem_0052;
 
+#[path="0118-pascals-triangle/init.rs"]
+pub mod problem_0118;
+
+#[path="0119-pascals-triangle-ii/init.rs"]
+pub mod problem_0119;
+
 #[path="0144-binary-tree-preorder-traversal/init.rs"]
 pub mod problem_0144;
 
