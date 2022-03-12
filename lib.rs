@@ -31,3 +31,6 @@ pub mod problem_0119;
 #[path="0144-binary-tree-preorder-traversal/init.rs"]
 pub mod problem_0144;
 
+#[path="0145-binary-tree-postorder-traversal/init.rs"]
+pub mod problem_0145;
+
