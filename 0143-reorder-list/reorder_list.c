@@ -14,29 +14,50 @@ void print_list(struct ListNode* node) {
     printf("\n");
 }
 
-struct ListNodeRev {
-    struct ListNode *node;
-    struct ListNodeRev *prev;
-};
+struct ListNode* reverse(struct ListNode* node) {
+    struct ListNode* prev = NULL;
+    struct ListNode* curr = node;
+    struct ListNode* next = NULL;
+    while (curr != NULL) {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+    node = prev;
+    return node;
+}
 
 void reorderList(struct ListNode* head) {
-    struct ListNode* node = head;
-    struct ListNodeRev *r_node = NULL;
-    while (node) {
-        struct ListNodeRev* r_next = malloc(sizeof(struct ListNodeRev));
-        r_next->node = node;
-        r_next->prev = r_node;
-        node = node->next;
-        r_node = r_next;
+    if (!head || !head->next || !head->next->next) {
+        return;
     }
-    node = head;
-    while (node->next && node->next != r_node->node) {
-        r_node->prev->node->next = NULL;
-        r_node->node->next = node->next;
-        node->next = r_node->node;
 
-        node = r_node->node->next;
-        r_node = r_node->prev;
+    // Devide the list in two parts from the middle.
+    struct ListNode* fast = head;
+    struct ListNode* slow = head;
+    struct ListNode* prev = head;
+    while (fast && fast->next) {
+        prev = slow;
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    prev->next = NULL;
+
+    // Reverse the second half.
+    struct ListNode* tail = reverse(slow);
+
+    // Merge the two halfs.
+    while (1) {
+        struct ListNode* next = head->next;
+        struct ListNode* prev = tail->next;
+        head->next = tail;
+        if (!next) {
+            break;
+        }
+        tail->next = next;
+        head = next;
+        tail = prev;
     }
 }
 
