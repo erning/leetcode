@@ -14,17 +14,15 @@ impl ListNode {
 
 pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     let mut prev: Option<Box<ListNode>> = None;
-    let mut curr = head.clone();
-    while let Some(mut node) = curr {
-        curr = std::mem::replace(&mut node.next, prev);
-        prev = Some(node);
+    let mut curr = head;
+    while let Some(ref mut node) = curr {
+        // let next = std::mem::take(&mut node.next);
+        // node.next = prev;
+        // prev = curr;
+        // curr = next;
+        let next = std::mem::replace(&mut node.next, prev);
+        prev = std::mem::replace(&mut curr, next);
     }
-    // let mut prev: Option<Box<ListNode>> = None;
-    // let mut curr = &head;
-    // while let Some(node) = curr {
-    //     prev = Some(Box::new(ListNode{ val: node.val, next: prev}));
-    //     curr = &node.next;
-    // }
     prev
 }
 
