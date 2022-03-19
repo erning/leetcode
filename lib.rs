@@ -28,6 +28,9 @@ pub mod problem_0118;
 #[path="0119-pascals-triangle-ii/init.rs"]
 pub mod problem_0119;
 
+#[path="0143-reorder-list/init.rs"]
+pub mod problem_0143;
+
 #[path="0144-binary-tree-preorder-traversal/init.rs"]
 pub mod problem_0144;
 
