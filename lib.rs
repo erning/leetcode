@@ -16,6 +16,9 @@ pub mod problem_0005;
 #[path="0008-string-to-integer-atoi/init.rs"]
 pub mod problem_0008;
 
+#[path="0021-merge-two-sorted-lists/init.rs"]
+pub mod problem_0021;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
