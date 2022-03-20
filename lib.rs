@@ -25,6 +25,12 @@ pub mod problem_0051;
 #[path="0052-n-queens-ii/init.rs"]
 pub mod problem_0052;
 
+#[path="0082-remove-duplicates-from-sorted-list-ii/init.rs"]
+pub mod problem_0082;
+
+#[path="0083-remove-duplicates-from-sorted-list/init.rs"]
+pub mod problem_0083;
+
 #[path="0118-pascals-triangle/init.rs"]
 pub mod problem_0118;
 
