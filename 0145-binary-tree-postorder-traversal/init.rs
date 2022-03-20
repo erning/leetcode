@@ -41,7 +41,7 @@ pub fn postorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     let mut stack: Vec<(Rc<RefCell<TreeNode>>, i32)> = Vec::new();
     stack.push((root.unwrap(), 0));
     while let Some((node_rr, mut step)) = stack.pop() {
-        let node = node_rr.borrow_mut();
+        let node = node_rr.borrow();
         loop {
             match step {
                 0 => {
