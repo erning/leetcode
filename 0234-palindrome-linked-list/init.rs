@@ -23,9 +23,12 @@ pub fn is_palindrome(head: Option<Box<ListNode>>) -> bool {
     let mut prev: Option<Box<ListNode>> = None;
     let mut curr = head;
     while let Some(mut node) = curr {
-        let next = std::mem::replace(&mut node.next, prev);
-        prev = Some(node);
-        curr = next;
+        curr = node.next.take();
+        node.next = prev.take();
+        prev.replace(node);
+        // let next = std::mem::replace(&mut node.next, prev);
+        // prev = Some(node);
+        // curr = next;
         count -= 2;
         if count < 2 {
             break;
@@ -35,15 +38,33 @@ pub fn is_palindrome(head: Option<Box<ListNode>>) -> bool {
         curr = curr.unwrap().next
     }
 
-    while let (Some(a), Some(b)) = (prev, curr) {
-        if a.val != b.val {
-            return false;
-        }
-        prev = a.next;
-        curr = b.next;
-    }
-    true
+    // while let (Some(a), Some(b)) = (prev, curr) {
+    //     if a.val != b.val {
+    //         return false;
+    //     }
+    //     prev = a.next;
+    //     curr = b.next;
+    // }
+    prev == curr
 }
+
+// pub fn is_palindrome(head: Option<Box<ListNode>>) -> bool {
+//     let mut prev: Option<Box<ListNode>> = None;
+//     let mut curr = head;
+//     while curr.is_some() {
+//         if prev == curr {
+//             return true;
+//         }
+//         let mut node = curr.unwrap();
+//         curr = node.next.take();
+//         if prev == curr {
+//             return true;
+//         }
+//         node.next = prev.take();
+//         prev.replace(node);
+//     }
+//     false
+// }
 
 #[cfg(test)]
 mod tests {
@@ -63,6 +84,7 @@ mod tests {
     fn tf(input: &[i32], expected: bool) {
         let list = vec_to_list(input);
         let output = is_palindrome(list);
+        println!("{:?}", input);
         assert_eq!(output, expected);
     }
 
