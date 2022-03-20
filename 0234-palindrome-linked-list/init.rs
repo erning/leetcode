@@ -84,7 +84,6 @@ mod tests {
     fn tf(input: &[i32], expected: bool) {
         let list = vec_to_list(input);
         let output = is_palindrome(list);
-        println!("{:?}", input);
         assert_eq!(output, expected);
     }
 
