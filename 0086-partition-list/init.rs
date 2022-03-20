@@ -5,13 +5,6 @@ pub struct ListNode {
     pub next: Option<Box<ListNode>>,
 }
 
-impl ListNode {
-    #[inline]
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
-
 pub fn partition(head: Option<Box<ListNode>>, x: i32) -> Option<Box<ListNode>> {
     let mut a: Option<Box<ListNode>> = None;
     let mut b: Option<Box<ListNode>> = None;

@@ -52,6 +52,9 @@ pub mod problem_0145;
 #[path="0206-reverse-linked-list/init.rs"]
 pub mod problem_0206;
 
+#[path="0234-palindrome-linked-list/init.rs"]
+pub mod problem_0234;
+
 #[path="0679-24-game/init.rs"]
 pub mod problem_0679;
 
