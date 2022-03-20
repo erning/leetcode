@@ -34,6 +34,9 @@ pub mod problem_0083;
 #[path="0086-partition-list/init.rs"]
 pub mod problem_0086;
 
+#[path="0101-symmetric-tree/init.rs"]
+pub mod problem_0101;
+
 #[path="0118-pascals-triangle/init.rs"]
 pub mod problem_0118;
 
