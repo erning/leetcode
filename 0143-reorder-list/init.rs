@@ -5,13 +5,6 @@ pub struct ListNode {
     pub next: Option<Box<ListNode>>,
 }
 
-impl ListNode {
-    #[inline]
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
-
 pub fn reorder_list(head: &mut Option<Box<ListNode>>) {
     fn length(head: &Option<Box<ListNode>>) -> usize {
         let mut count = 0;
@@ -114,7 +107,7 @@ mod tests {
     }
 
     #[test]
-    fn test_vec_list_converter() {
+    fn vec_list_converter() {
         let a = vec![1, 2, 3, 4];
         let b = vec_to_list(&a);
         let c = list_to_vec(&b);
