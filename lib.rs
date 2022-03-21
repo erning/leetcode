@@ -61,6 +61,9 @@ pub mod problem_0234;
 #[path="0322-coin-change/init.rs"]
 pub mod problem_0322;
 
+#[path="0518-coin-change-2/init.rs"]
+pub mod problem_0518;
+
 #[path="0679-24-game/init.rs"]
 pub mod problem_0679;
 
