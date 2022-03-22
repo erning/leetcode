@@ -34,6 +34,9 @@ pub mod problem_0083;
 #[path="0086-partition-list/init.rs"]
 pub mod problem_0086;
 
+#[path="0091-decode-ways/init.rs"]
+pub mod problem_0091;
+
 #[path="0101-symmetric-tree/init.rs"]
 pub mod problem_0101;
 
