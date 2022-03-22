@@ -1,30 +1,52 @@
-use std::collections::HashMap;
+// use std::collections::HashMap;
+use std::collections::HashSet;
 
 pub fn num_decodings(s: String) -> i32 {
-    const TABLE: [&str; 26] = [
+    let table: HashSet<&str> = [
         "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16",
         "17", "18", "19", "20", "21", "22", "23", "24", "25", "26",
-    ];
+    ]
+    .iter()
+    .map(|v| *v)
+    .collect();
 
-    fn recursion<'a>(memo: &mut HashMap<&'a str, i32>, s: &'a str) -> i32 {
-        if s.is_empty() {
-            return 1;
+    let len = s.len();
+    let mut dp = vec![0; len + 1];
+    dp[len] = 1;
+
+    if table.contains(&s[len - 1..len]) {
+        dp[len - 1] = dp[len];
+    }
+    for i in (0..len - 1).rev() {
+        if table.contains(&s[i..i + 1]) {
+            dp[i] += dp[i + 1];
         }
-        if let Some(count) = memo.get(s) {
-            return *count;
+        if table.contains(&s[i..i + 2]) {
+            dp[i] += dp[i + 2];
         }
-        let mut count = 0;
-        for token in TABLE {
-            if s.starts_with(token) {
-                count += recursion(memo, &s[token.len()..]);
-            }
-        }
-        memo.insert(s, count);
-        count
     }
 
-    let mut memo: HashMap<&str, i32> = HashMap::new();
-    recursion(&mut memo, &s[..])
+    dp[0]
+
+    // fn recursion<'a>(memo: &mut HashMap<&'a str, i32>, s: &'a str) -> i32 {
+    //     if s.is_empty() {
+    //         return 1;
+    //     }
+    //     if let Some(count) = memo.get(s) {
+    //         return *count;
+    //     }
+    //     let mut count = 0;
+    //     for token in TABLE {
+    //         if s.starts_with(token) {
+    //             count += recursion(memo, &s[token.len()..]);
+    //         }
+    //     }
+    //     memo.insert(s, count);
+    //     count
+    // }
+
+    // let mut memo: HashMap<&str, i32> = HashMap::new();
+    // recursion(&mut memo, &s[..])
 }
 
 #[cfg(test)]
