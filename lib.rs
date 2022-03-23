@@ -46,6 +46,9 @@ pub mod problem_0118;
 #[path="0119-pascals-triangle-ii/init.rs"]
 pub mod problem_0119;
 
+#[path="0139-word-break/init.rs"]
+pub mod problem_0139;
+
 #[path="0143-reorder-list/init.rs"]
 pub mod problem_0143;
 
