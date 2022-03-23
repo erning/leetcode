@@ -67,6 +67,9 @@ pub mod problem_0206;
 #[path="0234-palindrome-linked-list/init.rs"]
 pub mod problem_0234;
 
+#[path="0309-best-time-to-buy-and-sell-stock-with-cooldown/init.rs"]
+pub mod problem_0309;
+
 #[path="0322-coin-change/init.rs"]
 pub mod problem_0322;
 
