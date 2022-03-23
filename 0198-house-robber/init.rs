@@ -1,16 +1,13 @@
 pub fn rob(nums: Vec<i32>) -> i32 {
-    if nums.len() == 1 {
-        return nums[0];
-    }
-    let mut dp: Vec<i32> = vec![0; nums.len()];
-    dp[0] = nums[0];
-    dp[1] = i32::max(nums[1], dp[0]);
-
-    for i in 2..dp.len() {
-        dp[i] = i32::max(nums[i] + dp[i - 2], dp[i - 1]);
-    }
-
-    dp[dp.len() - 1]
+    // let mut a = 0;
+    // let mut b = 0;
+    // for num in nums.into_iter() {
+    //     (a, b) = (b, i32::max(num + a, b));
+    // }
+    // b
+    nums.into_iter()
+        .fold((0, 0), |(a, b), num| (b, i32::max(num + a, b)))
+        .1
 }
 
 #[cfg(test)]
@@ -19,9 +16,11 @@ mod tests {
 
     #[test]
     fn example() {
-        assert_eq!(rob(vec![1,2,3,1]), 4);
-        assert_eq!(rob(vec![2,7,9,3,1]), 12);
+        assert_eq!(rob(vec![1, 2, 3, 1]), 4);
+        assert_eq!(rob(vec![2, 7, 9, 3, 1]), 12);
 
-        assert_eq!(rob(vec![2,1]), 2);
+        assert_eq!(rob(vec![2, 1]), 2);
+        assert_eq!(rob(vec![1]), 1);
+        assert_eq!(rob(vec![]), 0);
     }
 }
