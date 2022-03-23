@@ -1,30 +1,42 @@
-use std::collections::HashMap;
+// use std::collections::HashMap;
 
 pub fn word_break(s: String, word_dict: Vec<String>) -> bool {
-    let dict: Vec<_> = word_dict.iter().map(String::as_str).collect();
-    let mut memo: HashMap<&str, bool> = HashMap::new();
-    recursion(&mut memo, s.as_str(), &dict)
-}
-
-fn recursion<'a>(memo: &mut HashMap<&'a str, bool>, s: &'a str, dict: &[&str]) -> bool {
-    if s.is_empty() {
-        return true;
-    }
-    if let Some(v) = memo.get(s) {
-        return *v;
-    }
-    let mut v = false;
-    for word in dict.iter() {
-        if s.starts_with(word) {
-            if recursion(memo, &s[word.len()..], dict) {
-                v = true;
-                break;
+    let mut dp: Vec<bool> = vec![false; s.len() + 1];
+    dp[0] = true;
+    for i in 1..=s.len() {
+        for word in word_dict.iter() {
+            let j = word.len();
+            if i >= j && dp[i - j] && s[i - j..i] == *word {
+                dp[i] = true;
             }
         }
     }
-    memo.insert(s, v);
-    return v;
+    dp[s.len()]
+
+    // let dict: Vec<_> = word_dict.iter().map(String::as_str).collect();
+    // let mut memo: HashMap<&str, bool> = HashMap::new();
+    // recursion(&mut memo, s.as_str(), &dict)
 }
+
+// fn recursion<'a>(memo: &mut HashMap<&'a str, bool>, s: &'a str, dict: &[&str]) -> bool {
+//     if s.is_empty() {
+//         return true;
+//     }
+//     if let Some(v) = memo.get(s) {
+//         return *v;
+//     }
+//     let mut v = false;
+//     for word in dict.iter() {
+//         if s.starts_with(word) {
+//             if recursion(memo, &s[word.len()..], dict) {
+//                 v = true;
+//                 break;
+//             }
+//         }
+//     }
+//     memo.insert(s, v);
+//     return v;
+// }
 
 #[cfg(test)]
 mod tests {
