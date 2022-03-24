@@ -16,6 +16,9 @@ pub mod problem_0005;
 #[path="0008-string-to-integer-atoi/init.rs"]
 pub mod problem_0008;
 
+#[path="0015-3sum/init.rs"]
+pub mod problem_0015;
+
 #[path="0021-merge-two-sorted-lists/init.rs"]
 pub mod problem_0021;
 
@@ -84,5 +87,4 @@ pub mod problem_0639;
 
 #[path="0679-24-game/init.rs"]
 pub mod problem_0679;
-
 
