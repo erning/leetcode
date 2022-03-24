@@ -1,12 +1,10 @@
-use std::collections::HashSet;
-
 pub fn three_sum(nums: Vec<i32>) -> Vec<Vec<i32>> {
     let mut rv: Vec<Vec<i32>> = vec![];
     let len = nums.len();
     if len < 3 {
         return rv;
     }
-    let mut nums = nums.to_vec();
+    let mut nums = nums;
     nums.sort_unstable();
 
     let mut iter_a = nums.iter().take(len - 2).enumerate();
@@ -19,18 +17,20 @@ pub fn three_sum(nums: Vec<i32>) -> Vec<Vec<i32>> {
             let sum = a + b + c;
             if sum < 0 {
                 opt_b = iter.next();
-            } else if sum > 0 {
+                continue;
+            }
+            if sum > 0 {
                 opt_c = iter.next_back();
-            } else {
-                rv.push(vec![*a, *b, *c]);
+                continue;
+            }
+            rv.push(vec![*a, *b, *c]);
+            opt_b = iter.next();
+            while opt_b.is_some() && opt_b.unwrap() == b {
                 opt_b = iter.next();
-                while opt_b.is_some() && opt_b.unwrap() == b {
-                    opt_b = iter.next();
-                }
+            }
+            opt_c = iter.next_back();
+            while opt_c.is_some() && opt_c.unwrap() == c {
                 opt_c = iter.next_back();
-                while opt_c.is_some() && opt_c.unwrap() == c {
-                    opt_c = iter.next_back();
-                }
             }
         }
         opt_a = iter_a.next();
@@ -40,6 +40,39 @@ pub fn three_sum(nums: Vec<i32>) -> Vec<Vec<i32>> {
     }
 
     rv
+
+    // let mut i = 0;
+    // while i < len - 2 {
+    //     let a = nums[i];
+    //     let mut lo = i + 1;
+    //     let mut hi = len - 1;
+    //     while lo < hi {
+    //         let b = nums[lo];
+    //         let c = nums[hi];
+    //         let sum = a + b + c;
+    //         if sum < 0 {
+    //             lo += 1;
+    //             continue;
+    //         }
+    //         if sum > 0 {
+    //             hi -= 1;
+    //             continue;
+    //         }
+    //         rv.push(vec![a, b, c]);
+    //         lo += 1;
+    //         while lo < hi && nums[lo] == b {
+    //             lo += 1;
+    //         }
+    //         hi -= 1;
+    //         while lo < hi && nums[hi] == c {
+    //             hi -= 1;
+    //         }
+    //     }
+    //     i += 1;
+    //     while i < len - 2 && nums[i] == a {
+    //         i += 1;
+    //     }
+    // }
 }
 
 #[cfg(test)]
