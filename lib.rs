@@ -19,6 +19,9 @@ pub mod problem_0008;
 #[path="0021-merge-two-sorted-lists/init.rs"]
 pub mod problem_0021;
 
+#[path="0029-divide-two-integers/init.rs"]
+pub mod problem_0029;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
@@ -81,4 +84,5 @@ pub mod problem_0639;
 
 #[path="0679-24-game/init.rs"]
 pub mod problem_0679;
+
 
