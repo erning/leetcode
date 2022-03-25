@@ -16,6 +16,9 @@ pub mod problem_0005;
 #[path="0008-string-to-integer-atoi/init.rs"]
 pub mod problem_0008;
 
+#[path="0010-regular-expression-matching/init.rs"]
+pub mod problem_0010;
+
 #[path="0015-3sum/init.rs"]
 pub mod problem_0015;
 
