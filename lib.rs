@@ -22,6 +22,9 @@ pub mod problem_0010;
 #[path="0011-container-with-most-water/init.rs"]
 pub mod problem_0011;
 
+#[path="0012-integer-to-roman/init.rs"]
+pub mod problem_0012;
+
 #[path="0015-3sum/init.rs"]
 pub mod problem_0015;
 
