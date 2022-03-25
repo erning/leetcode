@@ -1,29 +1,30 @@
 pub fn is_match(s: String, p: String) -> bool {
-    let len_s = s.len();
-    let len_p = p.len();
+    let len = s.len();
 
-    let mut dp: Vec<Vec<bool>> = vec![vec![false; len_s + 1]; len_p + 1];
-    dp[0][0] = true;
-    let mut prev_p = b'*';
+    let mut prev: Vec<bool> = vec![false; len + 1];
+    let mut curr: Vec<bool> = vec![false; len + 1];
+    let mut next: Vec<bool> = vec![false; len + 1];
+    curr[0] = true;
+    let mut pp = 0;
 
-    for (i, ch_p) in p.as_bytes().iter().enumerate() {
-        if *ch_p == b'*' {
-            dp[i + 1][0] = dp[i - 1][0];
+    for cp in p.as_bytes().iter() {
+        if *cp == b'*' {
+            next[0] = prev[0];
         }
-        for (j, ch_s) in s.as_bytes().iter().enumerate() {
-            dp[i + 1][j + 1] = match ch_p {
-                b'*' => {
-                    dp[i - 1][j + 1]
-                        || (dp[i][j] || dp[i + 1][j]) && (prev_p == b'.' || prev_p == *ch_s)
-                }
-                b'.' => dp[i][j],
-                _ => dp[i][j] && ch_p == ch_s,
+        for (j, cs) in s.as_bytes().iter().enumerate() {
+            next[j + 1] = match cp {
+                b'*' => prev[j + 1] || (curr[j] || next[j]) && (pp == b'.' || pp == *cs),
+                b'.' => curr[j],
+                _ => curr[j] && cp == cs,
             };
         }
-        prev_p = *ch_p;
+        pp = *cp;
+        std::mem::swap(&mut prev, &mut curr);
+        std::mem::swap(&mut curr, &mut next);
+        next.iter_mut().for_each(|v| *v = false);
     }
 
-    dp[len_p][len_s]
+    curr[len]
 }
 
 #[cfg(test)]
