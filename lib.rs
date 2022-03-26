@@ -25,6 +25,9 @@ pub mod problem_0011;
 #[path="0012-integer-to-roman/init.rs"]
 pub mod problem_0012;
 
+#[path="0013-roman-to-integer/init.rs"]
+pub mod problem_0013;
+
 #[path="0015-3sum/init.rs"]
 pub mod problem_0015;
 
