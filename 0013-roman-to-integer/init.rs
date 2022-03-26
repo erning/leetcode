@@ -1,31 +1,24 @@
-use std::collections::HashMap;
-
 pub fn roman_to_int(s: String) -> i32 {
-    let symbols: HashMap<u8, i32> = [
-        (b'I', 1),
-        (b'V', 5),
-        (b'X', 10),
-        (b'L', 50),
-        (b'C', 100),
-        (b'D', 500),
-        (b'M', 1000),
-    ]
-    .iter()
-    .map(|v| *v)
-    .collect();
-
     let mut value = 0;
-    let mut iter = s.as_bytes().iter();
-    let mut next = iter.next();
-    let mut pv = 0;
-    while let Some(c) = next {
-        let v = symbols.get(c).unwrap();
+    let mut pv = i32::MAX;
+    for c in s.as_bytes().iter() {
+        let v = match c {
+            b'I' => 1,
+            b'V' => 5,
+            b'X' => 10,
+            b'L' => 50,
+            b'C' => 100,
+            b'D' => 500,
+            b'M' => 1000,
+            _ => {
+                unimplemented!()
+            }
+        };
         value += v;
-        if *v > pv {
+        if v > pv {
             value -= pv << 1;
         }
-        pv = *v;
-        next = iter.next();
+        pv = v;
     }
     value
 }
