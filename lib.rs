@@ -37,6 +37,9 @@ pub mod problem_0015;
 #[path="0016-3sum-closest/init.rs"]
 pub mod problem_0016;
 
+#[path="0017-letter-combinations-of-a-phone-number/init.rs"]
+pub mod problem_0017;
+
 #[path="0021-merge-two-sorted-lists/init.rs"]
 pub mod problem_0021;
 
