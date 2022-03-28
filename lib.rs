@@ -46,6 +46,9 @@ pub mod problem_0018;
 #[path="0019-remove-nth-node-from-end-of-list/init.rs"]
 pub mod problem_0019;
 
+#[path="0020-valid-parentheses/init.rs"]
+pub mod problem_0020;
+
 #[path="0021-merge-two-sorted-lists/init.rs"]
 pub mod problem_0021;
 
