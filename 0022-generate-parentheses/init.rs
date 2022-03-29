@@ -20,11 +20,11 @@ pub fn generate_parenthesis(n: i32) -> Vec<String> {
 
     let mut rv: Vec<String> = Vec::new();
     for v in prev.iter() {
-        let mut chars: Vec<char> = vec![')'; n * 2];
+        let mut chars: Vec<u8> = vec![b')'; n * 2];
         for i in v.iter() {
-            chars[*i] = '(';
+            chars[*i] = b'(';
         }
-        rv.push(chars.into_iter().collect());
+        rv.push(String::from_utf8(chars).unwrap());
     }
     rv
 }
