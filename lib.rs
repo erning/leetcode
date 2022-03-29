@@ -52,6 +52,9 @@ pub mod problem_0020;
 #[path="0021-merge-two-sorted-lists/init.rs"]
 pub mod problem_0021;
 
+#[path="0022-generate-parentheses/init.rs"]
+pub mod problem_0022;
+
 #[path="0029-divide-two-integers/init.rs"]
 pub mod problem_0029;
 
