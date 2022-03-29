@@ -5,21 +5,20 @@ pub struct ListNode {
 }
 
 pub fn swap_pairs(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-	if head.is_none() || head.as_ref().unwrap().next.is_none() {
-		return head
-	}
+    if head.is_none() || head.as_ref().unwrap().next.is_none() {
+    	return head
+    }
 
-    let mut a = head;
-    let mut b = std::mem::take(&mut a.as_mut().unwrap().next);
-    let b_next = std::mem::take(&mut b.as_mut().unwrap().next);
-    a.as_mut().unwrap().next = swap_pairs(b_next);
-    b.as_mut().unwrap().next = a;
+    let mut curr = head;
+    let mut node = curr.as_mut().unwrap();
+    let mut next = std::mem::take(&mut node.next);
+    let mut next_node = next.as_mut().unwrap();
+    let next_next = std::mem::take(&mut next_node.next);
 
-    b
+    node.next = swap_pairs(next_next);
+    next_node.next = curr;
 
-	// a, b := head, head.Next
-	// a.Next, b.Next = swapPairs(b.Next), a
-	// return b
+    next
 }
 
 #[cfg(test)]
