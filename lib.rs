@@ -61,6 +61,9 @@ pub mod problem_0024;
 #[path="0026-remove-duplicates-from-sorted-array/init.rs"]
 pub mod problem_0026;
 
+#[path="0027-remove-element/init.rs"]
+pub mod problem_0027;
+
 #[path="0029-divide-two-integers/init.rs"]
 pub mod problem_0029;
 
