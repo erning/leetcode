@@ -64,6 +64,9 @@ pub mod problem_0026;
 #[path="0027-remove-element/init.rs"]
 pub mod problem_0027;
 
+#[path="0028-implement-strstr/init.rs"]
+pub mod problem_0028;
+
 #[path="0029-divide-two-integers/init.rs"]
 pub mod problem_0029;
 
