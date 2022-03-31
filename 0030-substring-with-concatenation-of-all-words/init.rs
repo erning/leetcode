@@ -2,9 +2,9 @@ use std::collections::HashMap;
 
 pub fn find_substring(s: String, words: Vec<String>) -> Vec<i32> {
     let slen = s.len();
-    let wlen = words.len();
     let size = words[0].len();
-    if slen < size * wlen {
+    let wlen = size * words.len();
+    if wlen > slen {
         return Vec::new();
     }
     let s = s.as_bytes();
@@ -20,7 +20,7 @@ pub fn find_substring(s: String, words: Vec<String>) -> Vec<i32> {
     }
 
     let mut rv: Vec<i32> = Vec::new();
-    for i in 0..=slen - size * wlen {
+    for i in 0..=slen - wlen {
         let mut p = i;
         let mut remains = counts.clone();
         let ok = loop {
@@ -34,7 +34,7 @@ pub fn find_substring(s: String, words: Vec<String>) -> Vec<i32> {
                 break false;
             }
             p += size;
-            if p >= i + size * wlen {
+            if p >= i + wlen {
                 break true;
             }
         };
