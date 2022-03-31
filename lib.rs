@@ -70,6 +70,9 @@ pub mod problem_0028;
 #[path="0029-divide-two-integers/init.rs"]
 pub mod problem_0029;
 
+#[path="0030-substring-with-concatenation-of-all-words/init.rs"]
+pub mod problem_0030;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
