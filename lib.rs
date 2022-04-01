@@ -76,6 +76,9 @@ pub mod problem_0030;
 #[path="0031-next-permutation/init.rs"]
 pub mod problem_0031;
 
+#[path="0032-longest-valid-parentheses/init.rs"]
+pub mod problem_0032;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
