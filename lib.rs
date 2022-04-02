@@ -91,6 +91,9 @@ pub mod problem_0035;
 #[path="0036-valid-sudoku/init.rs"]
 pub mod problem_0036;
 
+#[path="0038-count-and-say/init.rs"]
+pub mod problem_0038;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
