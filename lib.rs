@@ -85,6 +85,9 @@ pub mod problem_0033;
 #[path="0034-find-first-and-last-position-of-element-in-sorted-array/init.rs"]
 pub mod problem_0034;
 
+#[path="0035-search-insert-position/init.rs"]
+pub mod problem_0035;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
