@@ -82,6 +82,9 @@ pub mod problem_0032;
 #[path="0033-search-in-rotated-sorted-array/init.rs"]
 pub mod problem_0033;
 
+#[path="0034-find-first-and-last-position-of-element-in-sorted-array/init.rs"]
+pub mod problem_0034;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
