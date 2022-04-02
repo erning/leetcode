@@ -88,6 +88,9 @@ pub mod problem_0034;
 #[path="0035-search-insert-position/init.rs"]
 pub mod problem_0035;
 
+#[path="0036-valid-sudoku/init.rs"]
+pub mod problem_0036;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
