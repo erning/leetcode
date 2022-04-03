@@ -1,39 +1,40 @@
 use std::collections::HashSet;
 
 pub fn combination_sum(candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
-    let mut dp: Vec<HashSet<Vec<i32>>> = vec![HashSet::new(); target as usize + 1];
+    let mut dp: Vec<Vec<Vec<i32>>> = vec![Vec::new(); target as usize + 1];
 
     for i in 1..=target {
-        for &a in candidates.iter().filter(|&v| i >= *v) {
+        let mut vvi: Vec<Vec<i32>> = Vec::new();
+        for &a in candidates.iter() {
+            if i < a {
+                continue;
+            }
             if i == a {
-                dp[i as usize].insert(vec![i]);
-                // dp[i] == [i]
+                // dp[i] += [i]
+                vvi.push(vec![i]);
                 continue;
             }
             let b = i - a;
+            if b < a {
+                continue;
+            }
 
-            // dp[i] == dp[a] + dp[b];
-            let seta = &dp[a as usize];
-            let setb = &dp[b as usize];
-            if !seta.is_empty() && !setb.is_empty() {
-                let mut vv: Vec<Vec<i32>> = Vec::new();
-                for va in seta.iter() {
-                    for vb in setb.iter() {
-                        let mut v = va.clone();
-                        v.extend_from_slice(vb);
-                        v.sort();
-                        vv.push(v);
-                    }
-                }
-                let s = &mut dp[i as usize];
-                for v in vv.into_iter() {
-                    s.insert(v);
+            // dp[i] += dp[a] + dp[b];
+            for vb in dp[b as usize].iter() {
+                for va in dp[a as usize].iter() {
+                    let mut vi = Vec::new();
+                    vi.extend(va.iter());
+                    vi.extend(vb.iter());
+                    vi.sort();
+                    vvi.push(vi);
                 }
             }
         }
+        let set: HashSet<_> = vvi.drain(..).collect();
+        dp[i as usize].extend(set.into_iter());
     }
 
-    dp[target as usize].clone().into_iter().collect()
+    dp.pop().unwrap()
 }
 
 #[cfg(test)]

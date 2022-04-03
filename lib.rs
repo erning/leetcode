@@ -97,6 +97,9 @@ pub mod problem_0038;
 #[path="0039-combination-sum/init.rs"]
 pub mod problem_0039;
 
+#[path="0040-combination-sum-ii/init.rs"]
+pub mod problem_0040;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
