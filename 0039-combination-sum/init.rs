@@ -3,8 +3,8 @@ use std::collections::HashSet;
 pub fn combination_sum(candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
     let mut dp: Vec<Option<Vec<Vec<i32>>>> = vec![None; target as usize + 1];
 
+    let mut vvi: HashSet<Vec<i32>> = HashSet::new();
     for i in 1..=target {
-        let mut vvi: HashSet<Vec<i32>> = HashSet::new();
         for &a in candidates.iter() {
             if i < a {
                 continue;
@@ -37,7 +37,7 @@ pub fn combination_sum(candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
             }
         }
         if !vvi.is_empty() {
-            dp[i as usize].replace(vvi.into_iter().collect());
+            dp[i as usize].replace(vvi.drain().collect());
         }
     }
 
