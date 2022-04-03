@@ -1,40 +1,47 @@
 use std::collections::HashSet;
 
 pub fn combination_sum(candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
-    let mut dp: Vec<Vec<Vec<i32>>> = vec![Vec::new(); target as usize + 1];
+    let mut dp: Vec<Option<Vec<Vec<i32>>>> = vec![None; target as usize + 1];
 
     for i in 1..=target {
-        let mut vvi: Vec<Vec<i32>> = Vec::new();
+        let mut vvi: HashSet<Vec<i32>> = HashSet::new();
         for &a in candidates.iter() {
             if i < a {
                 continue;
             }
             if i == a {
                 // dp[i] += [i]
-                vvi.push(vec![i]);
+                vvi.insert(vec![i]);
                 continue;
             }
             let b = i - a;
             if b < a {
                 continue;
             }
+            if dp[b as usize].is_none() {
+                continue;
+            }
 
             // dp[i] += dp[a] + dp[b];
-            for vb in dp[b as usize].iter() {
-                for va in dp[a as usize].iter() {
+            for va in dp[a as usize].as_ref().unwrap().iter() {
+                for vb in dp[b as usize].as_ref().unwrap().iter() {
+                    if va[0] > vb[0] {
+                        continue;
+                    }
                     let mut vi = Vec::new();
-                    vi.extend(va.iter());
-                    vi.extend(vb.iter());
+                    vi.extend(va.into_iter());
+                    vi.extend(vb.into_iter());
                     vi.sort();
-                    vvi.push(vi);
+                    vvi.insert(vi);
                 }
             }
         }
-        let set: HashSet<_> = vvi.drain(..).collect();
-        dp[i as usize].extend(set.into_iter());
+        if !vvi.is_empty() {
+            dp[i as usize].replace(vvi.into_iter().collect());
+        }
     }
 
-    dp.pop().unwrap()
+    dp.pop().unwrap().unwrap_or(vec![])
 }
 
 #[cfg(test)]
@@ -42,10 +49,11 @@ mod tests {
     use super::*;
 
     fn tf(candidates: Vec<i32>, target: i32, expected: Vec<Vec<i32>>) {
-        let mut output = combination_sum(candidates, target);
+        let sum = combination_sum(candidates, target);
+        let mut output = sum.clone();
         output.iter_mut().for_each(|v| v.sort());
         output.sort();
-        assert_eq!(output, expected);
+        assert_eq!(output, expected, "sum: {:?}", &sum);
     }
 
     #[test]
@@ -57,6 +65,39 @@ mod tests {
             vec![vec![2, 2, 2, 2], vec![2, 3, 3], vec![3, 5]],
         );
         tf(vec![2], 1, vec![]);
+
+        tf(
+            vec![1, 2],
+            4,
+            vec![vec![1, 1, 1, 1], vec![1, 1, 2], vec![2, 2]],
+        );
+        tf(
+            vec![2, 7, 6, 3, 5, 1],
+            9,
+            vec![
+                vec![1, 1, 1, 1, 1, 1, 1, 1, 1],
+                vec![1, 1, 1, 1, 1, 1, 1, 2],
+                vec![1, 1, 1, 1, 1, 1, 3],
+                vec![1, 1, 1, 1, 1, 2, 2],
+                vec![1, 1, 1, 1, 2, 3],
+                vec![1, 1, 1, 1, 5],
+                vec![1, 1, 1, 2, 2, 2],
+                vec![1, 1, 1, 3, 3],
+                vec![1, 1, 1, 6],
+                vec![1, 1, 2, 2, 3],
+                vec![1, 1, 2, 5],
+                vec![1, 1, 7],
+                vec![1, 2, 2, 2, 2],
+                vec![1, 2, 3, 3],
+                vec![1, 2, 6],
+                vec![1, 3, 5],
+                vec![2, 2, 2, 3],
+                vec![2, 2, 5],
+                vec![2, 7],
+                vec![3, 3, 3],
+                vec![3, 6],
+            ],
+        );
 
         tf(vec![1], 1, vec![vec![1]]);
     }
