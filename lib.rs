@@ -94,6 +94,9 @@ pub mod problem_0036;
 #[path="0038-count-and-say/init.rs"]
 pub mod problem_0038;
 
+#[path="0039-combination-sum/init.rs"]
+pub mod problem_0039;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
