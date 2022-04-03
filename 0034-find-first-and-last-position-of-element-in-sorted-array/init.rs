@@ -43,7 +43,6 @@ pub fn search_range(nums: Vec<i32>, target: i32) -> Vec<i32> {
         }
     }
 
-    println!("nums={:?}", &nums);
     if nums.is_empty() {
         return vec![-1, -1];
     }

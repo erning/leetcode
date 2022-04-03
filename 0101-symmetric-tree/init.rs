@@ -83,11 +83,6 @@ mod tests {
         bvtree[0].clone()
     }
 
-    // #[test]
-    // fn test_vec_to_btree() {
-    //     println!("{:?}", vec_to_btree(&vec![0, 1, 2, 3, 4, 5, 6]));
-    // }
-
     fn tf(input: &[i32], expected: bool) {
         let list = vec_to_btree(input);
         let output = is_symmetric(list);

@@ -22,7 +22,6 @@ pub fn divide(dividend: i32, divisor: i32) -> i32 {
     }
 }
 
-// println!("{:?}", (i, a, b));
 #[cfg(test)]
 mod tests {
     use super::*;
