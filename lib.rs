@@ -103,6 +103,9 @@ pub mod problem_0040;
 #[path="0041-first-missing-positive/init.rs"]
 pub mod problem_0041;
 
+#[path="0042-trapping-rain-water/init.rs"]
+pub mod problem_0042;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
