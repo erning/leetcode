@@ -1,48 +1,67 @@
-use std::collections::HashSet;
-
 pub fn combination_sum(candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
-    let mut dp: Vec<Option<Vec<Vec<i32>>>> = vec![None; target as usize + 1];
-
-    let mut vvi: HashSet<Vec<i32>> = HashSet::new();
-    for i in 1..=target {
-        for &a in candidates.iter() {
-            if i < a {
-                continue;
-            }
-            if i == a {
-                // dp[i] += [i]
-                vvi.insert(vec![i]);
-                continue;
-            }
-            let b = i - a;
-            if b < a {
-                continue;
-            }
-            if dp[b as usize].is_none() {
-                continue;
-            }
-
-            // dp[i] += dp[a] + dp[b];
-            for va in dp[a as usize].as_ref().unwrap().iter() {
-                for vb in dp[b as usize].as_ref().unwrap().iter() {
-                    if va[0] > vb[0] {
-                        continue;
-                    }
-                    let mut vi = Vec::new();
-                    vi.extend(va.into_iter());
-                    vi.extend(vb.into_iter());
-                    vi.sort();
-                    vvi.insert(vi);
-                }
-            }
+    let mut rv: Vec<Vec<i32>> = Vec::new();
+    fn recursion(rv: &mut Vec<Vec<i32>>, candidates: &[i32], target: i32, comb: Vec<i32>) {
+        if target == 0 {
+            rv.push(comb);
+            return;
         }
-        if !vvi.is_empty() {
-            dp[i as usize].replace(vvi.drain().collect());
+        for (i, &a) in candidates.iter().enumerate() {
+            if target < a {
+                continue;
+            }
+            let mut new_comb = comb.clone();
+            new_comb.push(a);
+            recursion(rv, &candidates[i as usize..], target - a, new_comb);
         }
+        //
     }
-
-    dp.pop().unwrap().unwrap_or(vec![])
+    recursion(&mut rv, candidates.as_slice(), target, vec![]);
+    rv
 }
+
+// pub fn combination_sum(candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
+//     let mut dp: Vec<Option<Vec<Vec<i32>>>> = vec![None; target as usize + 1];
+//
+//     let mut vvi: HashSet<Vec<i32>> = HashSet::new();
+//     for i in 1..=target {
+//         for &a in candidates.iter() {
+//             if i < a {
+//                 continue;
+//             }
+//             if i == a {
+//                 // dp[i] += [i]
+//                 vvi.insert(vec![i]);
+//                 continue;
+//             }
+//             let b = i - a;
+//             if b < a {
+//                 continue;
+//             }
+//             if dp[b as usize].is_none() {
+//                 continue;
+//             }
+//
+//             // dp[i] += dp[a] + dp[b];
+//             for va in dp[a as usize].as_ref().unwrap().iter() {
+//                 for vb in dp[b as usize].as_ref().unwrap().iter() {
+//                     if va[0] > vb[0] {
+//                         continue;
+//                     }
+//                     let mut vi = Vec::new();
+//                     vi.extend(va.into_iter());
+//                     vi.extend(vb.into_iter());
+//                     vi.sort();
+//                     vvi.insert(vi);
+//                 }
+//             }
+//         }
+//         if !vvi.is_empty() {
+//             dp[i as usize].replace(vvi.drain().collect());
+//         }
+//     }
+//
+//     dp.pop().unwrap().unwrap_or(vec![])
+// }
 
 #[cfg(test)]
 mod tests {
