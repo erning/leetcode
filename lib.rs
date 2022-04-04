@@ -100,6 +100,9 @@ pub mod problem_0039;
 #[path="0040-combination-sum-ii/init.rs"]
 pub mod problem_0040;
 
+#[path="0041-first-missing-positive/init.rs"]
+pub mod problem_0041;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
