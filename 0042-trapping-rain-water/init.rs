@@ -1,40 +1,37 @@
 pub fn trap(height: Vec<i32>) -> i32 {
-    if height.len() < 3 {
-        return 0;
-    }
-    let mut h1 = -1;
-    let mut h2 = -1;
-    let mut i1 = 0;
-    let mut i2 = 0;
-    for (i, &h) in height.iter().enumerate() {
-        if h > h1 {
-            h2 = h1;
-            i2 = i1;
-            h1 = h;
-            i1 = i;
-        } else if h > h2 {
-            h2 = h;
-            i2 = i;
+    fn recursion(height: &[i32]) -> i32 {
+        if height.len() < 3 {
+            return 0;
         }
-    }
+        let a = (0, height[0]);
+        let b = (height.len() - 1, height[height.len() - 1]);
+        let c = height
+            .iter()
+            .enumerate()
+            .take(height.len() - 1)
+            .skip(1)
+            .map(|(i, &v)| (i, v))
+            .max_by(|x, y| x.1.cmp(&y.1))
+            .unwrap();
 
-    let (a, b) = if i1 < i2 { (i1, i2) } else { (i2, i1) };
-    let mut area = 0;
+        let area = |x: (usize, i32), y: (usize, i32)| -> i32 {
+            let h = i32::min(x.1, y.1);
+            let w = y.0 as i32 - x.0 as i32 - 1;
+            h * w - height[x.0 + 1..y.0].iter().sum::<i32>()
+        };
 
-    if h2 > 0 {
-        let w = b as i32 - a as i32 - 1;
-        if w > 0 {
-            area += w * h2 - height[a + 1..b].iter().sum::<i32>()
+        if c.1 <= a.1 && c.1 <= b.1 {
+            return area(a, b);
         }
+        if c.1 <= a.1 {
+            return area(a, c) + recursion(&height[c.0..b.0 + 1]);
+        }
+        if c.1 <= b.1 {
+            return area(c, b) + recursion(&height[a.0..c.0 + 1]);
+        }
+        return recursion(&height[a.0..c.0 + 1]) + recursion(&height[c.0..b.0 + 1]);
     }
-    if a > 1 {
-        area += trap(height[..a + 1].to_vec());
-    }
-    if b < height.len() - 2 {
-        area += trap(height[b..].to_vec());
-    }
-
-    area
+    recursion(&height[..])
 }
 
 #[cfg(test)]
