@@ -3,7 +3,7 @@ pub fn jump(nums: Vec<i32>) -> i32 {
     let mut dp: Vec<i32> = vec![i32::MAX; len];
     dp[0] = 0;
     let mut prev = 0;
-    let mut skip = 0;
+    let mut skip = 1;
     for (i, &n) in nums.iter().take(len - 1).enumerate() {
         let curr = n as usize;
         let k = i + curr;
@@ -17,7 +17,7 @@ pub fn jump(nums: Vec<i32>) -> i32 {
             dp[j] = i32::min(dp[j], dp[i] + 1);
         }
         prev = curr;
-        if skip > 0 {
+        if skip > 1 {
             skip -= 1;
         }
     }
