@@ -106,6 +106,9 @@ pub mod problem_0041;
 #[path="0042-trapping-rain-water/init.rs"]
 pub mod problem_0042;
 
+#[path="0043-multiply-strings/init.rs"]
+pub mod problem_0043;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
