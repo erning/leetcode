@@ -109,6 +109,9 @@ pub mod problem_0042;
 #[path="0043-multiply-strings/init.rs"]
 pub mod problem_0043;
 
+#[path="0044-wildcard-matching/init.rs"]
+pub mod problem_0044;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
