@@ -115,6 +115,9 @@ pub mod problem_0044;
 #[path="0045-jump-game-ii/init.rs"]
 pub mod problem_0045;
 
+#[path="0046-permutations/init.rs"]
+pub mod problem_0046;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
