@@ -1,29 +1,13 @@
-use std::cmp::Reverse;
-use std::collections::BinaryHeap;
-use std::collections::HashSet;
-
 pub fn jump(nums: Vec<i32>) -> i32 {
-    let ending = nums.len() - 1;
-    let mut set: HashSet<usize> = HashSet::new();
-    let mut queue: BinaryHeap<Reverse<(i32, usize)>> = BinaryHeap::new();
-    queue.push(Reverse((0, 0)));
-    while let Some(Reverse((step, curr))) = queue.pop() {
-        if curr == ending {
-            return step;
-        }
-        for dist in 1..=nums[curr] {
-            let next = curr + dist as usize;
-            if next >= nums.len() {
-                continue;
-            }
-            if set.contains(&next) {
-                continue;
-            }
-            set.insert(next);
-            queue.push(Reverse((step + 1, next)));
+    let len = nums.len();
+    let mut dp: Vec<i32> = vec![i32::MAX; len];
+    dp[0] = 0;
+    for (i, &n) in nums.iter().take(len - 1).enumerate() {
+        for j in i + 1..=usize::min(i + n as usize, len - 1) {
+            dp[j] = i32::min(dp[j], dp[i] + 1);
         }
     }
-    -1
+    dp[nums.len() - 1]
 }
 
 #[cfg(test)]
