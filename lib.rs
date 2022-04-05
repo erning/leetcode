@@ -112,6 +112,9 @@ pub mod problem_0043;
 #[path="0044-wildcard-matching/init.rs"]
 pub mod problem_0044;
 
+#[path="0045-jump-game-ii/init.rs"]
+pub mod problem_0045;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
