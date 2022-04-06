@@ -118,6 +118,9 @@ pub mod problem_0045;
 #[path="0046-permutations/init.rs"]
 pub mod problem_0046;
 
+#[path="0047-permutations-ii/init.rs"]
+pub mod problem_0047;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
