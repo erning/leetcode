@@ -133,6 +133,9 @@ pub mod problem_0051;
 #[path="0052-n-queens-ii/init.rs"]
 pub mod problem_0052;
 
+#[path="0053-maximum-subarray/init.rs"]
+pub mod problem_0053;
+
 #[path="0082-remove-duplicates-from-sorted-list-ii/init.rs"]
 pub mod problem_0082;
 
