@@ -24,7 +24,7 @@ mod tests {
 
     #[test]
     fn example() {
-        permute(vec![1, 2, 3, 4]);
-        permute(vec![1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(permute(vec![1, 2, 3, 4]).len(), 1 * 2 * 3 * 4);
+        // permute(vec![1, 2, 3, 4, 5, 6, 7, 8, 9]);
     }
 }
