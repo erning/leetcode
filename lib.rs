@@ -139,6 +139,9 @@ pub mod problem_0053;
 #[path="0054-spiral-matrix/init.rs"]
 pub mod problem_0054;
 
+#[path="0055-jump-game/init.rs"]
+pub mod problem_0055;
+
 #[path="0082-remove-duplicates-from-sorted-list-ii/init.rs"]
 pub mod problem_0082;
 
