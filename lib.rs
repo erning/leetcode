@@ -121,6 +121,9 @@ pub mod problem_0046;
 #[path="0047-permutations-ii/init.rs"]
 pub mod problem_0047;
 
+#[path="0048-rotate-image/init.rs"]
+pub mod problem_0048;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
