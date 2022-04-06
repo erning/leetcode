@@ -3,41 +3,39 @@ pub fn spiral_order(matrix: Vec<Vec<i32>>) -> Vec<i32> {
     let n = matrix[0].len();
     let mut rv = Vec::with_capacity(m * n);
 
-    let mut x1: i32 = 0;
-    let mut y1: i32 = 0;
-    let mut x2: i32 = n as i32 - 1;
-    let mut y2: i32 = m as i32 - 1;
-    let mut d = 0;
+    let mut x1 = 0;
+    let mut y1 = 0;
+    let mut x2 = n;
+    let mut y2 = m;
 
-    while x1 <= x2 && y1 <= y2 {
-        match d {
-            0 => {
-                for x in x1..=x2 {
-                    rv.push(matrix[y1 as usize][x as usize]);
-                }
-                y1 += 1;
-            }
-            1 => {
-                for y in y1..=y2 {
-                    rv.push(matrix[y as usize][x2 as usize]);
-                }
-                x2 -= 1;
-            }
-            2 => {
-                for x in (x1..=x2).rev() {
-                    rv.push(matrix[y2 as usize][x as usize]);
-                }
-                y2 -= 1;
-            }
-            3 => {
-                for y in (y1..=y2).rev() {
-                    rv.push(matrix[y as usize][x1 as usize]);
-                }
-                x1 += 1;
-            }
-            _ => unimplemented!(),
+    loop {
+        rv.extend(matrix[y1][x1..x2].iter());
+        if rv.len() >= m * n {
+            break;
         }
-        d = (d + 1) % 4;
+        y1 += 1;
+
+        for row in matrix[y1..y2].iter() {
+            rv.push(row[x2 - 1]);
+        }
+        if rv.len() >= m * n {
+            break;
+        }
+        x2 -= 1;
+
+        rv.extend(matrix[y2 - 1][x1..x2].iter().rev());
+        if rv.len() >= m * n {
+            break;
+        }
+        y2 -= 1;
+
+        for row in matrix[y1..y2].iter().rev() {
+            rv.push(row[x1]);
+        }
+        if rv.len() >= m * n {
+            break;
+        }
+        x1 += 1;
     }
 
     rv
