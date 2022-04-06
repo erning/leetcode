@@ -124,6 +124,9 @@ pub mod problem_0047;
 #[path="0048-rotate-image/init.rs"]
 pub mod problem_0048;
 
+#[path="0049-group-anagrams/init.rs"]
+pub mod problem_0049;
+
 #[path="0051-n-queens/init.rs"]
 pub mod problem_0051;
 
