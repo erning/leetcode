@@ -157,6 +157,9 @@ pub mod problem_0059;
 #[path="0060-permutation-sequence/init.rs"]
 pub mod problem_0060;
 
+#[path="0061-rotate-list/init.rs"]
+pub mod problem_0061;
+
 #[path="0082-remove-duplicates-from-sorted-list-ii/init.rs"]
 pub mod problem_0082;
 
