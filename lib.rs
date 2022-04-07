@@ -151,6 +151,9 @@ pub mod problem_0057;
 #[path="0058-length-of-last-word/init.rs"]
 pub mod problem_0058;
 
+#[path="0059-spiral-matrix-ii/init.rs"]
+pub mod problem_0059;
+
 #[path="0082-remove-duplicates-from-sorted-list-ii/init.rs"]
 pub mod problem_0082;
 
