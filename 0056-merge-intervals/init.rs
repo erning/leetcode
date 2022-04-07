@@ -1,13 +1,12 @@
 pub fn merge(intervals: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
     let mut intervals = intervals;
-    intervals.sort();
-
+    intervals.sort_by(|a, b| b[0].cmp(&a[0]));
     let mut rv = Vec::new();
-    let mut prev = intervals[0].clone();
-    for curr in intervals.into_iter().skip(1) {
+    let mut prev = intervals.pop().unwrap();
+    while let Some(curr) = intervals.pop() {
         if prev[1] < curr[0] {
             rv.push(prev);
-            prev = curr.clone();
+            prev = curr;
         } else if prev[1] < curr[1] {
             prev[1] = curr[1];
         }
