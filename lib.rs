@@ -145,6 +145,9 @@ pub mod problem_0055;
 #[path="0056-merge-intervals/init.rs"]
 pub mod problem_0056;
 
+#[path="0057-insert-interval/init.rs"]
+pub mod problem_0057;
+
 #[path="0082-remove-duplicates-from-sorted-list-ii/init.rs"]
 pub mod problem_0082;
 
