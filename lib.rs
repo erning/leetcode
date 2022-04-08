@@ -160,6 +160,12 @@ pub mod problem_0060;
 #[path="0061-rotate-list/init.rs"]
 pub mod problem_0061;
 
+#[path="0062-unique-paths/init.rs"]
+pub mod problem_0062;
+
+#[path="0063-unique-paths-ii/init.rs"]
+pub mod problem_0063;
+
 #[path="0082-remove-duplicates-from-sorted-list-ii/init.rs"]
 pub mod problem_0082;
 
