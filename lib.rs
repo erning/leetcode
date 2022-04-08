@@ -175,6 +175,9 @@ pub mod problem_0065;
 #[path="0066-plus-one/init.rs"]
 pub mod problem_0066;
 
+#[path="0067-add-binary/init.rs"]
+pub mod problem_0067;
+
 #[path="0082-remove-duplicates-from-sorted-list-ii/init.rs"]
 pub mod problem_0082;
 
