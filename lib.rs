@@ -181,6 +181,9 @@ pub mod problem_0067;
 #[path="0068-text-justification/init.rs"]
 pub mod problem_0068;
 
+#[path="0069-sqrtx/init.rs"]
+pub mod problem_0069;
+
 #[path="0082-remove-duplicates-from-sorted-list-ii/init.rs"]
 pub mod problem_0082;
 
