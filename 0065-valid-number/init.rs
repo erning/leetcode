@@ -1,11 +1,14 @@
 pub fn is_number(s: String) -> bool {
-    let s = s.as_bytes();
+    let mut s = s.as_bytes();
 
     let mut accept_sign = true;
     let mut accept_dot = true;
     let mut accept_e = false;
     let mut accepted_e = false;
     let mut require_more = true;
+
+    let mut accept_decimal = true;
+    let mut accept_integer = true;
 
     for &c in s.iter() {
         if c == b'+' || c == b'-' {
@@ -36,11 +39,15 @@ pub fn is_number(s: String) -> bool {
             continue;
         }
         if c >= b'0' && c <= b'9' {
-            accept_sign = false;
+            if accept_sign {
+                accept_sign = false;
+            }
             if !accepted_e {
                 accept_e = true;
             }
-            require_more = false;
+            if require_more {
+                require_more = false;
+            }
             continue;
         }
         return false;
