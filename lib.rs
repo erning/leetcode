@@ -184,6 +184,9 @@ pub mod problem_0068;
 #[path="0069-sqrtx/init.rs"]
 pub mod problem_0069;
 
+#[path="0070-climbing-stairs/init.rs"]
+pub mod problem_0070;
+
 #[path="0082-remove-duplicates-from-sorted-list-ii/init.rs"]
 pub mod problem_0082;
 
