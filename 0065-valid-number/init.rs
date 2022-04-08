@@ -1,14 +1,11 @@
 pub fn is_number(s: String) -> bool {
-    let mut s = s.as_bytes();
+    let s = s.as_bytes();
 
     let mut accept_sign = true;
     let mut accept_dot = true;
     let mut accept_e = false;
     let mut accepted_e = false;
     let mut require_more = true;
-
-    let mut accept_decimal = true;
-    let mut accept_integer = true;
 
     for &c in s.iter() {
         if c == b'+' || c == b'-' {
