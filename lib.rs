@@ -169,6 +169,9 @@ pub mod problem_0063;
 #[path="0064-minimum-path-sum/init.rs"]
 pub mod problem_0064;
 
+#[path="0065-valid-number/init.rs"]
+pub mod problem_0065;
+
 #[path="0082-remove-duplicates-from-sorted-list-ii/init.rs"]
 pub mod problem_0082;
 
