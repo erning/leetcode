@@ -193,6 +193,9 @@ pub mod problem_0071;
 #[path="0072-edit-distance/init.rs"]
 pub mod problem_0072;
 
+#[path="0073-set-matrix-zeroes/init.rs"]
+pub mod problem_0073;
+
 #[path="0082-remove-duplicates-from-sorted-list-ii/init.rs"]
 pub mod problem_0082;
 
