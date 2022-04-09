@@ -199,6 +199,9 @@ pub mod problem_0073;
 #[path="0074-search-a-2d-matrix/init.rs"]
 pub mod problem_0074;
 
+#[path="0075-sort-colors/init.rs"]
+pub mod problem_0075;
+
 #[path="0082-remove-duplicates-from-sorted-list-ii/init.rs"]
 pub mod problem_0082;
 
