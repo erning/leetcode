@@ -202,6 +202,9 @@ pub mod problem_0074;
 #[path="0075-sort-colors/init.rs"]
 pub mod problem_0075;
 
+#[path="0076-minimum-window-substring/init.rs"]
+pub mod problem_0076;
+
 #[path="0082-remove-duplicates-from-sorted-list-ii/init.rs"]
 pub mod problem_0082;
 
