@@ -205,6 +205,9 @@ pub mod problem_0075;
 #[path="0076-minimum-window-substring/init.rs"]
 pub mod problem_0076;
 
+#[path="0077-combinations/init.rs"]
+pub mod problem_0077;
+
 #[path="0082-remove-duplicates-from-sorted-list-ii/init.rs"]
 pub mod problem_0082;
 
