@@ -208,6 +208,9 @@ pub mod problem_0076;
 #[path="0077-combinations/init.rs"]
 pub mod problem_0077;
 
+#[path="0078-subsets/init.rs"]
+pub mod problem_0078;
+
 #[path="0082-remove-duplicates-from-sorted-list-ii/init.rs"]
 pub mod problem_0082;
 
