@@ -214,6 +214,9 @@ pub mod problem_0078;
 #[path="0079-word-search/init.rs"]
 pub mod problem_0079;
 
+#[path="0080-remove-duplicates-from-sorted-array-ii/init.rs"]
+pub mod problem_0080;
+
 #[path="0082-remove-duplicates-from-sorted-list-ii/init.rs"]
 pub mod problem_0082;
 
