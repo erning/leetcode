@@ -226,6 +226,9 @@ pub mod problem_0082;
 #[path="0083-remove-duplicates-from-sorted-list/init.rs"]
 pub mod problem_0083;
 
+#[path="0084-largest-rectangle-in-histogram/init.rs"]
+pub mod problem_0084;
+
 #[path="0086-partition-list/init.rs"]
 pub mod problem_0086;
 
