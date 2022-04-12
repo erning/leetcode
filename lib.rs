@@ -229,6 +229,9 @@ pub mod problem_0083;
 #[path="0084-largest-rectangle-in-histogram/init.rs"]
 pub mod problem_0084;
 
+#[path="0085-maximal-rectangle/init.rs"]
+pub mod problem_0085;
+
 #[path="0086-partition-list/init.rs"]
 pub mod problem_0086;
 
