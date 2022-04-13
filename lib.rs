@@ -235,6 +235,9 @@ pub mod problem_0085;
 #[path="0086-partition-list/init.rs"]
 pub mod problem_0086;
 
+#[path="0087-scramble-string/init.rs"]
+pub mod problem_0087;
+
 #[path="0091-decode-ways/init.rs"]
 pub mod problem_0091;
 
