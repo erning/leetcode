@@ -244,6 +244,9 @@ pub mod problem_0088;
 #[path="0089-gray-code/init.rs"]
 pub mod problem_0089;
 
+#[path="0090-subsets-ii/init.rs"]
+pub mod problem_0090;
+
 #[path="0091-decode-ways/init.rs"]
 pub mod problem_0091;
 
