@@ -6,6 +6,10 @@ pub fn is_scramble(s1: String, s2: String) -> bool {
         s2: &'a [u8],
         memo: &mut HashMap<(&'a [u8], &'a [u8]), bool>,
     ) -> bool {
+        let len = s1.len();
+        if len == 1 {
+            return s1 == s2;
+        }
         if s1 == s2 {
             return true;
         }
@@ -14,7 +18,6 @@ pub fn is_scramble(s1: String, s2: String) -> bool {
             return v;
         }
         let mut v = false;
-        let len = s1.len();
         for p in 1..len {
             if is_scramble(&s1[..p], &s2[..p], memo) && is_scramble(&s1[p..], &s2[p..], memo) {
                 v = true;
