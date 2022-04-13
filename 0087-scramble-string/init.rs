@@ -17,6 +17,18 @@ pub fn is_scramble(s1: String, s2: String) -> bool {
         if let Some(&v) = memo.get(&k) {
             return v;
         }
+        let mut f1 = [0; 26];
+        let mut f2 = [0; 26];
+        for &c in s1 {
+            f1[(c - b'a') as usize] += 1;
+        }
+        for &c in s2 {
+            f2[(c - b'a') as usize] += 1;
+        }
+        if f1 != f2 {
+            memo.insert(k, false);
+            return false
+        }
         let mut v = false;
         for p in 1..len {
             if is_scramble(&s1[..p], &s2[..p], memo) && is_scramble(&s1[p..], &s2[p..], memo) {
