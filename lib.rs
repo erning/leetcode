@@ -250,6 +250,9 @@ pub mod problem_0090;
 #[path="0091-decode-ways/init.rs"]
 pub mod problem_0091;
 
+#[path="0093-restore-ip-addresses/init.rs"]
+pub mod problem_0093;
+
 #[path="0101-symmetric-tree/init.rs"]
 pub mod problem_0101;
 
