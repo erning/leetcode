@@ -259,6 +259,9 @@ pub mod problem_0094;
 #[path="0097-interleaving-string/init.rs"]
 pub mod problem_0097;
 
+#[path="0098-validate-binary-search-tree/init.rs"]
+pub mod problem_0098;
+
 #[path="0101-symmetric-tree/init.rs"]
 pub mod problem_0101;
 
