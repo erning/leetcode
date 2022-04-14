@@ -253,6 +253,9 @@ pub mod problem_0091;
 #[path="0093-restore-ip-addresses/init.rs"]
 pub mod problem_0093;
 
+#[path="0094-binary-tree-inorder-traversal/init.rs"]
+pub mod problem_0094;
+
 #[path="0101-symmetric-tree/init.rs"]
 pub mod problem_0101;
 
