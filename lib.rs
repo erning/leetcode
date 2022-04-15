@@ -280,6 +280,9 @@ pub mod problem_0103;
 #[path="0104-maximum-depth-of-binary-tree/init.rs"]
 pub mod problem_0104;
 
+#[path="0105-construct-binary-tree-from-preorder-and-inorder-traversal/init.rs"]
+pub mod problem_0105;
+
 #[path="0115-distinct-subsequences/init.rs"]
 pub mod problem_0115;
 
