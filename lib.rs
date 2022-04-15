@@ -277,6 +277,9 @@ pub mod problem_0102;
 #[path="0103-binary-tree-zigzag-level-order-traversal/init.rs"]
 pub mod problem_0103;
 
+#[path="0104-maximum-depth-of-binary-tree/init.rs"]
+pub mod problem_0104;
+
 #[path="0115-distinct-subsequences/init.rs"]
 pub mod problem_0115;
 
