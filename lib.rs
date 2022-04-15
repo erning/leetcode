@@ -271,6 +271,9 @@ pub mod problem_0100;
 #[path="0101-symmetric-tree/init.rs"]
 pub mod problem_0101;
 
+#[path="0102-binary-tree-level-order-traversal/init.rs"]
+pub mod problem_0102;
+
 #[path="0118-pascals-triangle/init.rs"]
 pub mod problem_0118;
 
