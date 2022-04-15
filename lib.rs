@@ -262,6 +262,9 @@ pub mod problem_0097;
 #[path="0098-validate-binary-search-tree/init.rs"]
 pub mod problem_0098;
 
+#[path="0099-recover-binary-search-tree/init.rs"]
+pub mod problem_0099;
+
 #[path="0101-symmetric-tree/init.rs"]
 pub mod problem_0101;
 
