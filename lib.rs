@@ -283,6 +283,9 @@ pub mod problem_0104;
 #[path="0105-construct-binary-tree-from-preorder-and-inorder-traversal/init.rs"]
 pub mod problem_0105;
 
+#[path="0106-construct-binary-tree-from-inorder-and-postorder-traversal/init.rs"]
+pub mod problem_0106;
+
 #[path="0115-distinct-subsequences/init.rs"]
 pub mod problem_0115;
 
