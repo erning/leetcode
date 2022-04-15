@@ -274,6 +274,9 @@ pub mod problem_0101;
 #[path="0102-binary-tree-level-order-traversal/init.rs"]
 pub mod problem_0102;
 
+#[path="0103-binary-tree-zigzag-level-order-traversal/init.rs"]
+pub mod problem_0103;
+
 #[path="0118-pascals-triangle/init.rs"]
 pub mod problem_0118;
 
