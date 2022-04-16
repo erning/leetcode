@@ -289,6 +289,12 @@ pub mod problem_0106;
 #[path="0107-binary-tree-level-order-traversal-ii/init.rs"]
 pub mod problem_0107;
 
+#[path="0108-convert-sorted-array-to-binary-search-tree/init.rs"]
+pub mod problem_0108;
+
+#[path="0109-convert-sorted-list-to-binary-search-tree/init.rs"]
+pub mod problem_0109;
+
 #[path="0115-distinct-subsequences/init.rs"]
 pub mod problem_0115;
 
