@@ -313,14 +313,14 @@ pub mod problem_0114;
 #[path="0115-distinct-subsequences/init.rs"]
 pub mod problem_0115;
 
-#[path="0116-populating-next-right-pointers-in-each-node/init.rs"]
-pub mod problem_0116;
-
 #[path="0118-pascals-triangle/init.rs"]
 pub mod problem_0118;
 
 #[path="0119-pascals-triangle-ii/init.rs"]
 pub mod problem_0119;
+
+#[path="0120-triangle/init.rs"]
+pub mod problem_0120;
 
 #[path="0139-word-break/init.rs"]
 pub mod problem_0139;
