@@ -304,6 +304,9 @@ pub mod problem_0111;
 #[path="0112-path-sum/init.rs"]
 pub mod problem_0112;
 
+#[path="0113-path-sum-ii/init.rs"]
+pub mod problem_0113;
+
 #[path="0115-distinct-subsequences/init.rs"]
 pub mod problem_0115;
 
