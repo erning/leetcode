@@ -301,6 +301,9 @@ pub mod problem_0110;
 #[path="0111-minimum-depth-of-binary-tree/init.rs"]
 pub mod problem_0111;
 
+#[path="0112-path-sum/init.rs"]
+pub mod problem_0112;
+
 #[path="0115-distinct-subsequences/init.rs"]
 pub mod problem_0115;
 
