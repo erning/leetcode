@@ -295,6 +295,9 @@ pub mod problem_0108;
 #[path="0109-convert-sorted-list-to-binary-search-tree/init.rs"]
 pub mod problem_0109;
 
+#[path="0110-balanced-binary-tree/init.rs"]
+pub mod problem_0110;
+
 #[path="0115-distinct-subsequences/init.rs"]
 pub mod problem_0115;
 
