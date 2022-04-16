@@ -322,6 +322,9 @@ pub mod problem_0119;
 #[path="0120-triangle/init.rs"]
 pub mod problem_0120;
 
+#[path="0121-best-time-to-buy-and-sell-stock/init.rs"]
+pub mod problem_0121;
+
 #[path="0139-word-break/init.rs"]
 pub mod problem_0139;
 
