@@ -307,6 +307,9 @@ pub mod problem_0112;
 #[path="0113-path-sum-ii/init.rs"]
 pub mod problem_0113;
 
+#[path="0114-flatten-binary-tree-to-linked-list/init.rs"]
+pub mod problem_0114;
+
 #[path="0115-distinct-subsequences/init.rs"]
 pub mod problem_0115;
 
