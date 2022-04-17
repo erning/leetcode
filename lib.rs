@@ -325,6 +325,9 @@ pub mod problem_0120;
 #[path="0121-best-time-to-buy-and-sell-stock/init.rs"]
 pub mod problem_0121;
 
+#[path="0122-best-time-to-buy-and-sell-stock-ii/init.rs"]
+pub mod problem_0122;
+
 #[path="0139-word-break/init.rs"]
 pub mod problem_0139;
 
