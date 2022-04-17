@@ -334,6 +334,9 @@ pub mod problem_0123;
 #[path="0124-binary-tree-maximum-path-sum/init.rs"]
 pub mod problem_0124;
 
+#[path="0125-valid-palindrome/init.rs"]
+pub mod problem_0125;
+
 #[path="0139-word-break/init.rs"]
 pub mod problem_0139;
 
