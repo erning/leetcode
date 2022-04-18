@@ -1,5 +1,3 @@
-use std::collections::VecDeque;
-
 pub fn ladder_length(begin_word: String, end_word: String, word_list: Vec<String>) -> i32 {
     #[inline]
     fn is_next(a: &str, b: &str) -> bool {
@@ -17,34 +15,37 @@ pub fn ladder_length(begin_word: String, end_word: String, word_list: Vec<String
         diff == 1
     }
 
-    let mut word_list: Vec<&str> = word_list.iter().map(|s| s.as_str()).collect();
-    let mut queue = VecDeque::new();
-    {
-        let mut v = Vec::new();
-        for (i, &next) in word_list.iter().enumerate() {
-            if is_next(&begin_word, next) {
-                queue.push_back((1, next));
-                v.push(i);
-            }
+    let mut words: Vec<&str> = Vec::new();
+    for word in word_list.iter() {
+        if word == &begin_word {
+            continue;
         }
-        v.into_iter().rev().for_each(|i| {
-            word_list.swap_remove(i);
-        });
+        words.push(word.as_str());
     }
-    while let Some((c, word)) = queue.pop_front() {
-        if word == &end_word {
-            return c + 1;
-        }
-        let mut v = Vec::new();
-        for (i, &next) in word_list.iter().enumerate() {
-            if is_next(word, next) {
-                queue.push_back((c + 1, next));
-                v.push(i);
+
+    let mut queue = vec![begin_word.as_str()];
+    let mut step = 0;
+    while !queue.is_empty() {
+        step += 1;
+        let mut new_queue: Vec<&str> = Vec::new();
+        while let Some(word) = queue.pop() {
+            if word == end_word.as_str() {
+                return step;
             }
+            let mut nexts: Vec<&str> = Vec::new();
+            let mut removes: Vec<usize> = Vec::new();
+            for (i, &next) in words.iter().enumerate() {
+                if is_next(word, next) {
+                    nexts.push(next);
+                    removes.push(i);
+                }
+            }
+            for i in removes.into_iter().rev() {
+                words.swap_remove(i);
+            }
+            new_queue.append(&mut nexts);
         }
-        v.into_iter().rev().for_each(|i| {
-            word_list.swap_remove(i);
-        });
+        std::mem::swap(&mut queue, &mut new_queue);
     }
     0
 }
