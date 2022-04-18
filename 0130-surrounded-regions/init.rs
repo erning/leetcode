@@ -14,8 +14,6 @@ pub fn solve(board: &mut Vec<Vec<char>>) {
             if nx < 0 || nx >= board[0].len() as i32 || ny < 0 || ny >= board.len() as i32 {
                 continue;
             }
-            let nx = nx as usize;
-            let ny = ny as usize;
             search(nx as usize, ny as usize, board);
         }
     }
@@ -24,7 +22,7 @@ pub fn solve(board: &mut Vec<Vec<char>>) {
         search(i, 0, board);
         search(i, m - 1, board);
     }
-    for i in 0..m {
+    for i in 1..m-1 {
         search(0, i, board);
         search(n - 1, i, board);
     }
