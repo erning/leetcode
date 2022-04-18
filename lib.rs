@@ -337,6 +337,9 @@ pub mod problem_0124;
 #[path="0125-valid-palindrome/init.rs"]
 pub mod problem_0125;
 
+#[path="0126-word-ladder-ii/init.rs"]
+pub mod problem_0126;
+
 #[path="0127-word-ladder/init.rs"]
 pub mod problem_0127;
 
