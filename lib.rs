@@ -343,6 +343,9 @@ pub mod problem_0126;
 #[path="0127-word-ladder/init.rs"]
 pub mod problem_0127;
 
+#[path="0128-longest-consecutive-sequence/init.rs"]
+pub mod problem_0128;
+
 #[path="0139-word-break/init.rs"]
 pub mod problem_0139;
 
