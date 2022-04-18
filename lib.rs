@@ -349,6 +349,9 @@ pub mod problem_0128;
 #[path="0129-sum-root-to-leaf-numbers/init.rs"]
 pub mod problem_0129;
 
+#[path="0130-surrounded-regions/init.rs"]
+pub mod problem_0130;
+
 #[path="0139-word-break/init.rs"]
 pub mod problem_0139;
 
