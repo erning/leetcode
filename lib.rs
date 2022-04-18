@@ -346,6 +346,9 @@ pub mod problem_0127;
 #[path="0128-longest-consecutive-sequence/init.rs"]
 pub mod problem_0128;
 
+#[path="0129-sum-root-to-leaf-numbers/init.rs"]
+pub mod problem_0129;
+
 #[path="0139-word-break/init.rs"]
 pub mod problem_0139;
 
