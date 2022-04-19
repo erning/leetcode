@@ -355,6 +355,9 @@ pub mod problem_0130;
 #[path="0131-palindrome-partitioning/init.rs"]
 pub mod problem_0131;
 
+#[path="0132-palindrome-partitioning-ii/init.rs"]
+pub mod problem_0132;
+
 #[path="0139-word-break/init.rs"]
 pub mod problem_0139;
 
