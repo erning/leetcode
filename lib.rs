@@ -358,6 +358,9 @@ pub mod problem_0131;
 #[path="0132-palindrome-partitioning-ii/init.rs"]
 pub mod problem_0132;
 
+#[path="0134-gas-station/init.rs"]
+pub mod problem_0134;
+
 #[path="0139-word-break/init.rs"]
 pub mod problem_0139;
 
