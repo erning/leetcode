@@ -364,6 +364,9 @@ pub mod problem_0134;
 #[path="0135-candy/init.rs"]
 pub mod problem_0135;
 
+#[path="0136-single-number/init.rs"]
+pub mod problem_0136;
+
 #[path="0139-word-break/init.rs"]
 pub mod problem_0139;
 
