@@ -385,6 +385,9 @@ pub mod problem_0144;
 #[path="0145-binary-tree-postorder-traversal/init.rs"]
 pub mod problem_0145;
 
+#[path="0146-lru-cache/init.rs"]
+pub mod problem_0146;
+
 #[path="0198-house-robber/init.rs"]
 pub mod problem_0198;
 
