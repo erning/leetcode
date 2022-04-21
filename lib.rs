@@ -367,6 +367,9 @@ pub mod problem_0135;
 #[path="0136-single-number/init.rs"]
 pub mod problem_0136;
 
+#[path="0137-single-number-ii/init.rs"]
+pub mod problem_0137;
+
 #[path="0139-word-break/init.rs"]
 pub mod problem_0139;
 
