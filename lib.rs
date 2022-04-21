@@ -373,6 +373,9 @@ pub mod problem_0137;
 #[path="0139-word-break/init.rs"]
 pub mod problem_0139;
 
+#[path="0140-word-break-ii/init.rs"]
+pub mod problem_0140;
+
 #[path="0143-reorder-list/init.rs"]
 pub mod problem_0143;
 
