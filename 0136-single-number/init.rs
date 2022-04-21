@@ -1,9 +1,5 @@
 pub fn single_number(nums: Vec<i32>) -> i32 {
-    let mut num = 0;
-    for v in nums.into_iter() {
-        num ^= v;
-    }
-    num
+    nums.into_iter().fold(0, |a, i| a ^ i)
 }
 
 #[cfg(test)]
