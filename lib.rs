@@ -388,6 +388,9 @@ pub mod problem_0145;
 #[path="0146-lru-cache/init.rs"]
 pub mod problem_0146;
 
+#[path="0149-max-points-on-a-line/init.rs"]
+pub mod problem_0149;
+
 #[path="0198-house-robber/init.rs"]
 pub mod problem_0198;
 
