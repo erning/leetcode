@@ -394,6 +394,9 @@ pub mod problem_0149;
 #[path="0150-evaluate-reverse-polish-notation/init.rs"]
 pub mod problem_0150;
 
+#[path="0151-reverse-words-in-a-string/init.rs"]
+pub mod problem_0151;
+
 #[path="0198-house-robber/init.rs"]
 pub mod problem_0198;
 
