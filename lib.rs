@@ -406,6 +406,9 @@ pub mod problem_0153;
 #[path="0154-find-minimum-in-rotated-sorted-array-ii/init.rs"]
 pub mod problem_0154;
 
+#[path="0155-min-stack/init.rs"]
+pub mod problem_0155;
+
 #[path="0198-house-robber/init.rs"]
 pub mod problem_0198;
 
