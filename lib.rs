@@ -391,6 +391,9 @@ pub mod problem_0146;
 #[path="0149-max-points-on-a-line/init.rs"]
 pub mod problem_0149;
 
+#[path="0150-evaluate-reverse-polish-notation/init.rs"]
+pub mod problem_0150;
+
 #[path="0198-house-robber/init.rs"]
 pub mod problem_0198;
 
