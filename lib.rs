@@ -397,6 +397,9 @@ pub mod problem_0150;
 #[path="0151-reverse-words-in-a-string/init.rs"]
 pub mod problem_0151;
 
+#[path="0152-maximum-product-subarray/init.rs"]
+pub mod problem_0152;
+
 #[path="0198-house-robber/init.rs"]
 pub mod problem_0198;
 
