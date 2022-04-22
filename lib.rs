@@ -400,6 +400,9 @@ pub mod problem_0151;
 #[path="0152-maximum-product-subarray/init.rs"]
 pub mod problem_0152;
 
+#[path="0153-find-minimum-in-rotated-sorted-array/init.rs"]
+pub mod problem_0153;
+
 #[path="0198-house-robber/init.rs"]
 pub mod problem_0198;
 
