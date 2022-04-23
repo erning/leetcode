@@ -415,6 +415,9 @@ pub mod problem_0154;
 #[path="0155-min-stack/init.rs"]
 pub mod problem_0155;
 
+#[path="0164-maximum-gap/init.rs"]
+pub mod problem_0164;
+
 #[path="0198-house-robber/init.rs"]
 pub mod problem_0198;
 
