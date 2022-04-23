@@ -391,6 +391,9 @@ pub mod problem_0146;
 #[path="0147-insertion-sort-list/init.rs"]
 pub mod problem_0147;
 
+#[path="0148-sort-list/init.rs"]
+pub mod problem_0148;
+
 #[path="0149-max-points-on-a-line/init.rs"]
 pub mod problem_0149;
 
