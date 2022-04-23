@@ -33,7 +33,6 @@ pub fn path_sum(root: Option<Rc<RefCell<TreeNode>>>, target_sum: i32) -> Vec<Vec
             (None, None) => {
                 if target == 0 {
                     paths.push(path.clone());
-                    println!("{:?}", path);
                 }
             }
         }
