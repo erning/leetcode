@@ -4,12 +4,12 @@ use std::rc::Rc;
 pub fn longest_path(parent: Vec<i32>, s: String) -> i32 {
     #[derive(Debug)]
     struct TreeNode {
-        val: char,
+        val: u8,
         children: Vec<Rc<RefCell<TreeNode>>>,
     }
 
     impl TreeNode {
-        fn new(val: char) -> TreeNode {
+        fn new(val: u8) -> TreeNode {
             TreeNode {
                 val,
                 children: Vec::new(),
@@ -19,33 +19,29 @@ pub fn longest_path(parent: Vec<i32>, s: String) -> i32 {
 
     fn max_path(parent: Rc<RefCell<TreeNode>>, max: &mut i32) -> i32 {
         let node = parent.borrow();
-        let subpaths: Vec<i32> = node
+        let children: Vec<(u8, i32)> = node
             .children
             .iter()
-            .map(|child| max_path(child.clone(), max))
+            .map(|child| (child.borrow().val, max_path(child.clone(), max)))
             .collect();
 
-        let mut submax = 0;
-        for i in 0..subpaths.len() {
-            if node.val == node.children[i].borrow().val {
-                continue;
+        let mut smax = 0;
+        for (i, &(_, a)) in children
+            .iter()
+            .enumerate()
+            .filter(|(_, &(v, _))| node.val != v)
+        {
+            if a > smax {
+                smax = a;
             }
-            let a = subpaths[i];
-            if a > submax {
-                submax = a;
-            }
-            for j in i + 1..subpaths.len() {
-                if node.val == node.children[j].borrow().val {
-                    continue;
-                }
-                let b = subpaths[j];
+            for &(_, b) in children.iter().skip(i + 1).filter(|&(v, _)| node.val != *v) {
                 let s = a + b + 1;
                 if s > *max {
                     *max = s;
                 }
             }
         }
-        let s = submax + 1;
+        let s = smax + 1;
         if s > *max {
             *max = s;
         }
@@ -53,9 +49,9 @@ pub fn longest_path(parent: Vec<i32>, s: String) -> i32 {
     }
 
     let nodes: Vec<Rc<RefCell<TreeNode>>> = s
-        .chars()
+        .as_bytes()
         .into_iter()
-        .map(|c| Rc::new(RefCell::new(TreeNode::new(c))))
+        .map(|&c| Rc::new(RefCell::new(TreeNode::new(c))))
         .collect();
     for (i, node) in nodes.iter().enumerate().skip(1).rev() {
         nodes[parent[i] as usize]
@@ -64,7 +60,7 @@ pub fn longest_path(parent: Vec<i32>, s: String) -> i32 {
             .push(node.clone());
     }
 
-    let mut max = 0;
+    let mut max = 1;
     max_path(nodes[0].clone(), &mut max);
     max
 }
