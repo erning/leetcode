@@ -433,6 +433,9 @@ pub mod problem_0309;
 #[path="0322-coin-change/init.rs"]
 pub mod problem_0322;
 
+#[path="0416-partition-equal-subset-sum/init.rs"]
+pub mod problem_0416;
+
 #[path="0518-coin-change-2/init.rs"]
 pub mod problem_0518;
 
