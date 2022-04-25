@@ -448,6 +448,9 @@ pub mod problem_0679;
 #[path="2246-longest-path-with-different-adjacent-characters/init.rs"]
 pub mod problem_2246;
 
+#[path="2250-count-number-of-rectangles-containing-each-point/init.rs"]
+pub mod problem_2250;
+
 #[path="2251-number-of-flowers-in-full-bloom/init.rs"]
 pub mod problem_2251;
 
