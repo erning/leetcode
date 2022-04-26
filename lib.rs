@@ -448,6 +448,9 @@ pub mod problem_0679;
 #[path="2239-find-closest-number-to-zero/init.rs"]
 pub mod problem_2239;
 
+#[path="2243-calculate-digit-sum-of-a-string/init.rs"]
+pub mod problem_2243;
+
 #[path="2244-minimum-rounds-to-complete-all-tasks/init.rs"]
 pub mod problem_2244;
 
