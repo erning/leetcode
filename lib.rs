@@ -451,6 +451,9 @@ pub mod problem_2239;
 #[path="2246-longest-path-with-different-adjacent-characters/init.rs"]
 pub mod problem_2246;
 
+#[path="2249-count-lattice-points-inside-a-circle/init.rs"]
+pub mod problem_2249;
+
 #[path="2250-count-number-of-rectangles-containing-each-point/init.rs"]
 pub mod problem_2250;
 
