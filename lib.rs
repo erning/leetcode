@@ -448,6 +448,9 @@ pub mod problem_0679;
 #[path="2239-find-closest-number-to-zero/init.rs"]
 pub mod problem_2239;
 
+#[path="2245-maximum-trailing-zeros-in-a-cornered-path/init.rs"]
+pub mod problem_2245;
+
 #[path="2246-longest-path-with-different-adjacent-characters/init.rs"]
 pub mod problem_2246;
 
