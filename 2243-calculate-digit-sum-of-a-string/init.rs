@@ -8,26 +8,31 @@ pub fn digit_sum(s: String, k: i32) -> String {
         if sum == 0 {
             return vec![0];
         }
-        let mut v: Vec<u8> = Vec::new();
+        let mut v: Vec<u8> = Vec::with_capacity(s.len());
         while sum > 0 {
             v.push((sum % 10) as u8);
             sum /= 10;
         }
-        v.reverse();
         v
     }
 
     while s.len() > k {
-        let mut ns: Vec<u8> = Vec::new();
+        let mut ns: Vec<u8> = Vec::with_capacity(s.len());
         let mut i = 0;
         for _ in 0..s.len() / k {
             let group = &s[i..i + k];
-            ns.append(&mut sum(group));
+            let mut v = sum(group);
+            while let Some(v) = v.pop() {
+                ns.push(v);
+            }
             i += k;
         }
         if i < s.len() {
             let group = &s[i..];
-            ns.append(&mut sum(group));
+            let mut v = sum(group);
+            while let Some(v) = v.pop() {
+                ns.push(v);
+            }
         }
         s = ns;
     }
