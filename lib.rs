@@ -418,6 +418,9 @@ pub mod problem_0155;
 #[path="0164-maximum-gap/init.rs"]
 pub mod problem_0164;
 
+#[path="0168-excel-sheet-column-title/init.rs"]
+pub mod problem_0168;
+
 #[path="0198-house-robber/init.rs"]
 pub mod problem_0198;
 
