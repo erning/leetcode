@@ -433,6 +433,9 @@ pub mod problem_0167;
 #[path="0168-excel-sheet-column-title/init.rs"]
 pub mod problem_0168;
 
+#[path="0169-majority-element/init.rs"]
+pub mod problem_0169;
+
 #[path="0198-house-robber/init.rs"]
 pub mod problem_0198;
 
