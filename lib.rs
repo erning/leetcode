@@ -421,6 +421,9 @@ pub mod problem_0162;
 #[path="0164-maximum-gap/init.rs"]
 pub mod problem_0164;
 
+#[path="0165-compare-version-numbers/init.rs"]
+pub mod problem_0165;
+
 #[path="0168-excel-sheet-column-title/init.rs"]
 pub mod problem_0168;
 
