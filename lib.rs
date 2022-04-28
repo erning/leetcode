@@ -439,6 +439,9 @@ pub mod problem_0169;
 #[path="0171-excel-sheet-column-number/init.rs"]
 pub mod problem_0171;
 
+#[path="0172-factorial-trailing-zeroes/init.rs"]
+pub mod problem_0172;
+
 #[path="0198-house-robber/init.rs"]
 pub mod problem_0198;
 
