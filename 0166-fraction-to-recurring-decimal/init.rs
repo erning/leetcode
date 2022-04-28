@@ -1,9 +1,8 @@
 use std::collections::HashMap;
 
 pub fn fraction_to_decimal(numerator: i32, denominator: i32) -> String {
-    let sign = numerator.signum() * denominator.signum();
     let mut s = String::new();
-    if sign < 0 {
+    if numerator.signum() * denominator.signum() < 0 {
         s.push('-')
     }
     let n: i64 = (numerator as i64).abs();
@@ -13,17 +12,19 @@ pub fn fraction_to_decimal(numerator: i32, denominator: i32) -> String {
     if m == 0 {
         return s;
     }
-    let mut digits: Vec<i64> = Vec::new();
+
+    let mut digits: Vec<u8> = Vec::new();
     let mut map: HashMap<i64, usize> = HashMap::new();
     let mut infinite = None;
     while m != 0 && infinite.is_none() {
         map.insert(m, digits.len());
         m *= 10;
-        let digit = m / d;
+        let digit = (m / d) as u8;
         digits.push(digit);
         m %= d;
         infinite = map.get(&m);
     }
+
     s.push('.');
     if let Some(&i) = infinite {
         for &v in &digits[..i] {
