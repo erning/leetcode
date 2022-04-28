@@ -427,6 +427,9 @@ pub mod problem_0165;
 #[path="0166-fraction-to-recurring-decimal/init.rs"]
 pub mod problem_0166;
 
+#[path="0167-two-sum-ii-input-array-is-sorted/init.rs"]
+pub mod problem_0167;
+
 #[path="0168-excel-sheet-column-title/init.rs"]
 pub mod problem_0168;
 
