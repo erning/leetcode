@@ -424,6 +424,9 @@ pub mod problem_0164;
 #[path="0165-compare-version-numbers/init.rs"]
 pub mod problem_0165;
 
+#[path="0166-fraction-to-recurring-decimal/init.rs"]
+pub mod problem_0166;
+
 #[path="0168-excel-sheet-column-title/init.rs"]
 pub mod problem_0168;
 
