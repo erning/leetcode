@@ -442,6 +442,9 @@ pub mod problem_0171;
 #[path="0172-factorial-trailing-zeroes/init.rs"]
 pub mod problem_0172;
 
+#[path="0173-binary-search-tree-iterator/init.rs"]
+pub mod problem_0173;
+
 #[path="0198-house-robber/init.rs"]
 pub mod problem_0198;
 
