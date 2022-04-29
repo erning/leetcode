@@ -451,6 +451,9 @@ pub mod problem_0174;
 #[path = "0179-largest-number/init.rs"]
 pub mod problem_0179;
 
+#[path = "0187-repeated-dna-sequences/init.rs"]
+pub mod problem_0187;
+
 #[path = "0198-house-robber/init.rs"]
 pub mod problem_0198;
 
