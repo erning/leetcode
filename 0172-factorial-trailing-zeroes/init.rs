@@ -1,4 +1,3 @@
-
 pub fn trailing_zeroes(n: i32) -> i32 {
     let mut f2 = 0;
     let mut f5 = 0;

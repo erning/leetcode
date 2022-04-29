@@ -22,7 +22,7 @@ pub fn solve(board: &mut Vec<Vec<char>>) {
         search(i, 0, board);
         search(i, m - 1, board);
     }
-    for i in 1..m-1 {
+    for i in 1..m - 1 {
         search(0, i, board);
         search(n - 1, i, board);
     }

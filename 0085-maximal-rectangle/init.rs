@@ -1,7 +1,7 @@
 pub fn maximal_rectangle(matrix: Vec<Vec<char>>) -> i32 {
     fn build_histogram(matrix: &[Vec<char>]) -> Vec<i32> {
-        let mut histogram: Vec<i32> = vec![0;matrix[0].len()];
-        let mut ignores: Vec<bool> = matrix[0].iter() .map(|&c| c == '0').collect();
+        let mut histogram: Vec<i32> = vec![0; matrix[0].len()];
+        let mut ignores: Vec<bool> = matrix[0].iter().map(|&c| c == '0').collect();
         for row in matrix.iter() {
             for (x, v) in histogram.iter_mut().enumerate() {
                 if ignores[x] {

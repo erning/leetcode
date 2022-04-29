@@ -6,7 +6,7 @@ pub struct ListNode {
 
 pub fn swap_pairs(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     if head.is_none() || head.as_ref().unwrap().next.is_none() {
-    	return head
+        return head;
     }
 
     let mut curr = head;

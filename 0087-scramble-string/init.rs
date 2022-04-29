@@ -27,7 +27,7 @@ pub fn is_scramble(s1: String, s2: String) -> bool {
         }
         if f1 != f2 {
             memo.insert(k, false);
-            return false
+            return false;
         }
         let mut v = false;
         for p in 1..len {

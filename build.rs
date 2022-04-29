@@ -17,7 +17,7 @@ fn main() -> std::io::Result<()> {
     for e in glob("*/init.rs").expect("Failed to read glob pattern") {
         let pb = e.unwrap();
         let item = pb.to_str().unwrap();
-        writeln!(file, "#[path=\"{}\"]", item)?;
+        writeln!(file, "#[path = \"{}\"]", item)?;
         writeln!(file, "pub mod problem_{};", item.get(0..4).unwrap())?;
         writeln!(file)?;
     }

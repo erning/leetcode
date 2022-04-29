@@ -9,7 +9,7 @@ pub fn add_binary(a: String, b: String) -> String {
         let a = *opt_a.unwrap_or(&b'0') - b'0';
         let b = *opt_b.unwrap_or(&b'0') - b'0';
         let v = a + b + c;
-        c = v /  2;
+        c = v / 2;
         rv.push((v % 2) + b'0');
         opt_a = iter_a.next();
         opt_b = iter_b.next();

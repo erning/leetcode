@@ -8,9 +8,7 @@ pub struct MinStack {
  */
 impl MinStack {
     pub fn new() -> Self {
-        MinStack {
-            vec: Vec::new(),
-        }
+        MinStack { vec: Vec::new() }
     }
 
     pub fn push(&mut self, val: i32) {

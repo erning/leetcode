@@ -19,7 +19,7 @@ pub fn find_min(nums: Vec<i32>) -> i32 {
     }
 
     if nums.len() < 7 {
-        return nums.into_iter().min().unwrap()
+        return nums.into_iter().min().unwrap();
     }
 
     let pivot = p(0, nums.len() - 1, &nums).unwrap_or(0);

@@ -33,7 +33,8 @@ pub fn my_sqrt(x: i32) -> i32 {
         n = n * 100 + m;
         y *= 10;
         for _ in 0..10 {
-            if y >= 46340 { // max sqrt for i32 to avoid overflow
+            if y >= 46340 {
+                // max sqrt for i32 to avoid overflow
                 break;
             }
             y += 1;

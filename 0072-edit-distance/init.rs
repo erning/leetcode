@@ -57,6 +57,9 @@ mod tests {
         assert_eq!(min_distance("".to_string(), "".to_string()), 0);
         assert_eq!(min_distance("a".to_string(), "b".to_string()), 1);
 
-        assert_eq!(min_distance("distance".to_string(), "springbok".to_string()), 9);
+        assert_eq!(
+            min_distance("distance".to_string(), "springbok".to_string()),
+            9
+        );
     }
 }

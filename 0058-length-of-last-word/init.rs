@@ -1,7 +1,7 @@
 pub fn length_of_last_word(s: String) -> i32 {
     let mut length = 0;
     for &c in s.as_bytes().iter().rev().skip_while(|&v| *v == b' ') {
-        if c == b' '{
+        if c == b' ' {
             break;
         }
         length += 1;

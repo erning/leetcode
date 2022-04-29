@@ -13,10 +13,18 @@ pub fn eval_rpn(tokens: Vec<String>) -> i32 {
 
     for v in tokens.into_iter() {
         match v.as_str() {
-            "+" => { eval!(+); }
-            "-" => { eval!(-); }
-            "*" => { eval!(*); }
-            "/" => { eval!(/); }
+            "+" => {
+                eval!(+);
+            }
+            "-" => {
+                eval!(-);
+            }
+            "*" => {
+                eval!(*);
+            }
+            "/" => {
+                eval!(/);
+            }
             _ => stack.push(v.parse::<i32>().unwrap()),
         }
     }

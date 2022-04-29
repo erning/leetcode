@@ -50,4 +50,3 @@ mod tests {
         assert_eq!(is_same_tree(None, None), true);
     }
 }
-

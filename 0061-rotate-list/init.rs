@@ -7,7 +7,7 @@ pub struct ListNode {
 
 pub fn rotate_right(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
     if head.is_none() {
-        return None
+        return None;
     }
     let mut len = 0;
     let mut curr = &head;
