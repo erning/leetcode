@@ -448,6 +448,9 @@ pub mod problem_0173;
 #[path="0174-dungeon-game/init.rs"]
 pub mod problem_0174;
 
+#[path="0179-largest-number/init.rs"]
+pub mod problem_0179;
+
 #[path="0198-house-robber/init.rs"]
 pub mod problem_0198;
 
