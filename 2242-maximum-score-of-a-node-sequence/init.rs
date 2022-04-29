@@ -1,21 +1,13 @@
-use std::collections::HashSet;
-
 pub fn maximum_score(scores: Vec<i32>, edges: Vec<Vec<i32>>) -> i32 {
     let n = scores.len();
-    let mut graph: Vec<HashSet<usize>> = vec![HashSet::new(); n];
+    let mut graph: Vec<Vec<usize>> = vec![Vec::new(); n];
     for v in edges.iter() {
-        graph[v[0] as usize].insert(v[1] as usize);
-        graph[v[1] as usize].insert(v[0] as usize);
+        graph[v[0] as usize].push(v[1] as usize);
+        graph[v[1] as usize].push(v[0] as usize);
     }
-
-    let graph: Vec<Vec<usize>> = graph
-        .into_iter()
-        .map(|v| {
-            let mut v: Vec<usize> = v.into_iter().collect();
-            v.sort_unstable_by_key(|&i| -scores[i]);
-            v
-        })
-        .collect();
+    for v in graph.iter_mut() {
+        v.sort_unstable_by_key(|&i| -scores[i]);
+    }
 
     let mut max = -1;
     for v in edges.iter() {
@@ -31,7 +23,7 @@ pub fn maximum_score(scores: Vec<i32>, edges: Vec<Vec<i32>>) -> i32 {
                 }
                 let sum = scores[a] + scores[b] + scores[c] + scores[d];
                 if sum > max {
-                    max = sum
+                    max = sum as i32;
                 }
                 break;
             }
