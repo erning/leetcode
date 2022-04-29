@@ -484,6 +484,9 @@ pub mod problem_0785;
 #[path = "2239-find-closest-number-to-zero/init.rs"]
 pub mod problem_2239;
 
+#[path = "2240-number-of-ways-to-buy-pens-and-pencils/init.rs"]
+pub mod problem_2240;
+
 #[path = "2242-maximum-score-of-a-node-sequence/init.rs"]
 pub mod problem_2242;
 
