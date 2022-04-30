@@ -475,6 +475,9 @@ pub mod problem_0309;
 #[path = "0322-coin-change/init.rs"]
 pub mod problem_0322;
 
+#[path = "0399-evaluate-division/init.rs"]
+pub mod problem_0399;
+
 #[path = "0416-partition-equal-subset-sum/init.rs"]
 pub mod problem_0416;
 
