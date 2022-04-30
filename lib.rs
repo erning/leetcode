@@ -454,6 +454,9 @@ pub mod problem_0179;
 #[path = "0187-repeated-dna-sequences/init.rs"]
 pub mod problem_0187;
 
+#[path = "0188-best-time-to-buy-and-sell-stock-iv/init.rs"]
+pub mod problem_0188;
+
 #[path = "0198-house-robber/init.rs"]
 pub mod problem_0198;
 
