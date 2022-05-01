@@ -466,11 +466,14 @@ pub mod problem_0190;
 #[path = "0191-number-of-1-bits/init.rs"]
 pub mod problem_0191;
 
-#[path = "0192-binary-tree-right-side-view/init.rs"]
-pub mod problem_0192;
-
 #[path = "0198-house-robber/init.rs"]
 pub mod problem_0198;
+
+#[path = "0199-binary-tree-right-side-view/init.rs"]
+pub mod problem_0199;
+
+#[path = "0200-number-of-islands/init.rs"]
+pub mod problem_0200;
 
 #[path = "0206-reverse-linked-list/init.rs"]
 pub mod problem_0206;
