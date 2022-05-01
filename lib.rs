@@ -460,6 +460,9 @@ pub mod problem_0188;
 #[path = "0189-rotate-array/init.rs"]
 pub mod problem_0189;
 
+#[path = "0190-reverse-bits/init.rs"]
+pub mod problem_0190;
+
 #[path = "0198-house-robber/init.rs"]
 pub mod problem_0198;
 
