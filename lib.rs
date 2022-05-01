@@ -463,6 +463,9 @@ pub mod problem_0189;
 #[path = "0190-reverse-bits/init.rs"]
 pub mod problem_0190;
 
+#[path = "0191-number-of-1-bits/init.rs"]
+pub mod problem_0191;
+
 #[path = "0198-house-robber/init.rs"]
 pub mod problem_0198;
 
