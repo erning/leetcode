@@ -496,6 +496,9 @@ pub mod problem_0679;
 #[path = "0785-is-graph-bipartite/init.rs"]
 pub mod problem_0785;
 
+#[path = "0844-backspace-string-compare/init.rs"]
+pub mod problem_0844;
+
 #[path = "2239-find-closest-number-to-zero/init.rs"]
 pub mod problem_2239;
 
