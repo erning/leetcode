@@ -475,6 +475,9 @@ pub mod problem_0199;
 #[path = "0200-number-of-islands/init.rs"]
 pub mod problem_0200;
 
+#[path = "0201-bitwise-and-of-numbers-range/init.rs"]
+pub mod problem_0201;
+
 #[path = "0206-reverse-linked-list/init.rs"]
 pub mod problem_0206;
 
