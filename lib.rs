@@ -487,6 +487,9 @@ pub mod problem_0203;
 #[path = "0204-count-primes/init.rs"]
 pub mod problem_0204;
 
+#[path = "0205-isomorphic-strings/init.rs"]
+pub mod problem_0205;
+
 #[path = "0206-reverse-linked-list/init.rs"]
 pub mod problem_0206;
 
