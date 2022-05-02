@@ -481,6 +481,9 @@ pub mod problem_0201;
 #[path = "0202-happy-number/init.rs"]
 pub mod problem_0202;
 
+#[path = "0203-remove-linked-list-elements/init.rs"]
+pub mod problem_0203;
+
 #[path = "0206-reverse-linked-list/init.rs"]
 pub mod problem_0206;
 
