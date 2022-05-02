@@ -478,6 +478,9 @@ pub mod problem_0200;
 #[path = "0201-bitwise-and-of-numbers-range/init.rs"]
 pub mod problem_0201;
 
+#[path = "0202-happy-number/init.rs"]
+pub mod problem_0202;
+
 #[path = "0206-reverse-linked-list/init.rs"]
 pub mod problem_0206;
 
