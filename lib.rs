@@ -496,6 +496,9 @@ pub mod problem_0206;
 #[path = "0207-course-schedule/init.rs"]
 pub mod problem_0207;
 
+#[path = "0209-minimum-size-subarray-sum/init.rs"]
+pub mod problem_0209;
+
 #[path = "0234-palindrome-linked-list/init.rs"]
 pub mod problem_0234;
 
