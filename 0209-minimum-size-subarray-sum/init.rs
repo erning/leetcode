@@ -1,28 +1,35 @@
 pub fn min_sub_array_len(target: i32, nums: Vec<i32>) -> i32 {
     let n = nums.len();
+    let mut i = 0;
+    let mut j = 0;
+    let mut min = n + 1;
     let mut sum = 0;
-    for &v in nums.iter() {
-        if v >= target {
-            return 1;
+
+    while i < n {
+        while j < n {
+            sum += nums[j];
+            j += 1;
+            if sum >= target {
+                if j - i < min {
+                    min = j - i;
+                }
+                break;
+            }
         }
-        sum += v;
-    }
-    if sum < target {
-        return 0;
-    }
-    if sum == target {
-        return n as i32;
-    }
-    let mut dp = nums.clone();
-    for l in 1..n {
-        for i in (l..n).rev() {
-            dp[i] = dp[i - 1] + nums[i];
-            if dp[i] >= target {
-                return (l + 1) as i32;
+        while i < j {
+            sum -= nums[i];
+            i += 1;
+            if sum >= target {
+                if j - i < min {
+                    min = j - i;
+                }
+            } else {
+                break;
             }
         }
     }
-    0
+
+    return if min > n { 0 } else { min as i32 };
 }
 
 #[cfg(test)]
