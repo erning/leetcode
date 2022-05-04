@@ -42,10 +42,10 @@ pub fn solve(board: &mut Vec<Vec<char>>) {
 mod tests {
     use super::*;
 
-    fn tf(input: Vec<Vec<char>>, excepted: Vec<Vec<char>>) {
+    fn tf(input: Vec<Vec<char>>, expected: Vec<Vec<char>>) {
         let mut board = input.clone();
         solve(&mut board);
-        assert_eq!(board, excepted);
+        assert_eq!(board, expected);
     }
     #[test]
     fn example() {

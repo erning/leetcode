@@ -25,10 +25,10 @@ pub fn count_lattice_points(circles: Vec<Vec<i32>>) -> i32 {
 mod tests {
     use super::*;
 
-    fn tf(input: &[[i32; 3]], excepted: i32) {
+    fn tf(input: &[[i32; 3]], expected: i32) {
         let circles: Vec<Vec<i32>> = input.into_iter().map(|v| v.to_vec()).collect();
         let output = count_lattice_points(circles);
-        assert_eq!(output, excepted, "{:?}", input);
+        assert_eq!(output, expected, "{:?}", input);
     }
 
     #[test]

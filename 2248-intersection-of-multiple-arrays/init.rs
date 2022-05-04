@@ -17,10 +17,10 @@ pub fn intersection(nums: Vec<Vec<i32>>) -> Vec<i32> {
 mod tests {
     use super::*;
 
-    fn tf(input: Vec<Vec<i32>>, excepted: Vec<i32>) {
+    fn tf(input: Vec<Vec<i32>>, expected: Vec<i32>) {
         let nums = input.clone();
         let output = intersection(nums);
-        assert_eq!(output, excepted, "{:?}", input);
+        assert_eq!(output, expected, "{:?}", input);
     }
 
     #[test]

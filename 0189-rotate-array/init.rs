@@ -26,10 +26,10 @@ pub fn rotate(nums: &mut Vec<i32>, k: i32) {
 mod tests {
     use super::*;
 
-    fn tf(input: &[i32], k: i32, excepted: &[i32]) {
+    fn tf(input: &[i32], k: i32, expected: &[i32]) {
         let mut nums = input.to_vec();
         rotate(&mut nums, k);
-        assert_eq!(nums, excepted, "{:?}", input);
+        assert_eq!(nums, expected, "{:?}", input);
     }
     #[test]
     fn example() {

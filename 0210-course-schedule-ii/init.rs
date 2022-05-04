@@ -58,10 +58,10 @@ pub fn find_order(num_courses: i32, prerequisites: Vec<Vec<i32>>) -> Vec<i32> {
 mod tests {
     use super::*;
 
-    fn tf(num_courses: i32, prerequisites: &[[i32; 2]], excepted: &[&[i32]]) {
+    fn tf(num_courses: i32, prerequisites: &[[i32; 2]], expected: &[&[i32]]) {
         let v: Vec<Vec<i32>> = prerequisites.into_iter().map(|v| v.to_vec()).collect();
         let output = find_order(num_courses, v);
-        for e in excepted.into_iter() {
+        for e in expected.into_iter() {
             let v: Vec<i32> = e.into_iter().map(|&v| v).collect();
             if output == v {
                 return;

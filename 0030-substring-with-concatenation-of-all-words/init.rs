@@ -49,12 +49,12 @@ pub fn find_substring(s: String, words: Vec<String>) -> Vec<i32> {
 mod tests {
     use super::*;
 
-    fn tf(s: &str, words: &[&str], excepted: Vec<i32>) {
+    fn tf(s: &str, words: &[&str], expected: Vec<i32>) {
         let vs = s.to_string();
         let vwords: Vec<String> = words.iter().map(|v| v.to_string()).collect();
         let mut output = find_substring(vs, vwords);
         output.sort();
-        assert_eq!(output, excepted, "{:?}", s);
+        assert_eq!(output, expected, "{:?}", s);
     }
 
     #[test]

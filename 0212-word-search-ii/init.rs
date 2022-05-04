@@ -88,12 +88,12 @@ pub fn find_words(board: Vec<Vec<char>>, words: Vec<String>) -> Vec<String> {
 mod tests {
     use super::*;
 
-    fn tf(board: &[&[char]], words: &[&str], excepted: &[&str]) {
+    fn tf(board: &[&[char]], words: &[&str], expected: &[&str]) {
         let b: Vec<Vec<char>> = board.iter().map(|v| v.to_vec()).collect();
         let w: Vec<String> = words.iter().map(|v| v.to_string()).collect();
         let mut output = find_words(b, w);
         output.sort_unstable();
-        assert_eq!(output, excepted, "{:?}", (board, words));
+        assert_eq!(output, expected, "{:?}", (board, words));
     }
     #[test]
     fn example() {

@@ -53,11 +53,11 @@ pub fn can_finish(num_courses: i32, prerequisites: Vec<Vec<i32>>) -> bool {
 mod tests {
     use super::*;
 
-    fn tf(num_courses: i32, prerequisites: &[[i32; 2]], excepted: bool) {
+    fn tf(num_courses: i32, prerequisites: &[[i32; 2]], expected: bool) {
         let v: Vec<Vec<i32>> = prerequisites.into_iter().map(|v| v.to_vec()).collect();
         let output = can_finish(num_courses, v);
         assert_eq!(
-            output, excepted,
+            output, expected,
             "num_courses: {:?}, prerequisites: {:?}",
             num_courses, &prerequisites
         );

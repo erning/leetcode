@@ -72,10 +72,10 @@ pub fn max_trailing_zeros(grid: Vec<Vec<i32>>) -> i32 {
 mod tests {
     use super::*;
 
-    fn tf(input: Vec<Vec<i32>>, excepted: i32) {
+    fn tf(input: Vec<Vec<i32>>, expected: i32) {
         let grid = input.clone();
         let output = max_trailing_zeros(grid);
-        assert_eq!(output, excepted, "{:?}", input);
+        assert_eq!(output, expected, "{:?}", input);
     }
 
     #[test]

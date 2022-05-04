@@ -21,10 +21,10 @@ pub fn find_repeated_dna_sequences(s: String) -> Vec<String> {
 mod tests {
     use super::*;
 
-    fn tf(s: &str, excepted: Vec<&str>) {
+    fn tf(s: &str, expected: Vec<&str>) {
         let mut output = find_repeated_dna_sequences(s.to_string());
         output.sort_unstable();
-        assert_eq!(output, excepted);
+        assert_eq!(output, expected);
     }
 
     #[test]

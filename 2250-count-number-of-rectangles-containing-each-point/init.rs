@@ -54,11 +54,11 @@ pub fn count_rectangles(rectangles: Vec<Vec<i32>>, points: Vec<Vec<i32>>) -> Vec
 mod tests {
     use super::*;
 
-    fn tf(rectangles: &[[i32; 2]], points: &[[i32; 2]], excepted: &[i32]) {
+    fn tf(rectangles: &[[i32; 2]], points: &[[i32; 2]], expected: &[i32]) {
         let r: Vec<Vec<i32>> = rectangles.iter().map(|v| v.to_vec()).collect();
         let p: Vec<Vec<i32>> = points.iter().map(|v| v.to_vec()).collect();
         let output = count_rectangles(r, p);
-        assert_eq!(output, excepted, "{:?}", (rectangles, points));
+        assert_eq!(output, expected, "{:?}", (rectangles, points));
     }
 
     #[test]

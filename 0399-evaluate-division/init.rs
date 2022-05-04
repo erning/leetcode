@@ -74,7 +74,7 @@ pub fn calc_equation(
 mod tests {
     use super::*;
 
-    fn tf(equations: &[[&str; 2]], values: &[f64], queries: &[[&str; 2]], excepted: &[f64]) {
+    fn tf(equations: &[[&str; 2]], values: &[f64], queries: &[[&str; 2]], expected: &[f64]) {
         let output = calc_equation(
             equations
                 .into_iter()
@@ -86,7 +86,7 @@ mod tests {
                 .map(|v| v.into_iter().map(|s| s.to_string()).collect())
                 .collect(),
         );
-        assert_eq!(output, excepted, "{:?}", equations);
+        assert_eq!(output, expected, "{:?}", equations);
     }
 
     #[test]

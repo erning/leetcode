@@ -22,9 +22,9 @@ pub fn compare_version(version1: String, version2: String) -> i32 {
 mod tests {
     use super::*;
 
-    fn tf(v1: &str, v2: &str, excepted: i32) {
+    fn tf(v1: &str, v2: &str, expected: i32) {
         let output = compare_version(v1.to_string(), v2.to_string());
-        assert_eq!(output, excepted, "{:?}", (v1, v2));
+        assert_eq!(output, expected, "{:?}", (v1, v2));
     }
     #[test]
     fn example() {

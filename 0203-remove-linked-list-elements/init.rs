@@ -43,11 +43,11 @@ mod tests {
         rv
     }
 
-    fn tf(input: &[i32], val: i32, excepted: &[i32]) {
+    fn tf(input: &[i32], val: i32, expected: &[i32]) {
         let list = vec_to_list(input);
         let list = remove_elements(list, val);
         let output = list_to_vec(&list);
-        assert_eq!(output, excepted);
+        assert_eq!(output, expected);
     }
 
     #[test]

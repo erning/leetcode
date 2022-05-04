@@ -35,9 +35,9 @@ pub fn eval_rpn(tokens: Vec<String>) -> i32 {
 mod tests {
     use super::*;
 
-    fn tf(input: Vec<&str>, excepted: i32) {
+    fn tf(input: Vec<&str>, expected: i32) {
         let tokens: Vec<String> = input.iter().map(|v| v.to_string()).collect();
-        assert_eq!(eval_rpn(tokens), excepted, "{:?}", input);
+        assert_eq!(eval_rpn(tokens), expected, "{:?}", input);
     }
     #[test]
     fn example() {
