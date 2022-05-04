@@ -502,6 +502,9 @@ pub mod problem_0209;
 #[path = "0210-course-schedule-ii/init.rs"]
 pub mod problem_0210;
 
+#[path = "0212-word-search-ii/init.rs"]
+pub mod problem_0212;
+
 #[path = "0234-palindrome-linked-list/init.rs"]
 pub mod problem_0234;
 
