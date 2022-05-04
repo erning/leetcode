@@ -535,6 +535,9 @@ pub mod problem_0844;
 #[path = "0905-sort-array-by-parity/init.rs"]
 pub mod problem_0905;
 
+#[path = "1679-max-number-of-k-sum-pairs/init.rs"]
+pub mod problem_1679;
+
 #[path = "2239-find-closest-number-to-zero/init.rs"]
 pub mod problem_2239;
 
