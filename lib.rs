@@ -511,6 +511,9 @@ pub mod problem_0213;
 #[path = "0214-shortest-palindrome/init.rs"]
 pub mod problem_0214;
 
+#[path = "0215-kth-largest-element-in-an-array/init.rs"]
+pub mod problem_0215;
+
 #[path = "0225-implement-stack-using-queues/init.rs"]
 pub mod problem_0225;
 
