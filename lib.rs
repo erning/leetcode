@@ -505,6 +505,9 @@ pub mod problem_0210;
 #[path = "0212-word-search-ii/init.rs"]
 pub mod problem_0212;
 
+#[path = "0225-implement-stack-using-queues/init.rs"]
+pub mod problem_0225;
+
 #[path = "0234-palindrome-linked-list/init.rs"]
 pub mod problem_0234;
 
