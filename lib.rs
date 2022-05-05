@@ -508,6 +508,9 @@ pub mod problem_0212;
 #[path = "0213-house-robber-ii/init.rs"]
 pub mod problem_0213;
 
+#[path = "0214-shortest-palindrome/init.rs"]
+pub mod problem_0214;
+
 #[path = "0225-implement-stack-using-queues/init.rs"]
 pub mod problem_0225;
 
