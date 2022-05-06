@@ -1,12 +1,19 @@
-use std::collections::HashSet;
-
 pub fn contains_duplicate(nums: Vec<i32>) -> bool {
-    let mut set: HashSet<i32> = HashSet::new();
+    let n = nums.len();
+    let mut set: Vec<i32> = vec![i32::MAX; n];
     for v in nums.into_iter() {
-        if set.contains(&v) {
-            return true;
+        let mut m = (v + 1000000000) as usize % n;
+        loop {
+            let x = &mut set[m];
+            if *x == v {
+                return true;
+            }
+            if *x == i32::MAX {
+                *x = v;
+                break;
+            }
+            m = (m + 1) % n;
         }
-        set.insert(v);
     }
     false
 }
