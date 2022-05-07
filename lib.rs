@@ -538,6 +538,9 @@ pub mod problem_0399;
 #[path = "0416-partition-equal-subset-sum/init.rs"]
 pub mod problem_0416;
 
+#[path = "0456-132-pattern/init.rs"]
+pub mod problem_0456;
+
 #[path = "0518-coin-change-2/init.rs"]
 pub mod problem_0518;
 
@@ -597,4 +600,3 @@ pub mod problem_2250;
 
 #[path = "2251-number-of-flowers-in-full-bloom/init.rs"]
 pub mod problem_2251;
-
