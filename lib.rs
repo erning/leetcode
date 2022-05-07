@@ -523,6 +523,9 @@ pub mod problem_0217;
 #[path = "0218-the-skyline-problem/init.rs"]
 pub mod problem_0218;
 
+#[path = "0219-contains-duplicate-ii/init.rs"]
+pub mod problem_0219;
+
 #[path = "0225-implement-stack-using-queues/init.rs"]
 pub mod problem_0225;
 
