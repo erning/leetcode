@@ -526,6 +526,9 @@ pub mod problem_0218;
 #[path = "0219-contains-duplicate-ii/init.rs"]
 pub mod problem_0219;
 
+#[path = "0220-contains-duplicate-iii/init.rs"]
+pub mod problem_0220;
+
 #[path = "0225-implement-stack-using-queues/init.rs"]
 pub mod problem_0225;
 
@@ -606,3 +609,4 @@ pub mod problem_2250;
 
 #[path = "2251-number-of-flowers-in-full-bloom/init.rs"]
 pub mod problem_2251;
+
