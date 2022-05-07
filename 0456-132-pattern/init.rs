@@ -1,34 +1,17 @@
 pub fn find132pattern(nums: Vec<i32>) -> bool {
-    let n = nums.len();
-    if n < 2 {
-        return false;
-    }
-    let mut i = 0;
-    'i: while i < n - 2 {
-        let a = nums[i];
-        let mut j = i + 1;
-        'j: while j < n - 1 {
-            let b = nums[j];
-            if b <= a {
-                i += 1;
-                continue 'i;
-            }
-            let mut k = j + 1;
-            'k: while k < n {
-                let c = nums[k];
-                if c >= b {
-                    j += 1;
-                    continue 'j;
-                }
-                if c <= a {
-                    k += 1;
-                    continue 'k;
-                }
-                return true;
-            }
-            break;
+    let mut c = i32::MIN;
+    let mut stack: Vec<i32> = Vec::new();
+    for v in nums.into_iter().rev() {
+        if v < c {
+            return true;
         }
-        i += 1;
+        while let Some(&b) = stack.last() {
+            if v <= b {
+                break;
+            }
+            c = stack.pop().unwrap();
+        }
+        stack.push(v);
     }
     false
 }
