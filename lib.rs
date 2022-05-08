@@ -532,6 +532,9 @@ pub mod problem_0220;
 #[path = "0221-maximal-square/init.rs"]
 pub mod problem_0221;
 
+#[path = "0222-count-complete-tree-nodes/init.rs"]
+pub mod problem_0222;
+
 #[path = "0225-implement-stack-using-queues/init.rs"]
 pub mod problem_0225;
 
@@ -618,4 +621,3 @@ pub mod problem_2250;
 
 #[path = "2251-number-of-flowers-in-full-bloom/init.rs"]
 pub mod problem_2251;
-
