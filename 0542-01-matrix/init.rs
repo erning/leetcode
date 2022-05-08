@@ -2,41 +2,28 @@ pub fn update_matrix(mat: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
     let m = mat.len();
     let n = mat[0].len();
     const MAX: i32 = 1_000_000_000;
-    let mut rv = vec![vec![MAX; n]; m];
+    let mut mat = mat;
     for j in 0..m {
         for i in 0..n {
             if mat[j][i] == 0 {
-                rv[j][i] = 0;
                 continue;
             }
-            if (i > 0 && mat[j][i - 1] == 0)
-                || (i < n - 1 && mat[j][i + 1] == 0)
-                || (j > 0 && mat[j - 1][i] == 0)
-                || (j < m - 1 && mat[j + 1][i] == 0)
-            {
-                rv[j][i] = 1;
+            let a = if i > 0 { mat[j][i - 1] } else { MAX };
+            let b = if j > 0 { mat[j - 1][i] } else { MAX };
+            mat[j][i] = MAX.min(a + 1).min(b + 1);
+        }
+    }
+    for j in (0..m).rev() {
+        for i in (0..n).rev() {
+            if mat[j][i] == 0 {
                 continue;
             }
+            let a = if i < n - 1 { mat[j][i + 1] } else { MAX };
+            let b = if j < m - 1 { mat[j + 1][i] } else { MAX };
+            mat[j][i] = mat[j][i].min(a + 1).min(b + 1);
         }
     }
-    let mut done = false;
-    while !done {
-        done = true;
-        for j in 0..m {
-            for i in 0..n {
-                let a = if j > 0 { rv[j - 1][i] + 1 } else { MAX };
-                let b = if j < m - 1 { rv[j + 1][i] + 1 } else { MAX };
-                let c = if i > 0 { rv[j][i - 1] + 1 } else { MAX };
-                let d = if i < n - 1 { rv[j][i + 1] + 1 } else { MAX };
-                let v = rv[j][i].min(a).min(b).min(c).min(d);
-                if v != rv[j][i] {
-                    rv[j][i] = v;
-                    done = false;
-                }
-            }
-        }
-    }
-    rv
+    mat
 }
 
 #[cfg(test)]
