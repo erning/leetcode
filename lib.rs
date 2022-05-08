@@ -529,6 +529,9 @@ pub mod problem_0219;
 #[path = "0220-contains-duplicate-iii/init.rs"]
 pub mod problem_0220;
 
+#[path = "0221-maximal-square/init.rs"]
+pub mod problem_0221;
+
 #[path = "0225-implement-stack-using-queues/init.rs"]
 pub mod problem_0225;
 
