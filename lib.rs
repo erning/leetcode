@@ -556,6 +556,9 @@ pub mod problem_0456;
 #[path = "0518-coin-change-2/init.rs"]
 pub mod problem_0518;
 
+#[path = "0542-01-matrix/init.rs"]
+pub mod problem_0542;
+
 #[path = "0581-shortest-unsorted-continuous-subarray/init.rs"]
 pub mod problem_0581;
 
