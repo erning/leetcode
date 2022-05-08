@@ -541,6 +541,9 @@ pub mod problem_0309;
 #[path = "0322-coin-change/init.rs"]
 pub mod problem_0322;
 
+#[path = "0341-flatten-nested-list-iterator/init.rs"]
+pub mod problem_0341;
+
 #[path = "0399-evaluate-division/init.rs"]
 pub mod problem_0399;
 
