@@ -48,7 +48,7 @@ mod tests {
             NestedInteger::Int(2),
             NestedInteger::List(vec![NestedInteger::Int(1), NestedInteger::Int(1)]),
         ]);
-        let ret_1: i32 = obj.next();
-        let ret_2: bool = obj.has_next();
+        let _: i32 = obj.next();
+        let _: bool = obj.has_next();
     }
 }
