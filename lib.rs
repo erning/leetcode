@@ -556,6 +556,9 @@ pub mod problem_0228;
 #[path = "0229-majority-element-ii/init.rs"]
 pub mod problem_0229;
 
+#[path = "0230-kth-smallest-element-in-a-bst/init.rs"]
+pub mod problem_0230;
+
 #[path = "0234-palindrome-linked-list/init.rs"]
 pub mod problem_0234;
 
@@ -639,3 +642,4 @@ pub mod problem_2250;
 
 #[path = "2251-number-of-flowers-in-full-bloom/init.rs"]
 pub mod problem_2251;
+
