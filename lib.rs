@@ -568,6 +568,9 @@ pub mod problem_0233;
 #[path = "0234-palindrome-linked-list/init.rs"]
 pub mod problem_0234;
 
+#[path = "0235-lowest-common-ancestor-of-a-binary-search-tree/init.rs"]
+pub mod problem_0235;
+
 #[path = "0309-best-time-to-buy-and-sell-stock-with-cooldown/init.rs"]
 pub mod problem_0309;
 
@@ -648,3 +651,4 @@ pub mod problem_2250;
 
 #[path = "2251-number-of-flowers-in-full-bloom/init.rs"]
 pub mod problem_2251;
+
