@@ -54,7 +54,7 @@ pub fn calculate(s: String) -> i32 {
             '*' | '/' => {
                 while let Some(&o) = ops.last() {
                     match o {
-                        '_' | '+' | '-' => {
+                        '_' | '*' | '/' => {
                             rpn.push(Item::O(o));
                             ops.pop();
                         }
@@ -128,5 +128,6 @@ mod tests {
         tf("1*(-1+2)", 1);
 
         tf("- (3 + (4 + 5))", -12);
+        tf("3 + 2*2", 7);
     }
 }
