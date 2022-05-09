@@ -547,6 +547,9 @@ pub mod problem_0225;
 #[path = "0226-invert-binary-tree/init.rs"]
 pub mod problem_0226;
 
+#[path = "0227-basic-calculator-ii/init.rs"]
+pub mod problem_0227;
+
 #[path = "0234-palindrome-linked-list/init.rs"]
 pub mod problem_0234;
 
@@ -630,3 +633,4 @@ pub mod problem_2250;
 
 #[path = "2251-number-of-flowers-in-full-bloom/init.rs"]
 pub mod problem_2251;
+
