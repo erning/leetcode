@@ -553,6 +553,9 @@ pub mod problem_0227;
 #[path = "0228-summary-ranges/init.rs"]
 pub mod problem_0228;
 
+#[path = "0229-majority-element-ii/init.rs"]
+pub mod problem_0229;
+
 #[path = "0234-palindrome-linked-list/init.rs"]
 pub mod problem_0234;
 
