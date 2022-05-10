@@ -1,42 +1,25 @@
 use std::collections::BinaryHeap;
-use std::collections::HashMap;
 
 pub fn max_sliding_window(nums: Vec<i32>, k: i32) -> Vec<i32> {
     let k = k as usize;
     let mut answer = Vec::with_capacity(k);
-
+    const MAX: i32 = 10000;
     let mut heap: BinaryHeap<i32> = BinaryHeap::new();
-    let mut map: HashMap<i32, i32> = HashMap::new();
+    let mut map: [i32; MAX as usize * 2 + 1] = [0; MAX as usize * 2 + 1];
     let mut max = i32::MIN;
     for &v in nums.iter().take(k) {
         if v > max {
             max = v;
         }
         heap.push(v);
-        if let Some(a) = map.get_mut(&v) {
-            *a += 1;
-        } else {
-            map.insert(v, 1);
-        }
+        map[(v + MAX) as usize] += 1;
     }
     answer.push(max);
     for i in k + 1..=nums.len() {
-        // remove from map
         let removed = nums[i - k - 1];
-        if let Some(a) = map.get_mut(&removed) {
-            if *a > 1 {
-                *a -= 1;
-            } else {
-                map.remove(&removed);
-            }
-        }
-        // add to map
+        map[(removed + MAX) as usize] -= 1;
         let added = nums[i - 1];
-        if let Some(a) = map.get_mut(&added) {
-            *a += 1;
-        } else {
-            map.insert(added, 1);
-        }
+        map[(added + MAX) as usize] += 1;
         heap.push(added);
 
         if added > max {
@@ -44,7 +27,7 @@ pub fn max_sliding_window(nums: Vec<i32>, k: i32) -> Vec<i32> {
         } else if removed == max && added < max {
             loop {
                 max = *heap.peek().unwrap();
-                if map.contains_key(&max) {
+                if map[(max + MAX) as usize] > 0 {
                     break;
                 }
                 heap.pop();
