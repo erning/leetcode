@@ -571,6 +571,9 @@ pub mod problem_0234;
 #[path = "0235-lowest-common-ancestor-of-a-binary-search-tree/init.rs"]
 pub mod problem_0235;
 
+#[path = "0236-lowest-common-ancestor-of-a-binary-tree/init.rs"]
+pub mod problem_0236;
+
 #[path = "0309-best-time-to-buy-and-sell-stock-with-cooldown/init.rs"]
 pub mod problem_0309;
 
