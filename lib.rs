@@ -628,6 +628,9 @@ pub mod problem_0905;
 #[path = "1209-remove-all-adjacent-duplicates-in-string-ii/init.rs"]
 pub mod problem_1209;
 
+#[path = "1641-count-sorted-vowel-strings/init.rs"]
+pub mod problem_1641;
+
 #[path = "1679-max-number-of-k-sum-pairs/init.rs"]
 pub mod problem_1679;
 
@@ -663,3 +666,4 @@ pub mod problem_2250;
 
 #[path = "2251-number-of-flowers-in-full-bloom/init.rs"]
 pub mod problem_2251;
+
