@@ -583,6 +583,9 @@ pub mod problem_0239;
 #[path = "0240-search-a-2d-matrix-ii/init.rs"]
 pub mod problem_0240;
 
+#[path = "0241-different-ways-to-add-parentheses/init.rs"]
+pub mod problem_0241;
+
 #[path = "0309-best-time-to-buy-and-sell-stock-with-cooldown/init.rs"]
 pub mod problem_0309;
 
@@ -666,4 +669,3 @@ pub mod problem_2250;
 
 #[path = "2251-number-of-flowers-in-full-bloom/init.rs"]
 pub mod problem_2251;
-
