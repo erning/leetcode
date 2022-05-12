@@ -586,6 +586,9 @@ pub mod problem_0240;
 #[path = "0241-different-ways-to-add-parentheses/init.rs"]
 pub mod problem_0241;
 
+#[path = "0242-valid-anagram/init.rs"]
+pub mod problem_0242;
+
 #[path = "0309-best-time-to-buy-and-sell-stock-with-cooldown/init.rs"]
 pub mod problem_0309;
 
