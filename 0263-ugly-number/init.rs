@@ -3,18 +3,16 @@ pub fn is_ugly(n: i32) -> bool {
         return false;
     }
     let mut n = n;
-    let mut m = 2;
-    while n >= m {
-        if n % m == 0 {
-            n /= m;
-        } else {
-            m += 1;
-            if m > 5 {
-                return false;
-            }
-        }
+    while n % 2 == 0 {
+        n /= 2;
     }
-    true
+    while n % 3 == 0 {
+        n /= 3;
+    }
+    while n % 5 == 0 {
+        n /= 5;
+    }
+    n == 1
 }
 
 #[cfg(test)]

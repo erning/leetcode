@@ -601,6 +601,9 @@ pub mod problem_0260;
 #[path = "0263-ugly-number/init.rs"]
 pub mod problem_0263;
 
+#[path = "0264-ugly-number-ii/init.rs"]
+pub mod problem_0264;
+
 #[path = "0309-best-time-to-buy-and-sell-stock-with-cooldown/init.rs"]
 pub mod problem_0309;
 
