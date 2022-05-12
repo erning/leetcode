@@ -592,6 +592,9 @@ pub mod problem_0242;
 #[path = "0257-binary-tree-paths/init.rs"]
 pub mod problem_0257;
 
+#[path = "0258-add-digits/init.rs"]
+pub mod problem_0258;
+
 #[path = "0309-best-time-to-buy-and-sell-stock-with-cooldown/init.rs"]
 pub mod problem_0309;
 
@@ -675,3 +678,4 @@ pub mod problem_2250;
 
 #[path = "2251-number-of-flowers-in-full-bloom/init.rs"]
 pub mod problem_2251;
+
