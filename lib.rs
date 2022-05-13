@@ -610,6 +610,9 @@ pub mod problem_0268;
 #[path = "0273-integer-to-english-words/init.rs"]
 pub mod problem_0273;
 
+#[path = "0278-first-bad-version/init.rs"]
+pub mod problem_0278;
+
 #[path = "0309-best-time-to-buy-and-sell-stock-with-cooldown/init.rs"]
 pub mod problem_0309;
 
