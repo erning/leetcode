@@ -607,6 +607,9 @@ pub mod problem_0264;
 #[path = "0268-missing-number/init.rs"]
 pub mod problem_0268;
 
+#[path = "0273-integer-to-english-words/init.rs"]
+pub mod problem_0273;
+
 #[path = "0309-best-time-to-buy-and-sell-stock-with-cooldown/init.rs"]
 pub mod problem_0309;
 
