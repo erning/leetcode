@@ -613,6 +613,9 @@ pub mod problem_0273;
 #[path = "0278-first-bad-version/init.rs"]
 pub mod problem_0278;
 
+#[path = "0279-perfect-squares/init.rs"]
+pub mod problem_0279;
+
 #[path = "0309-best-time-to-buy-and-sell-stock-with-cooldown/init.rs"]
 pub mod problem_0309;
 
@@ -645,6 +648,9 @@ pub mod problem_0639;
 
 #[path = "0679-24-game/init.rs"]
 pub mod problem_0679;
+
+#[path = "0743-network-delay-time/init.rs"]
+pub mod problem_0743;
 
 #[path = "0785-is-graph-bipartite/init.rs"]
 pub mod problem_0785;
