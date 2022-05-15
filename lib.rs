@@ -616,6 +616,9 @@ pub mod problem_0278;
 #[path = "0279-perfect-squares/init.rs"]
 pub mod problem_0279;
 
+#[path = "0282-expression-add-operators/init.rs"]
+pub mod problem_0282;
+
 #[path = "0309-best-time-to-buy-and-sell-stock-with-cooldown/init.rs"]
 pub mod problem_0309;
 
