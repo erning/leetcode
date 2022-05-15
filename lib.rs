@@ -664,6 +664,9 @@ pub mod problem_0905;
 #[path = "1209-remove-all-adjacent-duplicates-in-string-ii/init.rs"]
 pub mod problem_1209;
 
+#[path = "1302-deepest-leaves-sum/init.rs"]
+pub mod problem_1302;
+
 #[path = "1641-count-sorted-vowel-strings/init.rs"]
 pub mod problem_1641;
 
