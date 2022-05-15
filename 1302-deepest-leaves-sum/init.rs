@@ -21,25 +21,22 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 pub fn deepest_leaves_sum(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-    let mut sum = 0;
-    if let Some(node) = root {
-        let mut currs: Vec<Rc<RefCell<TreeNode>>> = Vec::new();
-        currs.push(node);
-        while !currs.is_empty() {
-            sum = 0;
-            let mut nexts: Vec<Rc<RefCell<TreeNode>>> = Vec::new();
-            for node in currs.into_iter() {
-                sum += node.borrow().val;
-                if let Some(next) = node.borrow().left.clone() {
-                    nexts.push(next);
-                }
-                if let Some(next) = node.borrow().right.clone() {
-                    nexts.push(next);
-                }
+    fn dfs(root: Option<Rc<RefCell<TreeNode>>>, depth: i32, max_depth: &mut i32, sum: &mut i32) {
+        if let Some(node) = root {
+            if depth > *max_depth {
+                *max_depth = depth;
+                *sum = node.borrow().val;
+            } else if depth == *max_depth {
+                *sum += node.borrow().val;
             }
-            currs = nexts;
+            dfs(node.borrow().left.clone(), depth + 1, max_depth, sum);
+            dfs(node.borrow().right.clone(), depth + 1, max_depth, sum);
         }
     }
+
+    let mut sum = 0;
+    let mut max_depth = 0;
+    dfs(root, 1, &mut max_depth, &mut sum);
     sum
 }
 
