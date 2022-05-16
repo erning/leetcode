@@ -664,6 +664,9 @@ pub mod problem_0844;
 #[path = "0905-sort-array-by-parity/init.rs"]
 pub mod problem_0905;
 
+#[path = "1091-shortest-path-in-binary-matrix/init.rs"]
+pub mod problem_1091;
+
 #[path = "1209-remove-all-adjacent-duplicates-in-string-ii/init.rs"]
 pub mod problem_1209;
 
@@ -708,4 +711,3 @@ pub mod problem_2250;
 
 #[path = "2251-number-of-flowers-in-full-bloom/init.rs"]
 pub mod problem_2251;
-
