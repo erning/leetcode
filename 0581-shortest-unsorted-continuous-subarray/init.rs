@@ -24,7 +24,11 @@ pub fn find_unsorted_subarray(nums: Vec<i32>) -> i32 {
         }
     }
 
-    return if a == b { 0 } else { (b + 1 - a) as i32 };
+    if a == b {
+        0
+    } else {
+        (b + 1 - a) as i32
+    }
 }
 
 #[cfg(test)]

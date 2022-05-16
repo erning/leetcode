@@ -55,14 +55,12 @@ pub fn contains_nearby_almost_duplicate(nums: Vec<i32>, k: i32, t: i32) -> bool 
         }
         set.insert(n);
     }
-    let mut i = 0;
-    for &n in nums.iter().skip(k + 1) {
+    for (i, &n) in nums.iter().skip(k + 1).enumerate() {
         set.remove(nums[i]);
         if set.contains(n) {
             return true;
         }
         set.insert(n);
-        i += 1;
     }
     false
 }

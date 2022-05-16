@@ -2,18 +2,22 @@ use std::collections::HashMap;
 
 pub fn diff_ways_to_compute(expression: String) -> Vec<i32> {
     fn f<'a>(expr: &'a str, memo: &mut HashMap<&'a str, Vec<i32>>) -> Vec<i32> {
-        match expr.parse::<i32>() {
-            Ok(v) => {
-                return vec![v];
-            }
-            _ => {}
+        // match expr.parse::<i32>() {
+        //     Ok(v) => {
+        //         return vec![v];
+        //     }
+        //     _ => {}
+        // }
+        if let Ok(v) = expr.parse::<i32>() {
+            return vec![v];
         }
         if let Some(rv) = memo.get(expr) {
             return rv.clone();
         }
         let mut rv = Vec::new();
         for (i, ch) in expr.char_indices() {
-            if ch >= '0' && ch <= '9' {
+            // if ch >= '0' && ch <= '9' {
+            if ('0'..='9').contains(&ch) {
                 continue;
             }
             for a in f(&expr[..i], memo).into_iter() {

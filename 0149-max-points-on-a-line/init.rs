@@ -9,10 +9,18 @@ pub fn max_points(points: Vec<Vec<i32>>) -> i32 {
             } else if y == 0 {
                 return x;
             }
-            return if x % y != 0 { gcd(y, x % y) } else { y };
+            if x % y != 0 {
+                gcd(y, x % y)
+            } else {
+                y
+            }
         }
         let d = if a < b { gcd(b, a) } else { gcd(a, b) };
-        return if c < d { gcd(d, c) } else { gcd(c, d) };
+        if c < d {
+            gcd(d, c)
+        } else {
+            gcd(c, d)
+        }
     }
 
     let mut map: HashMap<(i32, i32, i32), HashSet<(i32, i32)>> = HashMap::new();

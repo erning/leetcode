@@ -1,3 +1,4 @@
+#[allow(clippy::too_many_arguments)]
 pub fn compute_area(
     ax1: i32,
     ay1: i32,

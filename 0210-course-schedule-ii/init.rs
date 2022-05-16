@@ -17,9 +17,10 @@ pub fn find_order(num_courses: i32, prerequisites: Vec<Vec<i32>>) -> Vec<i32> {
         }
     }
     for i in 0..num_courses {
-        if !dependencies.contains_key(&i) {
-            dependencies.insert(i, 0);
-        }
+        dependencies.entry(i).or_insert(0);
+        // if !dependencies.contains_key(&i) {
+        //     dependencies.insert(i, 0);
+        // }
     }
 
     let mut answer = Vec::new();

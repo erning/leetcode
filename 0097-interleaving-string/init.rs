@@ -20,9 +20,7 @@ pub fn is_interleave(s1: String, s2: String, s3: String) -> bool {
     for (y, &b) in s2.iter().enumerate() {
         for (x, &a) in s1.iter().enumerate() {
             let c = s3[x + y + 1];
-            if a == c && dp[y + 1][x] {
-                dp[y + 1][x + 1] = true;
-            } else if b == c && dp[y][x + 1] {
+            if (a == c && dp[y + 1][x]) || (b == c && dp[y][x + 1]) {
                 dp[y + 1][x + 1] = true;
             }
         }

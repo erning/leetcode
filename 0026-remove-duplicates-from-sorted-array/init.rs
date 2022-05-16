@@ -1,3 +1,4 @@
+#[allow(clippy::ptr_arg)]
 pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
     let mut k = 1;
     let mut prev = nums[0];

@@ -18,17 +18,28 @@ impl TreeNode {
 }
 
 use std::cell::RefCell;
+use std::cmp::Ordering;
 use std::rc::Rc;
 
 pub fn deepest_leaves_sum(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
     fn dfs(root: Option<Rc<RefCell<TreeNode>>>, depth: i32, max_depth: &mut i32, sum: &mut i32) {
         if let Some(node) = root {
-            if depth > *max_depth {
-                *max_depth = depth;
-                *sum = node.borrow().val;
-            } else if depth == *max_depth {
-                *sum += node.borrow().val;
+            match depth.cmp(max_depth) {
+                Ordering::Greater => {
+                    *max_depth = depth;
+                    *sum = node.borrow().val;
+                }
+                Ordering::Equal => {
+                    *sum += node.borrow().val;
+                }
+                _ => {}
             }
+            // if depth > *max_depth {
+            //     *max_depth = depth;
+            //     *sum = node.borrow().val;
+            // } else if depth == *max_depth {
+            //     *sum += node.borrow().val;
+            // }
             dfs(node.borrow().left.clone(), depth + 1, max_depth, sum);
             dfs(node.borrow().right.clone(), depth + 1, max_depth, sum);
         }

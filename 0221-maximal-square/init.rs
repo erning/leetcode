@@ -4,9 +4,9 @@ pub fn maximal_square(matrix: Vec<Vec<char>>) -> i32 {
     let mut max = 0;
     let mut prev = vec![0; n + 1];
     let mut curr = vec![0; n + 1];
-    for j in 0..m {
+    for row in matrix.iter().take(m) {
         for i in 0..n {
-            if matrix[j][i] == '0' {
+            if row[i] == '0' {
                 curr[i + 1] = 0;
                 continue;
             }

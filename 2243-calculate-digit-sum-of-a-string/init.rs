@@ -1,6 +1,6 @@
 pub fn digit_sum(s: String, k: i32) -> String {
     // assert!(k >= 2 && s.len() > 1);
-    let mut s: Vec<u8> = s.as_bytes().into_iter().map(|v| v - 48).collect();
+    let mut s: Vec<u8> = s.as_bytes().iter().map(|v| v - 48).collect();
     let k = k as usize;
 
     fn sum(s: &[u8]) -> Vec<u8> {

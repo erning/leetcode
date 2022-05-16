@@ -1,3 +1,5 @@
+use std::cmp::Ordering;
+
 pub fn search(nums: Vec<i32>, target: i32) -> i32 {
     if nums.len() < 7 {
         for (i, v) in nums.iter().enumerate() {
@@ -14,9 +16,9 @@ pub fn search(nums: Vec<i32>, target: i32) -> i32 {
         }
         let m = a + (b - a) / 2;
         if nums[a] < nums[m] {
-            return p(nums, m, b);
+            p(nums, m, b)
         } else {
-            return p(nums, a, m);
+            p(nums, a, m)
         }
     }
 
@@ -27,12 +29,11 @@ pub fn search(nums: Vec<i32>, target: i32) -> i32 {
         }
         let c = a + (b - a) / 2;
         let m = (c + p) % nums.len();
-        if target < nums[m] {
-            return f(nums, target, p, a, c - 1);
-        } else if target > nums[m] {
-            return f(nums, target, p, c + 1, b);
+        match target.cmp(&nums[m]) {
+            Ordering::Less => f(nums, target, p, a, c - 1),
+            Ordering::Greater => f(nums, target, p, c + 1, b),
+            _ => Some(m),
         }
-        return Some(m);
     }
 
     let p = if nums[0] > nums[nums.len() - 1] {

@@ -14,12 +14,12 @@ pub fn word_break(s: String, word_dict: Vec<String>) -> Vec<String> {
         }
         let mut rv = Vec::new();
         for &word in dict.iter() {
-            if s.starts_with(word) {
+            if let Some(stripped) = s.strip_prefix(word) {
                 if s.len() == word.len() {
                     rv.push(vec![word]);
                     continue;
                 }
-                for i in recursion(memo, &s[word.len()..], dict) {
+                for i in recursion(memo, stripped, dict) {
                     let mut v = vec![word];
                     v.extend(i.iter());
                     rv.push(v);
@@ -27,7 +27,7 @@ pub fn word_break(s: String, word_dict: Vec<String>) -> Vec<String> {
             }
         }
         memo.insert(s, rv.clone());
-        return rv;
+        rv
     }
 
     let dict: Vec<_> = word_dict.iter().map(String::as_str).collect();

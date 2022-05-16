@@ -1,3 +1,5 @@
+use std::cmp::Ordering;
+
 pub fn search_range(nums: Vec<i32>, target: i32) -> Vec<i32> {
     fn f(nums: &[i32], target: i32, a: usize, b: usize) -> Option<usize> {
         let c = a + (b - a) / 2;
@@ -10,12 +12,10 @@ pub fn search_range(nums: Vec<i32>, target: i32) -> Vec<i32> {
                 None
             };
         }
-        if target < nums[c] {
-            f(nums, target, a, c - 1)
-        } else if target > nums[c] {
-            f(nums, target, c + 1, b)
-        } else {
-            Some(c)
+        match target.cmp(&nums[c]) {
+            Ordering::Less => f(nums, target, a, c - 1),
+            Ordering::Greater => f(nums, target, c + 1, b),
+            _ => Some(c),
         }
     }
 

@@ -26,9 +26,8 @@ pub fn solve(board: &mut Vec<Vec<char>>) {
         search(0, i, board);
         search(n - 1, i, board);
     }
-    for y in 0..m {
-        for x in 0..n {
-            let c = &mut board[y][x];
+    for row in board {
+        for c in row.iter_mut() {
             if *c == 'o' {
                 *c = 'O';
             } else if *c == 'O' {

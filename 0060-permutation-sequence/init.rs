@@ -2,14 +2,14 @@ pub fn get_permutation(n: i32, k: i32) -> String {
     const FACTORIALS: [usize; 10] = [
         1,
         1,
-        1 * 2,
-        1 * 2 * 3,
-        1 * 2 * 3 * 4,
-        1 * 2 * 3 * 4 * 5,
-        1 * 2 * 3 * 4 * 5 * 6,
-        1 * 2 * 3 * 4 * 5 * 6 * 7,
-        1 * 2 * 3 * 4 * 5 * 6 * 7 * 8,
-        1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9,
+        2,
+        2 * 3,
+        2 * 3 * 4,
+        2 * 3 * 4 * 5,
+        2 * 3 * 4 * 5 * 6,
+        2 * 3 * 4 * 5 * 6 * 7,
+        2 * 3 * 4 * 5 * 6 * 7 * 8,
+        2 * 3 * 4 * 5 * 6 * 7 * 8 * 9,
     ];
     let mut used = [false; 9];
     let mut n = n as usize;
@@ -38,7 +38,7 @@ pub fn get_permutation(n: i32, k: i32) -> String {
         }
         used[p] = true;
         rv.push(p as u8 + b'1');
-        k = k % factorial;
+        k %= factorial;
         n -= 1;
     }
     String::from_utf8(rv).unwrap()

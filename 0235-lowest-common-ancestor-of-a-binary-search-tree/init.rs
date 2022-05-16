@@ -52,8 +52,8 @@ pub fn lowest_common_ancestor(
     }
 
     let mut lca: Option<Rc<RefCell<TreeNode>>> = None;
-    let mut a = p.clone().unwrap().borrow().val;
-    let mut b = q.clone().unwrap().borrow().val;
+    let mut a = p.unwrap().borrow().val;
+    let mut b = q.unwrap().borrow().val;
     if a > b {
         std::mem::swap(&mut a, &mut b);
     }

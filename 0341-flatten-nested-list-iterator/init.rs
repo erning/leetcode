@@ -13,7 +13,7 @@ impl NestedIterator {
     #[allow(non_snake_case)]
     pub fn new(nestedList: Vec<NestedInteger>) -> Self {
         fn append(list: &Vec<NestedInteger>, values: &mut Vec<i32>) {
-            for v in list.into_iter() {
+            for v in list {
                 match v {
                     NestedInteger::Int(v) => values.push(*v),
                     NestedInteger::List(v) => append(v, values),
@@ -26,6 +26,7 @@ impl NestedIterator {
         NestedIterator { values, index }
     }
 
+    #[allow(clippy::should_implement_trait)]
     pub fn next(&mut self) -> i32 {
         let v = self.values[self.index];
         self.index += 1;

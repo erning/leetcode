@@ -1,17 +1,17 @@
 use std::collections::HashSet;
 
 pub fn longest_consecutive(nums: Vec<i32>) -> i32 {
-    let mut remains: HashSet<i32> = nums.iter().map(|v| *v).collect();
+    let mut remains: HashSet<i32> = nums.iter().copied().collect();
     let mut longest = 0;
     while let Some(&n) = remains.iter().next() {
         remains.remove(&n);
         let mut m = n + 1;
-        while let Some(_) = remains.take(&m) {
+        while remains.take(&m).is_some() {
             m += 1;
         }
         let mut count = m - n;
         m = n - 1;
-        while let Some(_) = remains.take(&m) {
+        while remains.take(&m).is_some() {
             m -= 1;
         }
         count += n - m - 1;

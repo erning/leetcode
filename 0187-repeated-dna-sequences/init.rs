@@ -3,7 +3,7 @@ use std::collections::HashSet;
 pub fn find_repeated_dna_sequences(s: String) -> Vec<String> {
     let mut visited: HashSet<&[u8]> = HashSet::new();
     let mut answer: HashSet<&[u8]> = HashSet::new();
-    for sub in s.as_bytes().windows(10).into_iter() {
+    for sub in s.as_bytes().windows(10) {
         if visited.contains(sub) {
             answer.insert(sub);
         } else {

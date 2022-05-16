@@ -26,7 +26,7 @@ pub fn find_substring(s: String, words: Vec<String>) -> Vec<i32> {
         let ok = loop {
             let k = &s[p..p + size];
             if let Some(remain) = remains.get_mut(k) {
-                if *remain <= 0 {
+                if *remain == 0 {
                     break false;
                 }
                 *remain -= 1;
@@ -42,7 +42,7 @@ pub fn find_substring(s: String, words: Vec<String>) -> Vec<i32> {
             rv.push(i as i32);
         }
     }
-    return rv;
+    rv
 }
 
 #[cfg(test)]

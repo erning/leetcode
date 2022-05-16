@@ -1,3 +1,4 @@
+#[allow(clippy::ptr_arg)]
 pub fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {
     let mut rows = vec![false; matrix.len()];
     let mut cols = vec![false; matrix[0].len()];
@@ -15,9 +16,12 @@ pub fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {
         }
     }
     for (x, _) in cols.iter().enumerate().filter(|&(_, &v)| v) {
-        for y in 0..matrix.len() {
-            matrix[y][x] = 0;
+        for row in matrix.iter_mut() {
+            row[x] = 0;
         }
+        // for y in 0..matrix.len() {
+        //     matrix[y][x] = 0;
+        // }
     }
 }
 

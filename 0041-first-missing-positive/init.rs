@@ -11,7 +11,7 @@ pub fn first_missing_positive(nums: Vec<i32>) -> i32 {
         s[n - 1] = true;
     }
     for (i, &v) in s.iter().enumerate() {
-        if v == false {
+        if !v {
             return i as i32 + 1;
         }
     }

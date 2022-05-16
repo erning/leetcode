@@ -19,8 +19,7 @@ pub fn find_ladders(
         diff == 1
     }
 
-    let mut words: Vec<&str> = Vec::new();
-    words.push(begin_word.as_str());
+    let mut words: Vec<&str> = vec![begin_word.as_str()];
     for word in word_list.iter() {
         if word == &begin_word {
             continue;
@@ -48,9 +47,8 @@ pub fn find_ladders(
         return Vec::new();
     }
 
-    let to_string_vec = |path: &Vec<usize>| -> Vec<String> {
-        path.into_iter().map(|&i| words[i].to_string()).collect()
-    };
+    let to_string_vec =
+        |path: &Vec<usize>| -> Vec<String> { path.iter().map(|&i| words[i].to_string()).collect() };
 
     let mut paths: Vec<Vec<String>> = Vec::new();
     let mut queue: Vec<Vec<usize>> = Vec::new();

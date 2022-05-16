@@ -15,10 +15,8 @@ pub fn is_bipartite(graph: Vec<Vec<i32>>) -> bool {
 
     let mut visited: Vec<i32> = vec![0; graph.len()];
     for i in 0..graph.len() {
-        if visited[i] == 0 {
-            if !travel(i, 1, &graph, &mut visited) {
-                return false;
-            }
+        if visited[i] == 0 && !travel(i, 1, &graph, &mut visited) {
+            return false;
         }
     }
     true

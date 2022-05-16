@@ -43,7 +43,7 @@ pub fn full_justify(words: Vec<String>, max_width: i32) -> Vec<String> {
         row = Vec::new();
         c = max_width;
     }
-    if row.len() > 0 {
+    if !row.is_empty() {
         let mut s = String::with_capacity(max_width);
         s.push_str(row.join(" ").as_str());
         while s.len() < max_width {

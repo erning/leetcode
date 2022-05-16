@@ -6,7 +6,7 @@ pub fn can_jump(nums: Vec<i32>) -> bool {
     let mut prev = 0;
     let mut skip = 1;
     for (i, &n) in nums.iter().take(len - 1).enumerate() {
-        if dp[i] == false {
+        if !dp[i] {
             if i > max {
                 return false;
             }
@@ -25,8 +25,11 @@ pub fn can_jump(nums: Vec<i32>) -> bool {
         if skip < prev {
             skip = prev;
         }
-        for j in i + skip..=k {
-            dp[j] = true;
+        // for j in i + skip..=k {
+        //     dp[j] = true;
+        // }
+        for v in dp.iter_mut().take(k + 1).skip(i + skip) {
+            *v = true;
         }
         prev = curr;
         if skip > 1 {

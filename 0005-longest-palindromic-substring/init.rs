@@ -1,8 +1,8 @@
 pub fn longest_palindrome(s: String) -> String {
-    let len = s.len();
-    if len <= 0 {
-        return String::from("");
+    if s.is_empty() {
+        return s;
     }
+    let len = s.len();
     let s = s.as_bytes();
     let mut max_len = 0;
     let mut max_a = 0;

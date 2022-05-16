@@ -1,3 +1,4 @@
+#[allow(clippy::ptr_arg)]
 pub fn sort_colors(nums: &mut Vec<i32>) {
     let mut a = 0;
     let mut b = nums.len() - 1;

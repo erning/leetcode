@@ -1,13 +1,13 @@
 pub fn is_palindrome(s: String) -> bool {
     #[inline]
     fn normalize(x: u8) -> u8 {
-        if x >= 0x41 && x <= 0x5a {
+        if (0x41..=0x5a).contains(&x) {
             return x + 0x20;
         }
-        if x >= 0x61 && x <= 0x7a {
+        if (0x61..=0x7a).contains(&x) {
             return x;
         }
-        if x >= 0x30 && x <= 0x39 {
+        if (0x30..=0x39).contains(&x) {
             return x;
         }
         0

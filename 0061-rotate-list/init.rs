@@ -6,9 +6,8 @@ pub struct ListNode {
 }
 
 pub fn rotate_right(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
-    if head.is_none() {
-        return None;
-    }
+    head.as_ref()?;
+
     let mut len = 0;
     let mut curr = &head;
     while let Some(node) = curr {

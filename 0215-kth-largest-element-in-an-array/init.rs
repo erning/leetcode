@@ -1,3 +1,5 @@
+use std::cmp::Ordering;
+
 pub fn find_kth_largest(nums: Vec<i32>, k: i32) -> i32 {
     let k = k as usize - 1;
     let n = nums.len();
@@ -16,12 +18,10 @@ pub fn find_kth_largest(nums: Vec<i32>, k: i32) -> i32 {
             }
         }
         nums.swap(p, hi);
-        if p < k {
-            lo = p + 1;
-        } else if p > k {
-            hi = p - 1;
-        } else {
-            break;
+        match p.cmp(&k) {
+            Ordering::Less => lo = p + 1,
+            Ordering::Greater => hi = p - 1,
+            Ordering::Equal => break,
         }
     }
     nums[k]

@@ -1,6 +1,6 @@
 pub fn compare_version(version1: String, version2: String) -> i32 {
-    let mut iter1 = version1.split(".");
-    let mut iter2 = version2.split(".");
+    let mut iter1 = version1.split('.');
+    let mut iter2 = version2.split('.');
     let mut opt1 = iter1.next();
     let mut opt2 = iter2.next();
     while opt1.is_some() || opt2.is_some() {

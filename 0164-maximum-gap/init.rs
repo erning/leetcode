@@ -31,14 +31,22 @@ pub fn maximum_gap(nums: Vec<i32>) -> i32 {
     let mut gap = 0;
     let mut prev: Option<(i32, i32)> = None;
     for curr in buckets.into_iter().filter(|v| v.is_some()) {
-        if prev.is_some() {
-            let diff = curr.unwrap().0 - prev.unwrap().1;
+        if let Some(v) = prev {
+            let diff = curr.unwrap().0 - v.1;
             if diff > gap {
-                gap = diff;
+                gap = diff
             }
         } else {
             gap = curr.unwrap().1 - curr.unwrap().0;
         }
+        // if prev.is_some() {
+        //     let diff = curr.unwrap().0 - prev.unwrap().1;
+        //     if diff > gap {
+        //         gap = diff;
+        //     }
+        // } else {
+        //     gap = curr.unwrap().1 - curr.unwrap().0;
+        // }
         prev = curr;
     }
     gap

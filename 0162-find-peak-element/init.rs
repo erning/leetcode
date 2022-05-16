@@ -14,7 +14,11 @@ pub fn find_peak_element(nums: Vec<i32>) -> i32 {
         }
     }
 
-    return if nums[a] > nums[b] { a } else { b } as i32;
+    if nums[a] > nums[b] {
+        a as i32
+    } else {
+        b as i32
+    }
 }
 
 #[cfg(test)]

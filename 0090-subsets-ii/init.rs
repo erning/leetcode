@@ -24,7 +24,7 @@ pub fn subsets_with_dup(nums: Vec<i32>) -> Vec<Vec<i32>> {
         }
     }
     let mut nums = nums;
-    nums.sort();
+    nums.sort_unstable();
     let mut used: Vec<bool> = vec![false; nums.len()];
     let mut rv: HashSet<Vec<i32>> = HashSet::new();
     recursion(0, vec![], &nums, &mut rv, &mut used);

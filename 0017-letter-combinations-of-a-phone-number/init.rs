@@ -23,7 +23,8 @@ pub fn letter_combinations(digits: String) -> Vec<String> {
         return rv;
     }
 
-    while let Some(i) = iter.next() {
+    // while let Some(i) = iter.next() {
+    for i in iter {
         let len = rv.len();
         let chars = &map[(i - 0x32) as usize];
         for _ in 1..chars.len() {

@@ -11,10 +11,14 @@ pub fn find_min(nums: Vec<i32>) -> i32 {
             return p(c, b, nums);
         }
         if vb > vc {
-            return p(a, c, nums);
+            p(a, c, nums)
         } else {
             let v = p(a, c, nums);
-            return if v.is_some() { v } else { p(c, b, nums) };
+            if v.is_some() {
+                v
+            } else {
+                p(c, b, nums)
+            }
         }
     }
 

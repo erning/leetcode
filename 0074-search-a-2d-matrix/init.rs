@@ -1,3 +1,5 @@
+use std::cmp::Ordering;
+
 pub fn search_matrix(matrix: Vec<Vec<i32>>, target: i32) -> bool {
     let m = matrix.len();
     let n = matrix[0].len();
@@ -8,12 +10,10 @@ pub fn search_matrix(matrix: Vec<Vec<i32>>, target: i32) -> bool {
     while a + 1 < b {
         c = a + (b - a) / 2;
         let v = matrix[c][0];
-        if target < v {
-            b = c;
-        } else if target > v {
-            a = c;
-        } else {
-            return true;
+        match target.cmp(&v) {
+            Ordering::Less => b = c,
+            Ordering::Greater => a = c,
+            Ordering::Equal => return true,
         }
     }
     let y = if target < matrix[b][0] { a } else { b };
@@ -24,12 +24,10 @@ pub fn search_matrix(matrix: Vec<Vec<i32>>, target: i32) -> bool {
     while a + 1 < b {
         c = a + (b - a) / 2;
         let v = matrix[y][c];
-        if target < v {
-            b = c;
-        } else if target > v {
-            a = c;
-        } else {
-            return true;
+        match target.cmp(&v) {
+            Ordering::Less => b = c,
+            Ordering::Greater => a = c,
+            Ordering::Equal => return true,
         }
     }
     let x = if target < matrix[y][b] { a } else { b };

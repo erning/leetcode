@@ -18,7 +18,7 @@ pub fn count_rectangles(rectangles: Vec<Vec<i32>>, points: Vec<Vec<i32>>) -> Vec
         rows[i].1.sort_unstable();
     }
     if let Some((_, row)) = rows.last_mut() {
-        row.sort();
+        row.sort_unstable();
     }
 
     let mut answer = Vec::with_capacity(points.len());

@@ -1,3 +1,5 @@
+use std::cmp::Ordering;
+
 pub fn search_insert(nums: Vec<i32>, target: i32) -> i32 {
     let nums = nums.as_slice();
     let mut a = 0;
@@ -14,12 +16,10 @@ pub fn search_insert(nums: Vec<i32>, target: i32) -> i32 {
                 b as i32 + 1
             };
         }
-        if target < nums[c] {
-            b = c - 1;
-        } else if target > nums[c] {
-            a = c + 1;
-        } else {
-            break c as i32;
+        match target.cmp(&nums[c]) {
+            Ordering::Less => b = c - 1,
+            Ordering::Greater => a = c + 1,
+            _ => break c as i32,
         }
     }
 }

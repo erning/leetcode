@@ -5,7 +5,7 @@ pub fn group_anagrams(strs: Vec<String>) -> Vec<Vec<String>> {
 
     for (i, s) in strs.iter().enumerate() {
         let mut k = s.as_bytes().to_vec();
-        k.sort();
+        k.sort_unstable();
         if let Some(v) = map.get_mut(&k) {
             v.push(i);
         } else {
@@ -14,7 +14,7 @@ pub fn group_anagrams(strs: Vec<String>) -> Vec<Vec<String>> {
     }
 
     map.values()
-        .map(|v| v.into_iter().map(|i| strs[*i].clone()).collect())
+        .map(|v| v.iter().map(|i| strs[*i].clone()).collect())
         .collect()
 }
 

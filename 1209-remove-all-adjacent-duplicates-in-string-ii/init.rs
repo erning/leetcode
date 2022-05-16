@@ -1,6 +1,6 @@
 pub fn remove_duplicates(s: String, k: i32) -> String {
     let mut stack: Vec<(u8, i32)> = Vec::with_capacity(s.len());
-    for &c in s.as_bytes().into_iter() {
+    for &c in s.as_bytes().iter() {
         let n = if let Some(&(a, b)) = stack.last() {
             if a == c {
                 b

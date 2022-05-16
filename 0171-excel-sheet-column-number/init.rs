@@ -1,6 +1,6 @@
 pub fn title_to_number(column_title: String) -> i32 {
     let mut n = 0;
-    for c in column_title.as_bytes().into_iter() {
+    for c in column_title.as_bytes() {
         n = n * 26 + (c - 0x40) as i32;
     }
     n

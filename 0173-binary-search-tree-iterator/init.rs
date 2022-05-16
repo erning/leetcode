@@ -16,12 +16,16 @@ pub struct BSTIterator {
 impl BSTIterator {
     pub fn new(root: Option<Rc<RefCell<TreeNode>>>) -> Self {
         let mut stack = Vec::new();
-        if root.is_some() {
-            stack.push((root.unwrap(), false));
+        if let Some(node) = root {
+            stack.push((node, false));
         }
+        // if root.is_some() {
+        //     stack.push((root.unwrap(), false));
+        // }
         BSTIterator { stack }
     }
 
+    #[allow(clippy::should_implement_trait)]
     pub fn next(&mut self) -> i32 {
         assert!(!self.stack.is_empty());
         while let Some((node, me)) = self.stack.pop() {

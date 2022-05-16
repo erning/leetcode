@@ -12,6 +12,7 @@ pub fn min_distance(word1: String, word2: String) -> i32 {
     let word2 = word2.as_bytes();
     let mut dp = vec![vec![0; len2 + 1]; len1 + 1];
 
+    #[allow(clippy::needless_range_loop)]
     for i in 0..=len1 {
         dp[i][0] = i;
     }

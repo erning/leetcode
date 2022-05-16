@@ -1,7 +1,6 @@
 pub fn nth_ugly_number(n: i32) -> i32 {
     let n = n as usize;
-    let mut dp: Vec<i32> = Vec::new();
-    dp.push(1);
+    let mut dp: Vec<i32> = vec![1];
     let mut c2 = 0;
     let mut c3 = 0;
     let mut c5 = 0;

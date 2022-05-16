@@ -5,8 +5,8 @@ pub fn rob(nums: Vec<i32>) -> i32 {
     }
     let f = |(a, b), num| (b, i32::max(num + a, b));
     i32::max(
-        nums[0..n - 1].into_iter().fold((0, 0), f).1,
-        nums[1..].into_iter().fold((0, 0), f).1,
+        nums[0..n - 1].iter().fold((0, 0), f).1,
+        nums[1..].iter().fold((0, 0), f).1,
     )
 }
 

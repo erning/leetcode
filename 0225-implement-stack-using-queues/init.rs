@@ -28,6 +28,12 @@ impl MyStack {
     }
 }
 
+impl Default for MyStack {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 /**
  * Your MyStack object will be instantiated and called as such:
  * let obj = MyStack::new();

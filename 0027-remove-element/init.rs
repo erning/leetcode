@@ -1,3 +1,4 @@
+#[allow(clippy::ptr_arg)]
 pub fn remove_element(nums: &mut Vec<i32>, val: i32) -> i32 {
     let len = nums.len();
     if len == 0 {

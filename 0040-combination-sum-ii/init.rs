@@ -1,6 +1,6 @@
 pub fn combination_sum2(candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
     let mut candidates = candidates;
-    candidates.sort();
+    candidates.sort_unstable();
     let mut rv: Vec<Vec<i32>> = Vec::new();
 
     fn recursion(rv: &mut Vec<Vec<i32>>, candidates: &[i32], target: i32, comb: Vec<i32>) {

@@ -1,6 +1,6 @@
 pub fn longest_common_prefix(strs: Vec<String>) -> String {
-    if strs.len() <= 0 {
-        return "".to_string();
+    if strs.is_empty() {
+        return String::new();
     }
     if strs.len() == 1 {
         return strs[0].clone();

@@ -20,12 +20,18 @@ impl MinStack {
     }
 
     pub fn top(&self) -> i32 {
-        self.vec.last().unwrap().clone()
+        *self.vec.last().unwrap()
     }
 
     pub fn get_min(&self) -> i32 {
         // TODO:
-        self.vec.iter().min().unwrap().clone()
+        *self.vec.iter().min().unwrap()
+    }
+}
+
+impl Default for MinStack {
+    fn default() -> Self {
+        Self::new()
     }
 }
 

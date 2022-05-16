@@ -13,7 +13,7 @@ pub fn calculate(s: String) -> i32 {
             '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' => {
                 let mut v = ch as i32 - b'0' as i32;
                 while let Some(&ch) = iter.peek() {
-                    if ch < '0' || ch > '9' {
+                    if !('0'..='9').contains(&ch) {
                         break;
                     }
                     v = v * 10 + (ch as i32 - b'0' as i32);

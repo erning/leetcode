@@ -17,25 +17,27 @@ pub fn find_words(board: Vec<Vec<char>>, words: Vec<String>) -> Vec<String> {
     for word in words.into_iter() {
         let mut parent = &mut root;
         for ch in word.chars().take(word.len() - 1) {
-            if !parent.children.contains_key(&ch) {
-                let node = TrieNode {
-                    ch,
-                    children: HashMap::new(),
-                    word: None,
-                };
-                parent.children.insert(ch, node);
-            }
-            parent = parent.children.get_mut(&ch).unwrap()
-        }
-        let ch = word.chars().last().unwrap();
-        if !parent.children.contains_key(&ch) {
-            let node = TrieNode {
+            parent.children.entry(ch).or_insert_with(|| TrieNode {
                 ch,
                 children: HashMap::new(),
                 word: None,
-            };
-            parent.children.insert(ch, node);
+            });
+            // if !parent.children.contains_key(&ch) {
+            //     let node = TrieNode {
+            //         ch,
+            //         children: HashMap::new(),
+            //         word: None,
+            //     };
+            //     parent.children.insert(ch, node);
+            // }
+            parent = parent.children.get_mut(&ch).unwrap()
         }
+        let ch = word.chars().last().unwrap();
+        parent.children.entry(ch).or_insert_with(|| TrieNode {
+            ch,
+            children: HashMap::new(),
+            word: None,
+        });
         parent = parent.children.get_mut(&ch).unwrap();
         parent.word = Some(word);
     }

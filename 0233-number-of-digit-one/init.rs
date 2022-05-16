@@ -1,4 +1,7 @@
 // https://youtu.be/6zfXmg9Btao
+
+use std::cmp::Ordering;
+
 pub fn count_digit_one(n: i32) -> i32 {
     if n <= 0 {
         return 0;
@@ -9,13 +12,18 @@ pub fn count_digit_one(n: i32) -> i32 {
         let lhs = n / m / 10;
         let cur = n / m % 10;
         let rhs = n % m;
-        if cur > 1 {
-            sum += (lhs + 1) * m;
-        } else if cur < 1 {
-            sum += lhs * m;
-        } else {
-            sum += lhs * m + rhs + 1;
-        }
+        sum += match cur.cmp(&1) {
+            Ordering::Greater => (lhs + 1) * m,
+            Ordering::Less => lhs * m,
+            Ordering::Equal => lhs * m + rhs + 1,
+        };
+        // if cur > 1 {
+        //     sum += (lhs + 1) * m;
+        // } else if cur < 1 {
+        //     sum += lhs * m;
+        // } else {
+        //     sum += lhs * m + rhs + 1;
+        // }
         m *= 10;
     }
     sum

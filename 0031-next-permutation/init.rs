@@ -1,3 +1,4 @@
+#[allow(clippy::ptr_arg)]
 pub fn next_permutation(nums: &mut Vec<i32>) {
     let len = nums.len();
     if len <= 1 {
@@ -21,7 +22,7 @@ pub fn next_permutation(nums: &mut Vec<i32>) {
     } else {
         nums.swap(len - 1, p);
     }
-    nums[p + 1..].sort();
+    nums[p + 1..].sort_unstable();
 }
 
 #[cfg(test)]

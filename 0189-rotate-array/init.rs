@@ -1,3 +1,4 @@
+#[allow(clippy::ptr_arg)]
 pub fn rotate(nums: &mut Vec<i32>, k: i32) {
     let n = nums.len();
     let k = (k as usize) % n;
@@ -16,7 +17,7 @@ pub fn rotate(nums: &mut Vec<i32>, k: i32) {
         }
         nums[i] = m;
         c -= 1;
-        if c <= 0 {
+        if c == 0 {
             break;
         }
     }

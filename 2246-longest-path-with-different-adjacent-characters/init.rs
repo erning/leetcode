@@ -50,7 +50,7 @@ pub fn longest_path(parent: Vec<i32>, s: String) -> i32 {
 
     let nodes: Vec<Rc<RefCell<TreeNode>>> = s
         .as_bytes()
-        .into_iter()
+        .iter()
         .map(|&c| Rc::new(RefCell::new(TreeNode::new(c))))
         .collect();
     for (i, node) in nodes.iter().enumerate().skip(1).rev() {

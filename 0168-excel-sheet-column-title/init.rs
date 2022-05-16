@@ -12,7 +12,7 @@ pub fn convert_to_title(column_number: i32) -> String {
         }
     }
     answer.reverse();
-    String::from_utf8(answer).unwrap_or(String::new())
+    String::from_utf8(answer).unwrap_or_default()
 }
 
 #[cfg(test)]

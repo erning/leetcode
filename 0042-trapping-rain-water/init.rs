@@ -1,4 +1,5 @@
 pub fn trap(height: Vec<i32>) -> i32 {
+    #[allow(clippy::while_let_on_iterator)]
     fn area<'a, T>(mut iter: T) -> i32
     where
         T: Iterator<Item = &'a i32>,
@@ -22,7 +23,7 @@ pub fn trap(height: Vec<i32>) -> i32 {
     let heightest = height
         .iter()
         .enumerate()
-        .max_by(|x, y| x.1.cmp(&y.1))
+        .max_by(|x, y| x.1.cmp(y.1))
         .unwrap();
 
     if heightest.0 == 0 {

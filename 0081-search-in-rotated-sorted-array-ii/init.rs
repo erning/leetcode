@@ -1,3 +1,5 @@
+use std::cmp::Ordering;
+
 pub fn search(nums: Vec<i32>, target: i32) -> bool {
     let len = nums.len();
     if len < 2 {
@@ -21,10 +23,14 @@ pub fn search(nums: Vec<i32>, target: i32) -> bool {
             return p(c, b, nums);
         }
         if vb > vc {
-            return p(a, c, nums);
+            p(a, c, nums)
         } else {
             let v = p(a, c, nums);
-            return if v.is_some() { v } else { p(c, b, nums) };
+            if v.is_some() {
+                v
+            } else {
+                p(c, b, nums)
+            }
         }
     }
 
@@ -34,12 +40,10 @@ pub fn search(nums: Vec<i32>, target: i32) -> bool {
     while a + 1 < b {
         let c = a + (b - a) / 2;
         let vc = nums[(c + pivot) % len];
-        if target < vc {
-            b = c - 1;
-        } else if target > vc {
-            a = c + 1;
-        } else {
-            return true;
+        match target.cmp(&vc) {
+            Ordering::Less => b = c - 1,
+            Ordering::Greater => a = c + 1,
+            Ordering::Equal => return true,
         }
     }
 

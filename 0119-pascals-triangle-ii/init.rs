@@ -3,7 +3,7 @@ pub fn get_row(row_index: i32) -> Vec<i32> {
     row[0] = 1;
     for i in 1..row.len() {
         for j in (1..=i).rev() {
-            row[j] = row[j - 1] + row[j];
+            row[j] += row[j - 1];
         }
     }
     row

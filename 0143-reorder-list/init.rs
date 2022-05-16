@@ -50,11 +50,11 @@ pub fn reorder_list(head: &mut Option<Box<ListNode>>) {
     }
 
     let mut prev: Option<Box<ListNode>> = None;
-    let mut curr: &mut Option<Box<ListNode>> = head;
+    let curr: &mut Option<Box<ListNode>> = head;
 
     while let Some(node) = curr {
         let next = std::mem::replace(&mut node.next, prev);
-        prev = std::mem::replace(&mut curr, next);
+        prev = std::mem::replace(curr, next);
         count -= 2;
         if count < 2 {
             break;
@@ -64,7 +64,7 @@ pub fn reorder_list(head: &mut Option<Box<ListNode>>) {
     if count % 2 == 1 {
         if let Some(node) = curr {
             let next = std::mem::take(&mut node.next);
-            let mut mid: Option<Box<ListNode>> = std::mem::replace(&mut curr, next);
+            let mut mid: Option<Box<ListNode>> = std::mem::replace(curr, next);
             mid.as_mut().unwrap().next = prev;
             prev = mid;
         }

@@ -10,10 +10,10 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 pub fn binary_tree_paths(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<String> {
-    fn f(root: Option<Rc<RefCell<TreeNode>>>, prev_path: &Vec<i32>, paths: &mut Vec<String>) {
+    fn f(root: Option<Rc<RefCell<TreeNode>>>, prev_path: &[i32], paths: &mut Vec<String>) {
         if let Some(node) = root {
             let val = node.borrow().val;
-            let mut path = prev_path.clone();
+            let mut path = prev_path.to_vec();
             path.push(val);
             let left = node.borrow().left.clone();
             let right = node.borrow().right.clone();

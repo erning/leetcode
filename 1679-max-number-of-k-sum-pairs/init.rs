@@ -1,3 +1,4 @@
+use std::cmp::Ordering;
 pub fn max_operations(nums: Vec<i32>, k: i32) -> i32 {
     let mut nums = nums;
     nums.sort_unstable();
@@ -5,16 +6,25 @@ pub fn max_operations(nums: Vec<i32>, k: i32) -> i32 {
     let mut i = 0;
     let mut j = nums.len() - 1;
     while i < j {
-        let c = nums[i] + nums[j];
-        if c > k {
-            j -= 1;
-        } else if c < k {
-            i += 1;
-        } else {
-            count += 1;
-            i += 1;
-            j -= 1;
+        match (nums[i] + nums[j]).cmp(&k) {
+            Ordering::Greater => j -= 1,
+            Ordering::Less => i += 1,
+            Ordering::Equal => {
+                count += 1;
+                i += 1;
+                j -= 1;
+            }
         }
+        // let c = nums[i] + nums[j];
+        // if c > k {
+        //     j -= 1;
+        // } else if c < k {
+        //     i += 1;
+        // } else {
+        //     count += 1;
+        //     i += 1;
+        //     j -= 1;
+        // }
     }
     count
 }

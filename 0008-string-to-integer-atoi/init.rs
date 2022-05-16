@@ -5,7 +5,8 @@ pub fn my_atoi(s: String) -> i32 {
     let mut is_negative = false;
     let mut iter = s.bytes();
 
-    while let Some(b) = iter.next() {
+    // while let Some(b) = iter.next() {
+    for b in iter.by_ref() {
         match b {
             32 => {
                 continue;
@@ -27,7 +28,8 @@ pub fn my_atoi(s: String) -> i32 {
         }
     }
 
-    while let Some(b) = iter.next() {
+    // while let Some(b) = iter.next() {
+    for b in iter {
         match b {
             48..=57 => {
                 v = v * 10 + b as i64 - 48;
@@ -42,13 +44,13 @@ pub fn my_atoi(s: String) -> i32 {
         }
     }
 
-    return if is_negative {
+    if is_negative {
         (-v) as i32
     } else if v == MAX {
         (v - 1) as i32
     } else {
         v as i32
-    };
+    }
 }
 
 #[cfg(test)]

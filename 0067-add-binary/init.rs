@@ -1,7 +1,7 @@
 pub fn add_binary(a: String, b: String) -> String {
     let mut rv: Vec<u8> = Vec::with_capacity(usize::max(a.len(), b.len()) + 1);
-    let mut iter_a = a.as_bytes().into_iter().rev();
-    let mut iter_b = b.as_bytes().into_iter().rev();
+    let mut iter_a = a.as_bytes().iter().rev();
+    let mut iter_b = b.as_bytes().iter().rev();
     let mut opt_a = iter_a.next();
     let mut opt_b = iter_b.next();
     let mut c = 0;

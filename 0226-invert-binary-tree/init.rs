@@ -22,7 +22,7 @@ use std::rc::Rc;
 
 pub fn invert_tree(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
     if let Some(node) = root {
-        let v = node.borrow().val.clone();
+        let v = node.borrow().val;
         let a = invert_tree(node.borrow().left.clone());
         let b = invert_tree(node.borrow().right.clone());
         Some(Rc::new(RefCell::new(TreeNode {

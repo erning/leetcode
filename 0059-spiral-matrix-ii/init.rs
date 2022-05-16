@@ -6,6 +6,7 @@ pub fn generate_matrix(n: i32) -> Vec<Vec<i32>> {
     let mut x2 = n as usize;
     let mut y2 = n as usize;
 
+    #[allow(clippy::needless_range_loop)]
     loop {
         for i in x1..x2 {
             v += 1;

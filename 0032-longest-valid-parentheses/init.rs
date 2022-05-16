@@ -21,7 +21,11 @@ pub fn longest_valid_parentheses(s: String) -> i32 {
         }
     }
     let max = queue.iter().map(|&(a, b)| b - a + 1).max();
-    return if let Some(max) = max { max as i32 } else { 0 };
+    if let Some(max) = max {
+        max as i32
+    } else {
+        0
+    }
 }
 
 #[cfg(test)]

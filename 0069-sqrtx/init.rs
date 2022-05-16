@@ -1,3 +1,5 @@
+use std::cmp::Ordering;
+
 pub fn my_sqrt(x: i32) -> i32 {
     let mut n = x;
     let mut stack = Vec::with_capacity(5);
@@ -39,12 +41,22 @@ pub fn my_sqrt(x: i32) -> i32 {
             }
             y += 1;
             let z = y * y;
-            if z > n {
-                y -= 1;
-                break;
-            } else if z == n {
-                break;
+            match z.cmp(&n) {
+                Ordering::Greater => {
+                    y -= 1;
+                    break;
+                }
+                Ordering::Equal => {
+                    break;
+                }
+                _ => {}
             }
+            // if z > n {
+            //     y -= 1;
+            //     break;
+            // } else if z == n {
+            //     break;
+            // }
         }
     }
     y

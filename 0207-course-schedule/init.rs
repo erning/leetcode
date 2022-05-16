@@ -15,9 +15,10 @@ pub fn can_finish(num_courses: i32, prerequisites: Vec<Vec<i32>>) -> bool {
         } else {
             dependencies.insert(a, 1);
         }
-        if !dependencies.contains_key(&b) {
-            dependencies.insert(b, 0);
-        }
+        dependencies.entry(b).or_insert(0);
+        // if !dependencies.contains_key(&b) {
+        //     dependencies.insert(b, 0);
+        // }
     }
     let mut n = 0;
     loop {

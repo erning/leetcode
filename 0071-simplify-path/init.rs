@@ -1,6 +1,6 @@
 pub fn simplify_path(path: String) -> String {
     let mut parts: Vec<&str> = Vec::new();
-    for part in path.split("/").into_iter() {
+    for part in path.split('/') {
         if part.is_empty() || part == "." {
             continue;
         }

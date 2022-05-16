@@ -4,12 +4,12 @@ pub fn restore_ip_addresses(s: String) -> Vec<String> {
         if s.len() > 1 && &s[0..1] == "0" {
             return false;
         }
-        return s.parse::<u8>().is_ok();
+        s.parse::<u8>().is_ok()
     }
 
     let s = s.as_str();
     let len = s.len();
-    if len < 4 || len > 12 {
+    if !(4..=12).contains(&len) {
         return vec![];
     }
 
