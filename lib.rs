@@ -625,6 +625,9 @@ pub mod problem_0283;
 #[path = "0287-find-the-duplicate-number/init.rs"]
 pub mod problem_0287;
 
+#[path = "0290-word-pattern/init.rs"]
+pub mod problem_0290;
+
 #[path = "0309-best-time-to-buy-and-sell-stock-with-cooldown/init.rs"]
 pub mod problem_0309;
 
