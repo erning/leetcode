@@ -1,4 +1,4 @@
-#[path = "0001-two-sum/init.rs"]
+#[path = "0000-0099/0001-two-sum/init.rs"]
 pub mod problem_0001;
 
 #[path = "0002-add-two-numbers/init.rs"]

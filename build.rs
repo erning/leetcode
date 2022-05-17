@@ -14,11 +14,16 @@ fn main() -> std::io::Result<()> {
         .create(true)
         .open(dest_path)?;
 
-    for e in glob("*/init.rs").expect("Failed to read glob pattern") {
+    for e in glob("**/*/init.rs").expect("Failed to read glob pattern") {
         let pb = e.unwrap();
         let item = pb.to_str().unwrap();
+
+        let mut parts = item.split('/');
+        parts.next_back();
+        let name = parts.next_back().unwrap();
+
         writeln!(file, "#[path = \"{}\"]", item)?;
-        writeln!(file, "pub mod problem_{};", item.get(0..4).unwrap())?;
+        writeln!(file, "pub mod problem_{};", name.get(..4).unwrap())?;
         writeln!(file)?;
     }
 
