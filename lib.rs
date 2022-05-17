@@ -625,6 +625,9 @@ pub mod problem_0283;
 #[path = "0287-find-the-duplicate-number/init.rs"]
 pub mod problem_0287;
 
+#[path = "0289-game-of-life/init.rs"]
+pub mod problem_0289;
+
 #[path = "0290-word-pattern/init.rs"]
 pub mod problem_0290;
 
