@@ -9,7 +9,16 @@ let packageDir: String = {
     return dir.path
 }()
 
-let problems = findProblems()
+let groups = findProblemGroups()
+
+var problems: [(String, String)] = []
+for group in groups {
+    let p = findProblems(group: group)
+    problems.append(contentsOf: p)
+}
+
+let p = findProblems(group: "")
+problems.append(contentsOf: p)
 
 let package = Package(
     name: "LeetCode",
@@ -19,8 +28,7 @@ let package = Package(
 //
 //
 //
-
-func findProblems() -> [String] {
+func findProblemGroups() -> [String] {
     guard
         let contents = try? FileManager.default.contentsOfDirectory(
             at: URL(fileURLWithPath: packageDir),
@@ -41,29 +49,64 @@ func findProblems() -> [String] {
         return isDirectory
     }.map(\.lastPathComponent).filter {
         let range = NSRange(location: 0, length: $0.utf16.count)
-        let regex = try? NSRegularExpression(pattern: "^[0-9]{4}-")
+        let regex = try? NSRegularExpression(pattern: "^[0-9]{4}-[0-9]{4}$")
         return regex?.firstMatch(in: $0, options: [], range: range) != nil
     }.sorted()
 }
 
-func findTargets(problems: [String]) -> [PackageDescription.Target] {
+func findProblems(group: String) -> [(String, String)] {
+    guard
+        let contents = try? FileManager.default.contentsOfDirectory(
+            at: URL(fileURLWithPath: "\(packageDir)/\(group)"),
+            includingPropertiesForKeys: [.isDirectoryKey],
+            options: .skipsHiddenFiles
+        )
+    else {
+        return []
+    }
+
+    return contents.filter {
+        guard
+            let resourceValues = try? $0.resourceValues(forKeys: [.isDirectoryKey]),
+            let isDirectory = resourceValues.isDirectory
+        else {
+            return false
+        }
+        return isDirectory
+    }.map(\.lastPathComponent).filter {
+        let range = NSRange(location: 0, length: $0.utf16.count)
+        let regex = try? NSRegularExpression(pattern: "^[0-9]{4}-[0-9]{4}$")
+        return regex?.firstMatch(in: $0, options: [], range: range) == nil
+    }
+    .filter {
+        let range = NSRange(location: 0, length: $0.utf16.count)
+        let regex = try? NSRegularExpression(pattern: "^[0-9]{4}-")
+        return regex?.firstMatch(in: $0, options: [], range: range) != nil
+    }.sorted().map {
+        (group, $0)
+    }
+}
+
+func findTargets(problems: [(String, String)]) -> [PackageDescription.Target] {
     problems.reduce(into: []) { targets, problem in
         targets += findTargets(problem: problem)
     }
 }
 
-func findTargets(problem: String) -> [PackageDescription.Target] {
+func findTargets(problem: (String, String)) -> [PackageDescription.Target] {
     var targets: [PackageDescription.Target] = []
-    let files = findFiles(problem: problem)
+    let files = findFiles(group: problem.0, problem: problem.1)
 
-    let problemName = "Problem-" + problem.prefix(4)
+    let problemName = "Problem-" + problem.1.prefix(4)
     if files.sources.isEmpty {
         return targets
     }
+    let path = problem.0.isEmpty ? problem.1 : "\(problem.0)/\(problem.1)"
+
     targets.append(
         .target(
             name: problemName,
-            path: problem,
+            path: path,
             exclude: files.exclude + files.tests,
             sources: files.sources
         )
@@ -75,7 +118,7 @@ func findTargets(problem: String) -> [PackageDescription.Target] {
         .testTarget(
             name: problemName + "-Tests",
             dependencies: [.byName(name: problemName)],
-            path: problem,
+            path: path,
             exclude: files.exclude + files.sources,
             sources: files.tests
         )
@@ -85,14 +128,19 @@ func findTargets(problem: String) -> [PackageDescription.Target] {
 
 typealias ProblemFiles = (sources: [String], exclude: [String], tests: [String])
 
-func findFiles(problem: String) -> ProblemFiles {
+func findFiles(group: String, problem: String) -> ProblemFiles {
     var files: ProblemFiles = (
         sources: [],
         exclude: [],
         tests: []
     )
 
-    let problemDir = packageDir + "/" + problem
+    let problemDir: String
+    if group.isEmpty {
+        problemDir = packageDir + "/" + problem
+    } else {
+        problemDir = packageDir + "/" + group + "/" + problem
+    }
     guard
         let enumerator = FileManager.default.enumerator(
             at: URL(fileURLWithPath: problemDir),
