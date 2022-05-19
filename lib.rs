@@ -640,6 +640,9 @@ pub mod problem_0309;
 #[path = "0322-coin-change/init.rs"]
 pub mod problem_0322;
 
+#[path = "0329-longest-increasing-path-in-a-matrix/init.rs"]
+pub mod problem_0329;
+
 #[path = "0341-flatten-nested-list-iterator/init.rs"]
 pub mod problem_0341;
 
