@@ -9,16 +9,14 @@ let packageDir: String = {
     return dir.path
 }()
 
-let groups = findProblemGroups()
+var groups = findProblemGroups()
+groups.append("")
 
 var problems: [(String, String)] = []
 for group in groups {
     let p = findProblems(group: group)
     problems.append(contentsOf: p)
 }
-
-let p = findProblems(group: "")
-problems.append(contentsOf: p)
 
 let package = Package(
     name: "LeetCode",
