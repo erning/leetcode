@@ -637,6 +637,9 @@ pub mod problem_0292;
 #[path = "0200-0299/0297-serialize-and-deserialize-binary-tree/init.rs"]
 pub mod problem_0297;
 
+#[path = "0300-longest-increasing-subsequence/init.rs"]
+pub mod problem_0300;
+
 #[path = "0309-best-time-to-buy-and-sell-stock-with-cooldown/init.rs"]
 pub mod problem_0309;
 
