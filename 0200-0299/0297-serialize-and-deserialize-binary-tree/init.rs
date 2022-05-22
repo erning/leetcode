@@ -140,9 +140,11 @@ mod tests {
         let root = Some(Rc::new(RefCell::new(n1)));
 
         let obj = Codec::new();
-        let data = obj.serialize(root);
+        let data = obj.serialize(root.clone());
+        assert_eq!(data, "1,2,3,null,null,4,5");
         // println!("data={:?}", data);
         let tree = obj.deserialize(data);
         // println!("tree={:?}", tree);
+        assert_eq!(tree, root);
     }
 }
