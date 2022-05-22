@@ -670,6 +670,9 @@ pub mod problem_0581;
 #[path = "0639-decode-ways-ii/init.rs"]
 pub mod problem_0639;
 
+#[path = "0647-palindromic-substrings/init.rs"]
+pub mod problem_0647;
+
 #[path = "0679-24-game/init.rs"]
 pub mod problem_0679;
 
@@ -735,3 +738,4 @@ pub mod problem_2250;
 
 #[path = "2251-number-of-flowers-in-full-bloom/init.rs"]
 pub mod problem_2251;
+
