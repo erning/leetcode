@@ -661,6 +661,9 @@ pub mod problem_0416;
 #[path = "0456-132-pattern/init.rs"]
 pub mod problem_0456;
 
+#[path = "0474-ones-and-zeroes/init.rs"]
+pub mod problem_0474;
+
 #[path = "0518-coin-change-2/init.rs"]
 pub mod problem_0518;
 
