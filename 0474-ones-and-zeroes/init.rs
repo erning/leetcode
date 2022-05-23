@@ -1,19 +1,4 @@
 pub fn find_max_form(strs: Vec<String>, m: i32, n: i32) -> i32 {
-    fn f(oz: &[(usize, usize)], a: usize, b: usize, c: usize, n: usize, m: usize, max: &mut usize) {
-        if a > n || b > m {
-            return;
-        }
-        if c > *max {
-            *max = c;
-        }
-        if oz.is_empty() {
-            return;
-        }
-        for (i, (o, z)) in oz.iter().enumerate() {
-            f(&oz[i + 1..], a + o, b + z, c + 1, n, m, max);
-        }
-    }
-
     let oz: Vec<(_, _)> = strs
         .iter()
         .map(|s| {
@@ -22,9 +7,17 @@ pub fn find_max_form(strs: Vec<String>, m: i32, n: i32) -> i32 {
             (o, z)
         })
         .collect();
-    let mut max = 0;
-    f(&oz, 0, 0, 0, n as usize, m as usize, &mut max);
-    max as i32
+    let n = n as usize;
+    let m = m as usize;
+    let mut dp = vec![vec![0; m + 1]; n + 1];
+    for (o, z) in oz {
+        for i in (o..=n).rev() {
+            for j in (z..=m).rev() {
+                dp[i][j] = usize::max(dp[i][j], dp[i - o][j - z] + 1);
+            }
+        }
+    }
+    dp[n][m] as i32
 }
 
 #[cfg(test)]
@@ -50,8 +43,18 @@ mod tests {
             ],
             90,
             66,
-            1,
+            29,
+        );
+
+        tf(
+            &[
+                "0", "11", "1000", "01", "0", "101", "1", "1", "1", "0", "0", "0", "0", "1", "0",
+                "0110101", "0", "11", "01", "00", "01111", "0011", "1", "1000", "0", "11101", "1",
+                "0", "10", "0111",
+            ],
+            9,
+            80,
+            17,
         );
     }
 }
-
