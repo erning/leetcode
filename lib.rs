@@ -697,6 +697,9 @@ pub mod problem_0905;
 #[path = "1091-shortest-path-in-binary-matrix/init.rs"]
 pub mod problem_1091;
 
+#[path = "1138-alphabet-board-path/init.rs"]
+pub mod problem_1138;
+
 #[path = "1192-critical-connections-in-a-network/init.rs"]
 pub mod problem_1192;
 
