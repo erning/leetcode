@@ -640,6 +640,9 @@ pub mod problem_0297;
 #[path = "0300-longest-increasing-subsequence/init.rs"]
 pub mod problem_0300;
 
+#[path = "0301-remove-invalid-parentheses/init.rs"]
+pub mod problem_0301;
+
 #[path = "0309-best-time-to-buy-and-sell-stock-with-cooldown/init.rs"]
 pub mod problem_0309;
 
