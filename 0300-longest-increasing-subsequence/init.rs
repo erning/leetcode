@@ -1,23 +1,15 @@
 pub fn length_of_lis(nums: Vec<i32>) -> i32 {
-    let n = nums.len();
-    let mut dp = vec![1; n];
-    let mut max = 1;
-    for (i, a) in nums.iter().enumerate().skip(1) {
-        let mut v = dp[i];
-        for (j, b) in nums.iter().enumerate().take(i) {
-            if a > b {
-                let w = dp[j] + 1;
-                if w > v {
-                    v = w;
-                }
+    let mut dp: Vec<i32> = Vec::new();
+    for a in nums.into_iter() {
+        if let Err(i) = dp.binary_search(&a) {
+            if i == dp.len() {
+                dp.push(a)
+            } else {
+                dp[i] = a;
             }
         }
-        if v > max {
-            max = v
-        }
-        dp[i] = v;
     }
-    max
+    dp.len() as i32
 }
 
 #[cfg(test)]
