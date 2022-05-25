@@ -655,6 +655,9 @@ pub mod problem_0329;
 #[path = "0341-flatten-nested-list-iterator/init.rs"]
 pub mod problem_0341;
 
+#[path = "0354-russian-doll-envelopes/init.rs"]
+pub mod problem_0354;
+
 #[path = "0399-evaluate-division/init.rs"]
 pub mod problem_0399;
 
