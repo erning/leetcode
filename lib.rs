@@ -721,6 +721,9 @@ pub mod problem_1641;
 #[path = "1679-max-number-of-k-sum-pairs/init.rs"]
 pub mod problem_1679;
 
+#[path = "2215-find-the-difference-of-two-arrays/init.rs"]
+pub mod problem_2215;
+
 #[path = "2239-find-closest-number-to-zero/init.rs"]
 pub mod problem_2239;
 
