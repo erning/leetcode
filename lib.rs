@@ -643,6 +643,9 @@ pub mod problem_0300;
 #[path = "0301-remove-invalid-parentheses/init.rs"]
 pub mod problem_0301;
 
+#[path = "0306-additive-number/init.rs"]
+pub mod problem_0306;
+
 #[path = "0309-best-time-to-buy-and-sell-stock-with-cooldown/init.rs"]
 pub mod problem_0309;
 
