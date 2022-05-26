@@ -1,11 +1,10 @@
 pub fn is_additive_number(num: String) -> bool {
-    fn backtrack(nums: &[i32], fibs: &[i32], answer: &mut bool) {
+    fn backtrack(nums: &[i32], fibs: [i32; 3], answer: &mut bool) {
         if *answer {
             return;
         }
-        let n = fibs.len();
-        if n >= 3 {
-            if fibs[n - 3] + fibs[n - 2] != fibs[n - 1] {
+        if fibs[0] >= 0 {
+            if fibs[0] + fibs[1] != fibs[2] {
                 return;
             }
             if nums.is_empty() {
@@ -13,21 +12,19 @@ pub fn is_additive_number(num: String) -> bool {
                 return;
             }
         }
-        let mut a = 0;
+        let mut fibs = [fibs[1], fibs[2], 0];
         for (i, &b) in nums.iter().enumerate() {
-            if i > 0 && a == 0 {
+            if i > 0 && fibs[2] == 0 {
                 return;
             }
-            a = a * 10 + b;
-            let mut fibs = fibs.to_vec();
-            fibs.push(a);
-            backtrack(&nums[(i + 1)..], &fibs, answer);
+            fibs[2] = fibs[2] * 10 + b;
+            backtrack(&nums[(i + 1)..], fibs, answer);
         }
     }
 
     let nums: Vec<i32> = num.as_bytes().iter().map(|&c| (c - b'0') as i32).collect();
-    let mut answer: bool = false;
-    backtrack(&nums, &[], &mut answer);
+    let mut answer = false;
+    backtrack(&nums, [-1, -1, -1], &mut answer);
     answer
 }
 
@@ -42,5 +39,6 @@ mod tests {
 
         assert_eq!(is_additive_number("1023".to_string()), false);
         assert_eq!(is_additive_number("101".to_string()), true);
+        assert_eq!(is_additive_number("000".to_string()), true);
     }
 }
