@@ -763,3 +763,6 @@ pub mod problem_2250;
 #[path = "2251-number-of-flowers-in-full-bloom/init.rs"]
 pub mod problem_2251;
 
+#[path = "2281-sum-of-total-strength-of-wizards/init.rs"]
+pub mod problem_2281;
+
