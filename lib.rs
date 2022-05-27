@@ -718,6 +718,9 @@ pub mod problem_1209;
 #[path = "1302-deepest-leaves-sum/init.rs"]
 pub mod problem_1302;
 
+#[path = "1342-number-of-steps-to-reduce-a-number-to-zero/init.rs"]
+pub mod problem_1342;
+
 #[path = "1641-count-sorted-vowel-strings/init.rs"]
 pub mod problem_1641;
 
