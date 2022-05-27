@@ -703,6 +703,9 @@ pub mod problem_0844;
 #[path = "0905-sort-array-by-parity/init.rs"]
 pub mod problem_0905;
 
+#[path = "0907-sum-of-subarray-minimums/init.rs"]
+pub mod problem_0907;
+
 #[path = "1091-shortest-path-in-binary-matrix/init.rs"]
 pub mod problem_1091;
 
