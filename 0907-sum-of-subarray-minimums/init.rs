@@ -1,15 +1,31 @@
 pub fn sum_subarray_mins(arr: Vec<i32>) -> i32 {
-    let mut answer = 0u64;
+    const M: u64 = 1e9 as u64 + 7;
     let n = arr.len();
-    let mut dp = vec![i32::MAX; n + 1];
-    for i in 0..n {
-        for j in 1..=n - i {
-            let v = i32::min(dp[j - 1], arr[i + j - 1]);
-            dp[j] = v;
-            answer += v as u64;
-            answer %= 1000000007;
+    let mut answer = 0u64;
+
+    let mut prev = vec![0; n];
+    let mut next = vec![n - 1; n];
+    let mut stack = Vec::new();
+    for (i, &v) in arr.iter().enumerate() {
+        while let Some(&j) = stack.last() {
+            if v > arr[j] {
+                prev[i] = j + 1;
+                break;
+            }
+            next[j] = i - 1;
+            stack.pop();
         }
+        stack.push(i);
     }
+
+    for (i, &v) in arr.iter().enumerate() {
+        let a = (i - prev[i] + 1) as u64;
+        let b = (next[i] - i + 1) as u64;
+        let c = v as u64;
+        answer += a * b * c;
+        answer %= M;
+    }
+
     answer as i32
 }
 
