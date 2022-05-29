@@ -787,3 +787,6 @@ pub mod problem_2251;
 #[path = "2281-sum-of-total-strength-of-wizards/init.rs"]
 pub mod problem_2281;
 
+#[path = "2287-rearrange-characters-to-make-target-string/init.rs"]
+pub mod problem_2287;
+
