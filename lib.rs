@@ -790,3 +790,6 @@ pub mod problem_2281;
 #[path = "2287-rearrange-characters-to-make-target-string/init.rs"]
 pub mod problem_2287;
 
+#[path = "2288-apply-discount-to-prices/init.rs"]
+pub mod problem_2288;
+
