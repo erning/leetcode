@@ -793,3 +793,6 @@ pub mod problem_2287;
 #[path = "2288-apply-discount-to-prices/init.rs"]
 pub mod problem_2288;
 
+#[path = "2289-steps-to-make-array-non-decreasing/init.rs"]
+pub mod problem_2289;
+
