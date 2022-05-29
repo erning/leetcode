@@ -649,6 +649,9 @@ pub mod problem_0306;
 #[path = "0309-best-time-to-buy-and-sell-stock-with-cooldown/init.rs"]
 pub mod problem_0309;
 
+#[path = "0318-maximum-product-of-word-lengths/init.rs"]
+pub mod problem_0318;
+
 #[path = "0322-coin-change/init.rs"]
 pub mod problem_0322;
 
