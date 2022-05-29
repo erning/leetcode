@@ -664,6 +664,9 @@ pub mod problem_0341;
 #[path = "0354-russian-doll-envelopes/init.rs"]
 pub mod problem_0354;
 
+#[path = "0374-guess-number-higher-or-lower/init.rs"]
+pub mod problem_0374;
+
 #[path = "0399-evaluate-division/init.rs"]
 pub mod problem_0399;
 
