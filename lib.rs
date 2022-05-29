@@ -724,6 +724,9 @@ pub mod problem_0907;
 #[path = "1091-shortest-path-in-binary-matrix/init.rs"]
 pub mod problem_1091;
 
+#[path = "1137-n-th-tribonacci-number/init.rs"]
+pub mod problem_1137;
+
 #[path = "1138-alphabet-board-path/init.rs"]
 pub mod problem_1138;
 
