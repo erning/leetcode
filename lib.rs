@@ -694,6 +694,9 @@ pub mod problem_0647;
 #[path = "0679-24-game/init.rs"]
 pub mod problem_0679;
 
+#[path = "0704-binary-search/init.rs"]
+pub mod problem_0704;
+
 #[path = "0743-network-delay-time/init.rs"]
 pub mod problem_0743;
 
