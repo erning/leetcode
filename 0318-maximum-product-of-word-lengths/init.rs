@@ -1,18 +1,9 @@
 pub fn max_product(words: Vec<String>) -> i32 {
-    fn has_common(a: &[bool; 26], b: &[bool; 26]) -> bool {
-        for i in 0..26 {
-            if a[i] && b[i] {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    let words: Vec<(usize, [bool; 26])> = words
+    let words: Vec<(usize, u32)> = words
         .into_iter()
         .map(|v| {
-            let mut set = [false; 26];
-            v.bytes().for_each(|v| set[(v - b'a') as usize] = true);
+            let mut set = 0;
+            v.bytes().for_each(|v| set |= 1 << (v - b'a'));
             (v.len(), set)
         })
         .collect();
@@ -20,7 +11,7 @@ pub fn max_product(words: Vec<String>) -> i32 {
     let mut max = 0;
     for (i, a) in words.iter().enumerate().take(words.len() - 1) {
         for b in words.iter().skip(i + 1) {
-            if has_common(&a.1, &b.1) {
+            if a.1 & b.1 > 0 {
                 continue;
             }
             let v = a.0 * b.0;
