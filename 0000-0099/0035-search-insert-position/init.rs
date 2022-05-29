@@ -1,27 +1,17 @@
 use std::cmp::Ordering;
 
 pub fn search_insert(nums: Vec<i32>, target: i32) -> i32 {
-    let nums = nums.as_slice();
-    let mut a = 0;
-    let mut b = nums.len() - 1;
-
-    loop {
+    let mut a: i32 = 0;
+    let mut b: i32 = nums.len() as i32 - 1;
+    while a <= b {
         let c = a + (b - a) / 2;
-        if c == a {
-            return if target <= nums[c] {
-                c as i32
-            } else if target <= nums[b] {
-                b as i32
-            } else {
-                b as i32 + 1
-            };
-        }
-        match target.cmp(&nums[c]) {
-            Ordering::Less => b = c - 1,
-            Ordering::Greater => a = c + 1,
-            _ => break c as i32,
+        match nums[c as usize].cmp(&target) {
+            Ordering::Less => a = c + 1,
+            Ordering::Greater => b = c - 1,
+            Ordering::Equal => return c,
         }
     }
+    a
 }
 
 #[cfg(test)]
