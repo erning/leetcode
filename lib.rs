@@ -709,6 +709,9 @@ pub mod problem_0785;
 #[path = "0844-backspace-string-compare/init.rs"]
 pub mod problem_0844;
 
+#[path = "0852-peak-index-in-a-mountain-array/init.rs"]
+pub mod problem_0852;
+
 #[path = "0905-sort-array-by-parity/init.rs"]
 pub mod problem_0905;
 
