@@ -1,20 +1,16 @@
 pub fn max_product(words: Vec<String>) -> i32 {
-    let words: Vec<(usize, u32)> = words
-        .into_iter()
-        .map(|v| {
-            let mut set = 0;
-            v.bytes().for_each(|v| set |= 1 << (v - b'a'));
-            (v.len(), set)
-        })
+    let sets: Vec<u32> = words
+        .iter()
+        .map(|v| v.bytes().fold(0, |acc, it| 1 << (it - b'a') | acc))
         .collect();
 
     let mut max = 0;
-    for (i, a) in words.iter().enumerate().take(words.len() - 1) {
-        for b in words.iter().skip(i + 1) {
-            if a.1 & b.1 > 0 {
+    for (i, a) in words.iter().zip(sets.iter()).enumerate().take(words.len() - 1) {
+        for b in words.iter().zip(sets.iter()).skip(i + 1) {
+            if a.1 & b.1 != 0 {
                 continue;
             }
-            let v = a.0 * b.0;
+            let v = a.0.len() * b.0.len();
             if v > max {
                 max = v;
             }
