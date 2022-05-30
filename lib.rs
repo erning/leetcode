@@ -796,3 +796,6 @@ pub mod problem_2288;
 #[path = "2289-steps-to-make-array-non-decreasing/init.rs"]
 pub mod problem_2289;
 
+#[path = "2290-minimum-obstacle-removal-to-reach-corner/init.rs"]
+pub mod problem_2290;
+
