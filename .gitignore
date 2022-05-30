@@ -1,4 +1,5 @@
 .swiftpm/
 .build/
 /target
+lib.rs
 Cargo.lock
