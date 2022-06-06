@@ -1,39 +1,30 @@
 use std::cmp::Ordering;
 
 pub fn get_max_len(nums: Vec<i32>) -> i32 {
-    fn f<'a, I>(iter: I) -> i32
-    where
-        I: Iterator<Item = &'a i32>,
-    {
-        let mut max = 0;
-        let mut a = 0;
-        let mut b = 0;
-        for n in iter {
-            let s = n.signum();
-            match s.cmp(&0) {
-                Ordering::Equal => {
-                    a = 0;
-                    b = 0;
-                }
-                Ordering::Greater => {
-                    a += 1;
-                }
-                Ordering::Less if b == 0 => {
-                    b = a + 1;
-                    a = 0;
-                }
-                Ordering::Less => {
-                    a += b + 1;
-                    b = 0
-                }
+    let mut max = 0;
+    let mut a = 0;
+    let mut b = 0;
+    for n in nums {
+        match n.cmp(&0) {
+            Ordering::Equal => {
+                a = 0;
+                b = 0;
             }
-            if a > max {
-                max = a;
+            Ordering::Greater => {
+                a += 1;
+                b = if b == 0 { 0 } else { b + 1 };
+            }
+            Ordering::Less => {
+                let c = a;
+                a = if b == 0 { 0 } else { b + 1 };
+                b = c + 1;
             }
         }
-        max
+        if a > max {
+            max = a;
+        }
     }
-    i32::max(f(nums.iter()), f(nums.iter().rev()))
+    max
 }
 
 #[cfg(test)]
