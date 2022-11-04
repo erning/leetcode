@@ -37,7 +37,7 @@ pub fn add_two_numbers(
             _ => 0,
         };
         let s = a + b + c;
-        c = if s >= 10 { 1 } else { 0 };
+        c = i32::from(s >= 10);
         stack.push(s % 10);
     }
     if c > 0 {

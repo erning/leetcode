@@ -4,8 +4,9 @@ pub fn reverse_vowels(s: String) -> String {
     let mut i = 0;
     let mut j = s.len() - 1;
 
+    #[inline]
     fn is_vowel(c: u8) -> bool {
-        return c == b'a'
+        c == b'a'
             || c == b'e'
             || c == b'i'
             || c == b'o'
@@ -14,7 +15,7 @@ pub fn reverse_vowels(s: String) -> String {
             || c == b'E'
             || c == b'I'
             || c == b'O'
-            || c == b'U';
+            || c == b'U'
     }
 
     while i < j {

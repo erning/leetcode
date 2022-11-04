@@ -29,10 +29,8 @@ pub fn num_decodings(s: String) -> i32 {
     fn times_1(x: u8) -> u64 {
         if x == b'*' {
             9
-        } else if x >= b'1' {
-            1
         } else {
-            0
+            u64::from(x >= b'1')
         }
     }
 
@@ -54,10 +52,8 @@ pub fn num_decodings(s: String) -> i32 {
             } else {
                 0
             }
-        } else if x == b'1' || x == b'2' && y <= b'6' {
-            1
         } else {
-            0
+            u64::from(x == b'1' || x == b'2' && y <= b'6')
         }
     }
 
