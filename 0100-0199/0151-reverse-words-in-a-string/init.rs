@@ -1,5 +1,5 @@
 pub fn reverse_words(s: String) -> String {
-    let mut v: Vec<&str> = s.split_whitespace().into_iter().collect();
+    let mut v: Vec<&str> = s.split_whitespace().collect();
     let mut rs = v.pop().unwrap().to_string();
     while let Some(s) = v.pop() {
         rs.push(' ');

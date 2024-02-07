@@ -3,7 +3,7 @@ use std::cmp::Ordering;
 pub fn search(nums: Vec<i32>, target: i32) -> bool {
     let len = nums.len();
     if len < 2 {
-        for (_, v) in nums.iter().enumerate() {
+        for v in nums.iter() {
             if *v == target {
                 return true;
             }

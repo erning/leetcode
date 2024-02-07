@@ -11,7 +11,7 @@ pub fn combination_sum(candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
             }
             let mut new_comb = comb.clone();
             new_comb.push(a);
-            recursion(rv, &candidates[i as usize..], target - a, new_comb);
+            recursion(rv, &candidates[i..], target - a, new_comb);
         }
         //
     }

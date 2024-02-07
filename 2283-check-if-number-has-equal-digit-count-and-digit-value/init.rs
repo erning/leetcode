@@ -1,10 +1,10 @@
 pub fn digit_count(num: String) -> bool {
     let mut map: [usize; 10] = [0; 10];
-    for v in num.bytes().map(|v| (v - b'0') as usize)  {
-        map[v] +=1;
+    for v in num.bytes().map(|v| (v - b'0') as usize) {
+        map[v] += 1;
     }
 
-    for (i, v) in num.bytes().map(|v| (v-b'0') as usize).enumerate() {
+    for (i, v) in num.bytes().map(|v| (v - b'0') as usize).enumerate() {
         if v != map[i] {
             return false;
         }

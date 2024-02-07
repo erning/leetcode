@@ -9,7 +9,7 @@ pub fn letter_combinations(digits: String) -> Vec<String> {
         vec!['t', 'u', 'v'],      // 8
         vec!['w', 'x', 'y', 'z'], // 9
     ];
-    let mut rv = Vec::<String>::with_capacity(4usize.pow(digits.len() as u32) as usize);
+    let mut rv = Vec::<String>::with_capacity(4usize.pow(digits.len() as u32));
     let mut iter = digits.as_bytes().iter();
 
     if let Some(i) = iter.next() {

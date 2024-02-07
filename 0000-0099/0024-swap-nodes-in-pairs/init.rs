@@ -10,9 +10,9 @@ pub fn swap_pairs(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     }
 
     let mut curr = head;
-    let mut node = curr.as_mut().unwrap();
+    let node = curr.as_mut().unwrap();
     let mut next = std::mem::take(&mut node.next);
-    let mut next_node = next.as_mut().unwrap();
+    let next_node = next.as_mut().unwrap();
     let next_next = std::mem::take(&mut next_node.next);
 
     node.next = swap_pairs(next_next);

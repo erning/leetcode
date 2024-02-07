@@ -23,7 +23,7 @@ pub fn maximum_score(scores: Vec<i32>, edges: Vec<Vec<i32>>) -> i32 {
                 }
                 let sum = scores[a] + scores[b] + scores[c] + scores[d];
                 if sum > max {
-                    max = sum as i32;
+                    max = sum;
                 }
                 break;
             }

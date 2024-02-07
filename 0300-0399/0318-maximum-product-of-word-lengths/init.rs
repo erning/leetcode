@@ -5,7 +5,12 @@ pub fn max_product(words: Vec<String>) -> i32 {
         .collect();
 
     let mut max = 0;
-    for (i, a) in words.iter().zip(sets.iter()).enumerate().take(words.len() - 1) {
+    for (i, a) in words
+        .iter()
+        .zip(sets.iter())
+        .enumerate()
+        .take(words.len() - 1)
+    {
         for b in words.iter().zip(sets.iter()).skip(i + 1) {
             if a.1 & b.1 != 0 {
                 continue;

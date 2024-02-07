@@ -7,7 +7,7 @@ pub fn next_greatest_letter(letters: Vec<char>, target: char) -> char {
     let v = letters.binary_search(&target);
     match v {
         Err(i) if i >= letters.len() => letters[0],
-        Ok(i)| Err(i) => letters[i],
+        Ok(i) | Err(i) => letters[i],
     }
 }
 

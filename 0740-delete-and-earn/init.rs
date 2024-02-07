@@ -12,7 +12,7 @@ pub fn delete_and_earn(nums: Vec<i32>) -> i32 {
     let mut prev1 = feq[1];
     for i in 2..=max {
         let a = prev2 + i * feq[i as usize]; // earn i-2 and i
-        let b = prev1;                       // earn i-1
+        let b = prev1; // earn i-1
         let curr = i32::max(a, b);
         prev2 = prev1;
         prev1 = curr;

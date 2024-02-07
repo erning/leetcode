@@ -34,7 +34,7 @@ pub fn maximal_rectangle(matrix: Vec<Vec<char>>) -> i32 {
                     break;
                 }
                 stack.pop();
-                let w = i - *stack.last().unwrap_or(&-1) as i32 - 1;
+                let w = i - *stack.last().unwrap_or(&-1) - 1;
                 let area = prev_h * w;
                 if area > max {
                     max = area;
@@ -45,7 +45,7 @@ pub fn maximal_rectangle(matrix: Vec<Vec<char>>) -> i32 {
 
         let len = heights.len() as i32;
         while let Some(i) = stack.pop() {
-            let w = len - *stack.last().unwrap_or(&-1) as i32 - 1;
+            let w = len - *stack.last().unwrap_or(&-1) - 1;
             let h = heights[i as usize];
             let area = h * w;
             if area > max {

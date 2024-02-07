@@ -17,7 +17,8 @@ pub fn diff_ways_to_compute(expression: String) -> Vec<i32> {
         let mut rv = Vec::new();
         for (i, ch) in expr.char_indices() {
             // if ch >= '0' && ch <= '9' {
-            if ('0'..='9').contains(&ch) {
+            // if ('0'..='9').contains(&ch) {
+            if ch.is_ascii_digit() {
                 continue;
             }
             for a in f(&expr[..i], memo).into_iter() {

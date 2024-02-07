@@ -35,7 +35,8 @@ pub fn is_number(s: String) -> bool {
             require_more = true;
             continue;
         }
-        if (b'0'..=b'9').contains(&c) {
+        // if (b'0'..=b'9').contains(&c) {
+        if c.is_ascii_digit() {
             if accept_sign {
                 accept_sign = false;
             }
